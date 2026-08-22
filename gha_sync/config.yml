@@ -29,18 +29,18 @@ group:
       worgarside/addon-item-warehouse-api
       worgarside/addon-item-warehouse-website
       worgarside/addon-yas-209-bridge
-      worgarside/esphome
-      worgarside/home-assistant
-      worgarside/home-assistant-appdaemon
-      worgarside/home-assistant-config-validator
-      worgarside/led-matrix-controller
+      worganisation/esphome
+      worganisation/home-assistant
+      worganisation/home-assistant-appdaemon
+      worganisation/home-assistant-config-validator
+      worganisation/led-matrix-controller
       worgarside/plant-monitor
-      worgarside/pre-commit-hooks-dependency-sync
+      worganisation/pre-commit-hooks-dependency-sync
       worgarside/python-template
-      worgarside/smart-mini-crt-interface
-      worgarside/very-slow-movie-player
-      worgarside/wg-scripts
-      worgarside/wg-utilities
+      worganisation/smart-mini-crt-interface
+      worganisation/very-slow-movie-player
+      worganisation/wg-scripts
+      worganisation/wg-utilities
 
   # Prek Auto-Update - identical for every repo on the prek/PSR pattern, no
   # per-repo variation, so this is a plain synced file rather than a
@@ -50,18 +50,18 @@ group:
         dest: .github/workflows/prek-autoupdate.yml
         deleteOrphaned: true
     repos: |
-      worgarside/esphome
-      worgarside/home-assistant
-      worgarside/home-assistant-appdaemon
-      worgarside/home-assistant-config-validator
-      worgarside/led-matrix-controller
+      worganisation/esphome
+      worganisation/home-assistant
+      worganisation/home-assistant-appdaemon
+      worganisation/home-assistant-config-validator
+      worganisation/led-matrix-controller
       worgarside/plant-monitor
-      worgarside/pre-commit-hooks-dependency-sync
-      worgarside/wg-scripts
-      worgarside/wg-utilities
+      worganisation/pre-commit-hooks-dependency-sync
+      worganisation/wg-scripts
+      worganisation/wg-utilities
 
   # Release Drafter - only the repos still on the legacy label-based release
-  # mechanism (__ci_validation.yml / __ci_deployment.yml) need this. Repos
+  # mechanism (__ci-validation.yml / __ci-deployment.yml) need this. Repos
   # migrated to python-semantic-release generate their own GitHub releases
   # directly and must NOT receive this file.
   - files:
@@ -72,12 +72,12 @@ group:
       worgarside/addon-item-warehouse-website
       worgarside/addon-yas-209-bridge
       worgarside/python-template
-      worgarside/smart-mini-crt-interface
-      worgarside/very-slow-movie-player
+      worganisation/smart-mini-crt-interface
+      worganisation/very-slow-movie-player
 
   # No Custom Labels
   # The only exclusion is `home-assistant`, which has its own repo_labels.yml:
-  # https://github.com/worgarside/home-assistant/blob/main/.github/repo_labels.yml
+  # https://github.com/worganisation/home-assistant/blob/main/.github/repo_labels.yml
   - files:
       - .github/labeler.yml
       - .github/repo_labels.yml
@@ -85,17 +85,17 @@ group:
       worgarside/addon-item-warehouse-api
       worgarside/addon-item-warehouse-website
       worgarside/addon-yas-209-bridge
-      worgarside/esphome
-      worgarside/home-assistant-appdaemon
-      worgarside/home-assistant-config-validator
-      worgarside/led-matrix-controller
+      worganisation/esphome
+      worganisation/home-assistant-appdaemon
+      worganisation/home-assistant-config-validator
+      worganisation/led-matrix-controller
       worgarside/plant-monitor
-      worgarside/pre-commit-hooks-dependency-sync
+      worganisation/pre-commit-hooks-dependency-sync
       worgarside/python-template
-      worgarside/smart-mini-crt-interface
-      worgarside/very-slow-movie-player
-      worgarside/wg-scripts
-      worgarside/wg-utilities
+      worganisation/smart-mini-crt-interface
+      worganisation/very-slow-movie-player
+      worganisation/wg-scripts
+      worganisation/wg-utilities
 
   # Standard .yamllint
   - files:
@@ -103,16 +103,16 @@ group:
     repos: |
       worgarside/addon-item-warehouse-api
       worgarside/addon-yas-209-bridge
-      worgarside/esphome
-      worgarside/home-assistant-appdaemon
-      worgarside/home-assistant-config-validator
-      worgarside/led-matrix-controller
+      worganisation/esphome
+      worganisation/home-assistant-appdaemon
+      worganisation/home-assistant-config-validator
+      worganisation/led-matrix-controller
       worgarside/plant-monitor
-      worgarside/pre-commit-hooks-dependency-sync
+      worganisation/pre-commit-hooks-dependency-sync
       worgarside/python-template
-      worgarside/smart-mini-crt-interface
-      worgarside/very-slow-movie-player
-      worgarside/wg-scripts
+      worganisation/smart-mini-crt-interface
+      worganisation/very-slow-movie-player
+      worganisation/wg-scripts
 
   # Standard CI Validation with version bump in pyproject.toml
   # Only for repos still on the legacy label-based release mechanism - repos
@@ -128,8 +128,8 @@ group:
       worgarside/addon-item-warehouse-api
       worgarside/addon-yas-209-bridge
       worgarside/python-template
-      worgarside/smart-mini-crt-interface
-      worgarside/very-slow-movie-player
+      worganisation/smart-mini-crt-interface
+      worganisation/very-slow-movie-player
 
   # Standard CI Deployment with version bump in pyproject.toml
   # Same caveat as Standard CI Validation above.
@@ -187,11 +187,11 @@ worgarside/addon-yas-209-bridge:
       update_pyproject_toml: 'true'
       update_yaml_file_path: yas_209_bridge/config.yaml
 
-worgarside/esphome:
+worganisation/esphome:
   # No python-version: this repo has no Python project at all - __prek-hooks.yml
   # skips the uv setup/sync steps entirely when python-version is empty.
   # semantic-release.yml stays bespoke/unmanaged here: it has a submodule-deploy
-  # job (bumping this repo into worgarside/home-assistant) that doesn't fit the
+  # job (bumping this repo into worganisation/home-assistant) that doesn't fit the
   # shared template.
   - source: gha_sync/workflows/template/prek-hooks.template.yml
     dest: .github/workflows/prek-hooks.yml
@@ -199,17 +199,17 @@ worgarside/esphome:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: ''
 
-worgarside/frigate-config:
+worganisation/frigate-config:
   - source: gha_sync/workflows/all/auto-create-pr.yml
     dest: .github/workflows/auto-create-pr.yml
     deleteOrphaned: true
 
-worgarside/infrastructure:
+worganisation/infrastructure:
   - source: gha_sync/workflows/all/auto-create-pr.yml
     dest: .github/workflows/auto-create-pr.yml
     deleteOrphaned: true
 
-worgarside/home-assistant:
+worganisation/home-assistant:
   # semantic-release.yml stays bespoke/unmanaged here: unlike every other repo
   # it intentionally has no `paths:` filter (changes anywhere in the HA config
   # should trigger a release check) plus a commit-message guard instead of a
@@ -222,7 +222,7 @@ worgarside/home-assistant:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: '3.12'
 
-worgarside/home-assistant-appdaemon:
+worganisation/home-assistant-appdaemon:
   - source: gha_sync/workflows/template/prek-hooks.template.yml
     dest: .github/workflows/prek-hooks.yml
     template:
@@ -238,7 +238,7 @@ worgarside/home-assistant-appdaemon:
       version_file_glob: pyproject.toml
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
-worgarside/home-assistant-config-validator:
+worganisation/home-assistant-config-validator:
   - source: gha_sync/workflows/repo/home-assistant-config-validator/
     dest: .github/workflows/
   - source: gha_sync/workflows/template/codspeed.template.yml
@@ -266,7 +266,7 @@ worgarside/home-assistant-config-validator:
       version_file_glob: home_assistant_config_validator/__init__.py
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
-worgarside/led-matrix-controller:
+worganisation/led-matrix-controller:
   - source: gha_sync/workflows/template/codspeed.template.yml
     dest: .github/workflows/codspeed.yml
     template:
@@ -308,7 +308,7 @@ worgarside/plant-monitor:
       version_file_glob: pyproject.toml
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
-worgarside/pre-commit-hooks-dependency-sync:
+worganisation/pre-commit-hooks-dependency-sync:
   # Naming note: this repo's OWN identity keeps "pre-commit" in its name and
   # hook id since other repos still reference it by that exact name - only
   # its internal CI tooling uses prek naming.
@@ -325,7 +325,7 @@ worgarside/pre-commit-hooks-dependency-sync:
       version_file_glob: pre_commit_hooks_dependency_sync/__init__.py
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
-worgarside/wg-scripts:
+worganisation/wg-scripts:
   - source: gha_sync/workflows/template/prek-hooks.template.yml
     dest: .github/workflows/prek-hooks.yml
     template:
@@ -339,7 +339,7 @@ worgarside/wg-scripts:
       version_file_glob: src/wg_scripts/__init__.py
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
-worgarside/wg-utilities:
+worganisation/wg-utilities:
   # semantic-release.yml stays bespoke/unmanaged here: it has PyPI-publish and
   # docs build/deploy jobs chained after release, which don't fit the shared
   # release-only template.
@@ -355,7 +355,7 @@ worgarside/wg-utilities:
       python_version: '3.12'
       source_dir: wg_utilities
 
-worgarside/smart-mini-crt-interface:
+worganisation/smart-mini-crt-interface:
   - source: gha_sync/workflows/template/ci_deployment.template.yml
     dest: .github/workflows/ci_deployment.yml
     template:
@@ -365,7 +365,7 @@ worgarside/smart-mini-crt-interface:
       release_tag: ${{ needs.ci-validation.outputs.release-tag }}
       update_pyproject_toml: 'true'
 
-worgarside/very-slow-movie-player:
+worganisation/very-slow-movie-player:
   - source: gha_sync/workflows/template/ci_deployment.template.yml
     dest: .github/workflows/ci_deployment.yml
     template:
