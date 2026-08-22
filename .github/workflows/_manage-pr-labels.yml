@@ -13,6 +13,9 @@ on:
       - auto_merge_enabled
       - auto_merge_disabled
 
+permissions:
+  pull-requests: write
+
 concurrency:
   # yamllint disable-line rule:line-length
   group: manage-labels-${{ github.event.pull_request.number }}-${{ github.event.action }}
