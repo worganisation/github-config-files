@@ -291,6 +291,13 @@ worganisation/led-matrix-controller:
       concurrency_group: unit-tests-${{ github.ref }}
       python_version: '3.11'
       source_dir: led_matrix_controller
+  - source: gha_sync/workflows/template/semantic-release.template.yml
+    dest: .github/workflows/semantic-release.yml
+    template:
+      python_version: '3.11'
+      source_glob: led_matrix_controller/**
+      version_file_glob: led_matrix_controller/__init__.py
+      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worgarside/plant-monitor:
   - source: gha_sync/workflows/template/prek-hooks.template.yml
