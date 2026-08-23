@@ -73,15 +73,12 @@ jobs:
         run: |
           existing_pr=$(
             gh pr list \
-            --repo ${{ github.repository }} \
+            --repo "${{ github.repository }}" \
+            --head "${{ inputs.head-ref-name }}" \
+            --state open \
+            --limit 1 \
             --json baseRefName,headRefName,title,url \
-            --jq '
-              .[] | select(
-                .baseRefName == "${{ inputs.base-ref-name }}"
-              ) | select(
-                .headRefName == "${{ inputs.head-ref-name }}"
-              )
-            '
+            --jq 'if length > 0 then .[0] else empty end'
           )
 
           if [[ -z "$existing_pr" ]]; then
