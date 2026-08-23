@@ -16,6 +16,11 @@ on:
           uv-managed virtualenv/dependencies available on PATH.
         required: false
         type: string
+      sync-project-dependencies:
+        description: Whether to install the project's locked dependencies.
+        required: false
+        type: boolean
+        default: true
 
 jobs:
   prek:
@@ -39,7 +44,7 @@ jobs:
           python-version: ${{ inputs.python-version }}
 
       - name: Install uv dependencies
-        if: inputs.python-version
+        if: inputs.python-version && inputs.sync-project-dependencies
         run: uv sync --locked --all-groups
 
       - name: Run prek

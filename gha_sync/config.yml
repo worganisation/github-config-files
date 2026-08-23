@@ -267,14 +267,16 @@ worganisation/home-assistant-config-validator:
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/led-matrix-controller:
-  # CodSpeed and Prek remain repository-specific: this project uses uv and
-  # PyAudio, which requires custom Prek workflow setup.
+  # PyAudio requires system PortAudio headers, so Prek skips the project's
+  # dependency installation while continuing to use the shared workflow.
   - source: gha_sync/workflows/template/codspeed.template.yml
     dest: .github/workflows/codspeed.yml
     template:
       cache_key: venv-${{ hashFiles(env.CACHE_FILE) }}
       python_version: '3.11'
       token: ${{ secrets.CODSPEED_TOKEN }}
+  - source: gha_sync/workflows/repo/led-matrix-controller/prek-hooks.yml
+    dest: .github/workflows/prek-hooks.yml
   - source: gha_sync/workflows/template/unit-tests.template.yml
     dest: .github/workflows/unit-tests.yml
     template:

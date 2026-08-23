@@ -20,7 +20,7 @@
 | **.github/workflows/manage-pr.yml** | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) |
 | **.github/workflows/manage-repo-labels.yml** | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) |
 | **.github/workflows/prek-autoupdate.yml** | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | | | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | | | | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | |
-| **.github/workflows/prek-hooks.yml** | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | | | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | | | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | | | | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | |
+| **.github/workflows/prek-hooks.yml** | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | | [gha_sync/workflows/repo/led-matrix-controller/prek-hooks.yml](gha_sync/workflows/repo/led-matrix-controller/prek-hooks.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | | | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | | | | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | |
 | **.github/workflows/semantic-release.yml** | | | | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | | | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | | | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | | | | | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | |
 | **.github/workflows/set-pr-auto-merge.yml** | [gha_sync/workflows/all/set-pr-auto-merge.yml](gha_sync/workflows/all/set-pr-auto-merge.yml) | | [gha_sync/workflows/all/set-pr-auto-merge.yml](gha_sync/workflows/all/set-pr-auto-merge.yml) | [gha_sync/workflows/all/set-pr-auto-merge.yml](gha_sync/workflows/all/set-pr-auto-merge.yml) | [gha_sync/workflows/all/set-pr-auto-merge.yml](gha_sync/workflows/all/set-pr-auto-merge.yml) | | [gha_sync/workflows/all/set-pr-auto-merge.yml](gha_sync/workflows/all/set-pr-auto-merge.yml) | [gha_sync/workflows/all/set-pr-auto-merge.yml](gha_sync/workflows/all/set-pr-auto-merge.yml) | [gha_sync/workflows/all/set-pr-auto-merge.yml](gha_sync/workflows/all/set-pr-auto-merge.yml) | [gha_sync/workflows/all/set-pr-auto-merge.yml](gha_sync/workflows/all/set-pr-auto-merge.yml) | [gha_sync/workflows/all/set-pr-auto-merge.yml](gha_sync/workflows/all/set-pr-auto-merge.yml) | [gha_sync/workflows/all/set-pr-auto-merge.yml](gha_sync/workflows/all/set-pr-auto-merge.yml) | [gha_sync/workflows/all/set-pr-auto-merge.yml](gha_sync/workflows/all/set-pr-auto-merge.yml) | [gha_sync/workflows/all/set-pr-auto-merge.yml](gha_sync/workflows/all/set-pr-auto-merge.yml) | [gha_sync/workflows/all/set-pr-auto-merge.yml](gha_sync/workflows/all/set-pr-auto-merge.yml) | [gha_sync/workflows/all/set-pr-auto-merge.yml](gha_sync/workflows/all/set-pr-auto-merge.yml) | [gha_sync/workflows/all/set-pr-auto-merge.yml](gha_sync/workflows/all/set-pr-auto-merge.yml) |
 | **.github/workflows/unit-tests.yml** | | | | | [gha_sync/workflows/template/unit-tests.template.yml](gha_sync/workflows/template/unit-tests.template.yml) | | [gha_sync/workflows/template/unit-tests.template.yml](gha_sync/workflows/template/unit-tests.template.yml) | | | | | [gha_sync/workflows/template/unit-tests.template.yml](gha_sync/workflows/template/unit-tests.template.yml) | | | | | |
@@ -131,7 +131,7 @@
 | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [.github/workflows/auto-create-pr.yml](https://github.com/worganisation/infrastructure/.github/workflows/auto-create-pr.yml) |
 </details>
 
-### [worganisation/led-matrix-controller](https://github.com/worganisation/led-matrix-controller) (12 files)
+### [worganisation/led-matrix-controller](https://github.com/worganisation/led-matrix-controller) (13 files)
 
 <details>
 <summary>Mapping Table</summary>
@@ -148,6 +148,7 @@
 | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [.github/workflows/manage-repo-labels.yml](https://github.com/worganisation/led-matrix-controller/.github/workflows/manage-repo-labels.yml) |
 | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [.github/workflows/prek-autoupdate.yml](https://github.com/worganisation/led-matrix-controller/.github/workflows/prek-autoupdate.yml) |
 | [gha_sync/workflows/all/set-pr-auto-merge.yml](gha_sync/workflows/all/set-pr-auto-merge.yml) | [.github/workflows/set-pr-auto-merge.yml](https://github.com/worganisation/led-matrix-controller/.github/workflows/set-pr-auto-merge.yml) |
+| [gha_sync/workflows/repo/led-matrix-controller/prek-hooks.yml](gha_sync/workflows/repo/led-matrix-controller/prek-hooks.yml) | [.github/workflows/prek-hooks.yml](https://github.com/worganisation/led-matrix-controller/.github/workflows/prek-hooks.yml) |
 | [gha_sync/workflows/template/codspeed.template.yml](gha_sync/workflows/template/codspeed.template.yml) | [.github/workflows/codspeed.yml](https://github.com/worganisation/led-matrix-controller/.github/workflows/codspeed.yml) |
 | [gha_sync/workflows/template/unit-tests.template.yml](gha_sync/workflows/template/unit-tests.template.yml) | [.github/workflows/unit-tests.yml](https://github.com/worganisation/led-matrix-controller/.github/workflows/unit-tests.yml) |
 </details>
@@ -365,29 +366,29 @@
 
 ```mermaid
 flowchart LR
-subgraph EG[" "]
+subgraph EM[" "]
 direction LR
-DK-->DZ
-DK-->DO
-DK-->DJ
-DO-->BC
-DP-->DZ
-DP-->DO
-DZ-->BO
-DF-->V
-DH-->DF
-DH-->CW
-DH-->CQ
-DH-->CM
-DC-->DZ
-DC-->DO
-DC-->DJ
+DC-->EF
 DC-->DB
-DC-->CW
-DC-->CQ
-DC-->CM
-DB-->V
-DB-->M
+DB-->BC
+DQ-->EF
+DQ-->DP
+DQ-->DB
+EF-->BO
+DL-->V
+DN-->DL
+DN-->CW
+DN-->CQ
+DN-->CM
+DI-->EF
+DI-->DP
+DI-->DH
+DI-->DB
+DI-->CW
+DI-->CQ
+DI-->CM
+DH-->V
+DH-->M
 M-->I
 M-->E
 M-->AN
@@ -396,33 +397,33 @@ V-->I
 V-->BL
 V-->A
 end
-subgraph EH[" "]
+subgraph EN[" "]
 direction LR
-DV-->DU
-DU-->BF
+EB-->EA
+EA-->BF
 end
-subgraph EI[" "]
+subgraph EO[" "]
 direction LR
 CJ-->CI
 CI-->BI
 end
-subgraph EJ[" "]
+subgraph EP[" "]
 direction LR
 CF-->CE
 CE-->AZ
 end
-subgraph EK[" "]
+subgraph EQ[" "]
 direction LR
 CB-->CA
 CA-->AW
 end
-subgraph EL[" "]
+subgraph ER[" "]
 direction LR
 BW-->BV
 BV-->AT
 BV-->AB
 end
-subgraph EM[" "]
+subgraph ES[" "]
 direction LR
 BS-->BR
 BR-->AF
@@ -462,26 +463,26 @@ Types: opened, ready_for_review
 CM("ESLint")
 CQ("Validate Home Assistant Config")
 CW("Integration Test")
-DB("CI: Validation & Deployment")
-DC{{"PUSH
+DB("Prek Hooks")
+DC{{"MERGE GROUP"}}
+DH("CI: Validation & Deployment")
+DI{{"PUSH
 Branches: main
 "}}
-DF("CI: Validation")
-DH{{"PULL REQUEST
+DL("CI: Validation")
+DN{{"PULL REQUEST
 Types: opened, reopened, synchronize
 "}}
-DJ("CodSpeed Benchmarks")
-DK{{"PULL REQUEST
+DP("CodSpeed Benchmarks")
+DQ{{"PULL REQUEST
 Types: opened, ready_for_review, reopened, synchronize
 "}}
-DO("Prek Hooks")
-DP{{"MERGE GROUP"}}
-DU("Semantic Release")
-DV{{"PUSH
+EA("Semantic Release")
+EB{{"PUSH
 Branches: main
 Paths: !{{ version_file_glob }}, {{ source_glob }}
 "}}
-DZ("Unit Tests")
+EF("Unit Tests")
 E[["Build Documentation"]]
 I[["Build"]]
 M[["CI: Deployment"]]
