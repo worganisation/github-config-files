@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.6.2 (2026-08-24)
+
+### Bug Fixes
+
+- **sync**: Keep LED Matrix workflows bespoke
+  ([#348](https://github.com/worganisation/github-config-files/pull/348),
+  [`294005a`](https://github.com/worganisation/github-config-files/commit/294005a35099363f15df1c86155f98b1d486a8c9))
+
+
 ## v0.6.1 (2026-08-23)
 
 ### Bug Fixes
