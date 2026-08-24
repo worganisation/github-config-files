@@ -105,14 +105,8 @@ jobs:
       - opentofu
     env:
       ARTIFACT_NAME: ${{ inputs.release-tag }}-${{ inputs.environment }}.zip
-      GH_TOKEN: >-
-        ${{ github.event_name == 'pull_request'
-            && github.token
-            || secrets.WORGARSIDE_DEV_TOKEN }}
-      GITHUB_TOKEN: >-
-        ${{ github.event_name == 'pull_request'
-            && github.token
-            || secrets.WORGARSIDE_DEV_TOKEN }}
+      GH_TOKEN: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
     steps:
       - name: Log Inputs
         if: runner.debug == '1'
@@ -124,10 +118,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          token: >-
-            ${{ github.event_name == 'pull_request'
-                && github.token
-                || secrets.WORGARSIDE_DEV_TOKEN }}
+          token: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
           ref: ${{ inputs.build-branch }}
 
       - name: Set up Node
