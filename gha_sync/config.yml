@@ -198,6 +198,7 @@ worganisation/esphome:
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: ''
+      sync_project_dependencies: 'true'
 
 worganisation/frigate-config:
   - source: gha_sync/workflows/all/auto-create-pr.yml
@@ -221,6 +222,7 @@ worganisation/home-assistant:
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: '3.12'
+      sync_project_dependencies: 'true'
 
 worganisation/home-assistant-appdaemon:
   - source: gha_sync/workflows/template/prek-hooks.template.yml
@@ -228,6 +230,7 @@ worganisation/home-assistant-appdaemon:
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: '3.12'
+      sync_project_dependencies: 'true'
   - source: gha_sync/workflows/template/semantic-release.template.yml
     dest: .github/workflows/semantic-release.yml
     template:
@@ -252,6 +255,7 @@ worganisation/home-assistant-config-validator:
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: '3.12'
+      sync_project_dependencies: 'true'
   - source: gha_sync/workflows/template/unit-tests.template.yml
     dest: .github/workflows/unit-tests.yml
     template:
@@ -267,6 +271,8 @@ worganisation/home-assistant-config-validator:
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/led-matrix-controller:
+  # PyAudio requires system PortAudio headers, so Prek skips the project's
+  # dependency installation while continuing to use the shared workflow.
   - source: gha_sync/workflows/template/codspeed.template.yml
     dest: .github/workflows/codspeed.yml
     template:
@@ -278,6 +284,7 @@ worganisation/led-matrix-controller:
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: '3.11'
+      sync_project_dependencies: 'false'
   - source: gha_sync/workflows/template/unit-tests.template.yml
     dest: .github/workflows/unit-tests.yml
     template:
@@ -298,6 +305,7 @@ worgarside/plant-monitor:
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: '3.11'
+      sync_project_dependencies: 'true'
   - source: gha_sync/workflows/template/semantic-release.template.yml
     dest: .github/workflows/semantic-release.yml
     template:
@@ -317,6 +325,7 @@ worganisation/pre-commit-hooks-dependency-sync:
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: '3.13'
+      sync_project_dependencies: 'true'
   - source: gha_sync/workflows/template/semantic-release.template.yml
     dest: .github/workflows/semantic-release.yml
     template:
@@ -331,6 +340,7 @@ worganisation/wg-scripts:
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: '3.14'
+      sync_project_dependencies: 'true'
   - source: gha_sync/workflows/template/semantic-release.template.yml
     dest: .github/workflows/semantic-release.yml
     template:
@@ -348,6 +358,7 @@ worganisation/wg-utilities:
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: '3.12'
+      sync_project_dependencies: 'true'
   - source: gha_sync/workflows/template/unit-tests.template.yml
     dest: .github/workflows/unit-tests.yml
     template:
