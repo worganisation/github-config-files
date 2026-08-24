@@ -15,7 +15,7 @@ LOGGER = getLogger(__name__)
 LOGGER.setLevel("INFO")
 LOGGER.addHandler(StreamHandler(stdout))
 
-REPO_NAME: Final[str] = "worgarside/github-config-files"
+REPO_NAME: Final[str] = "worganisation/github-config-files"
 
 REPO_PATH = Path(__file__).parents[3]
 

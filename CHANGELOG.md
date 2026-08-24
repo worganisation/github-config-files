@@ -2,6 +2,56 @@
 
 <!-- version list -->
 
+## v0.6.2 (2026-08-24)
+
+### Bug Fixes
+
+- **sync**: Keep LED Matrix workflows bespoke
+  ([#348](https://github.com/worganisation/github-config-files/pull/348),
+  [`294005a`](https://github.com/worganisation/github-config-files/commit/294005a35099363f15df1c86155f98b1d486a8c9))
+
+
+## v0.6.1 (2026-08-23)
+
+### Bug Fixes
+
+- **actions**: Audit workflow references and pins
+  ([#346](https://github.com/worganisation/github-config-files/pull/346),
+  [`dc4c608`](https://github.com/worganisation/github-config-files/commit/dc4c608566d1b3fba433196ee13a6eacd5da608d))
+
+- **ci**: Prevent duplicate PRs per branch
+  ([#347](https://github.com/worganisation/github-config-files/pull/347),
+  [`8e9ef01`](https://github.com/worganisation/github-config-files/commit/8e9ef0169cdc52df77f3078330f3c9b4c90b5e95))
+
+### Chores
+
+- **deps**: Bump astral-sh/setup-uv from 9.0.0 to 10.0.1
+  ([#345](https://github.com/worganisation/github-config-files/pull/345),
+  [`3c63789`](https://github.com/worganisation/github-config-files/commit/3c6378928506d18ba76bdcef745a33b271ac98dc))
+
+
+## v0.6.0 (2026-08-22)
+
+### Continuous Integration
+
+- Move PR Creator to self-hosted runners
+  ([`674a1b7`](https://github.com/worgarside/github-config-files/commit/674a1b73bdfb10217c688fc40e4a1199115e2d85))
+
+
+## v0.5.4 (2026-08-19)
+
+### Continuous Integration
+
+- Grant write permissions for semantic release
+  ([`610b3c5`](https://github.com/worgarside/github-config-files/commit/610b3c5b627858ac5aa2f60254060182d4fa1c71))
+
+- Prek autoupdate ([#341](https://github.com/worgarside/github-config-files/pull/341),
+  [`869e9d8`](https://github.com/worgarside/github-config-files/commit/869e9d8e3127694e81a07a910a3eca70bafb1aba))
+
+- 🤖 `prek autoupdate` ([#342](https://github.com/worgarside/github-config-files/pull/342),
+  [`f150eb1`](https://github.com/worgarside/github-config-files/commit/f150eb19b6484bc9e816f03332bce99d9943a377))
+
+
 ## v0.5.3 (2026-08-10)
 
 ### Code Style
