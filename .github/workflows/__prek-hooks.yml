@@ -26,7 +26,10 @@ jobs:
   prek:
     name: Prek Hooks
     if: github.event_name != 'pull_request' || !github.event.pull_request.draft
-    runs-on: ubuntu-latest
+    runs-on: >-
+      ${{ github.event_name == 'pull_request'
+          && 'ubuntu-latest'
+          || fromJSON('["self-hosted","linux","x64","cc","iac","opentofu"]') }}
     timeout-minutes: 20
     steps:
       - name: Clone Repo
