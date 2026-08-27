@@ -72,14 +72,45 @@ jobs:
         with:
           python-version: ${{ inputs.python-version }}
 
+      # Run PSR directly instead of through its Docker action so we can pin its
+      # GitPython dependency: https://github.com/python-semantic-release/python-semantic-release/issues/1476
+      - name: Install Python Semantic Release
+        run: |
+          python -m pip install \
+            "python-semantic-release==10.6.1" \
+            "GitPython==3.1.59"
+
       - name: Python Semantic Release
         id: python-semantic-release
-        # yamllint disable-line rule:line-length
-        uses: python-semantic-release/python-semantic-release@39dd2052f2ce8282a5d932c31d58a2ca06d2550e # v10.6.1
-        with:
-          github_token: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
-          git_committer_name: worgarside-dev
-          git_committer_email: worgarside.dev@gmail.com
-          config_file: pyproject.toml
-          verbosity: 2
-          force: ${{ inputs.force-deployment }}
+        env:
+          GH_TOKEN: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
+          GIT_COMMIT_AUTHOR: "worgarside-dev <worgarside.dev@gmail.com>"
+          FORCE_DEPLOYMENT: ${{ inputs.force-deployment }}
+        run: |
+          set -euo pipefail
+
+          git config --global user.name "worgarside-dev"
+          git config --global user.email "worgarside.dev@gmail.com"
+          # Root git on a runner-owned checkout refuses with dubious ownership.
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+          command=(semantic-release -v -v --config pyproject.toml version)
+
+          case "${FORCE_DEPLOYMENT}" in
+            "") ;;
+            patch|minor|major) command+=("--${FORCE_DEPLOYMENT}") ;;
+            *)
+              echo "::error title=Invalid force deployment::" \
+                "'${FORCE_DEPLOYMENT}' must be patch, minor, major, or empty."
+              exit 1
+              ;;
+          esac
+
+          runner_uid=$(id -u)
+          runner_gid=$(id -g)
+          trap 'sudo chown -R "${runner_uid}:${runner_gid}" "$GITHUB_WORKSPACE"' EXIT
+
+          # Temporary workaround: run PSR as root so downstream build commands
+          # that call apt-get continue to work. Revert with the return to the
+          # pinned PSR Docker action once the linked GitPython issue is fixed.
+          sudo -E env "PATH=$PATH" "${command[@]}"
