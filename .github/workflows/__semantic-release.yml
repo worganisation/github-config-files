@@ -78,6 +78,7 @@ jobs:
       - name: Install Python Semantic Release
         run: |
           uv pip install \
+            "pip" \
             "python-semantic-release==10.6.1" \
             "GitPython==3.1.59"
 
@@ -93,8 +94,6 @@ jobs:
 
           git config --global user.name "worgarside-dev"
           git config --global user.email "worgarside.dev@gmail.com"
-          # Root git on a runner-owned checkout refuses with dubious ownership.
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
           release_key="${RUNNER_TEMP}/semantic-release-deploy-key"
           release_known_hosts="${RUNNER_TEMP}/semantic-release-known-hosts"
@@ -123,15 +122,9 @@ jobs:
               ;;
           esac
 
-          runner_uid=$(id -u)
-          runner_gid=$(id -g)
           cleanup() {
             rm -f "${release_key}" "${release_known_hosts}"
-            sudo chown -R "${runner_uid}:${runner_gid}" "$GITHUB_WORKSPACE"
           }
           trap cleanup EXIT
 
-          # Temporary workaround: run PSR as root so downstream build commands
-          # that call apt-get continue to work. Revert with the return to the
-          # pinned PSR Docker action once the linked GitPython issue is fixed.
-          sudo -E env "PATH=$PATH" "${command[@]}"
+          "${command[@]}"
