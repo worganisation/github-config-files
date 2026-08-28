@@ -2,6 +2,36 @@
 
 <!-- version list -->
 
+## v0.7.0 (2026-08-28)
+
+### Bug Fixes
+
+- **actions**: Pin GitPython for semantic release
+  ([#351](https://github.com/worganisation/github-config-files/pull/351),
+  [`4fcbd8e`](https://github.com/worganisation/github-config-files/commit/4fcbd8e3969497bbea4f8ca60e1ef6989807224a))
+
+- **actions**: Preserve trusted PR workflow access
+  ([#350](https://github.com/worganisation/github-config-files/pull/350),
+  [`fc62958`](https://github.com/worganisation/github-config-files/commit/fc62958e67f312a1627d4a33373ba7bc33a17afe))
+
+- **actions**: Provision release Python with uv
+  ([#353](https://github.com/worganisation/github-config-files/pull/353),
+  [`bf695f4`](https://github.com/worganisation/github-config-files/commit/bf695f4084707515cefd317acfa3d3305b4e61e1))
+
+- **actions**: Route release SSH over port 443
+  ([#352](https://github.com/worganisation/github-config-files/pull/352),
+  [`687a218`](https://github.com/worganisation/github-config-files/commit/687a218cdb71a762b4bc39f5af02f3a437c5a651))
+
+- **actions**: Run semantic release without sudo
+  ([#354](https://github.com/worganisation/github-config-files/pull/354),
+  [`634cba0`](https://github.com/worganisation/github-config-files/commit/634cba03c2cf0348fd8d4dd7fc21e409eed16437))
+
+### Features
+
+- Update workflows to use self-hosted runners
+  ([`13b2d9d`](https://github.com/worganisation/github-config-files/commit/13b2d9dab95761af6b02b07ddb33ad71d35e5e2a))
+
+
 ## v0.6.2 (2026-08-24)
 
 ### Bug Fixes
