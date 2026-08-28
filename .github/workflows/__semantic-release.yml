@@ -78,6 +78,7 @@ jobs:
       - name: Install Python Semantic Release
         run: |
           uv pip install \
+            "pip" \
             "python-semantic-release==10.6.1" \
             "GitPython==3.1.59"
 
