@@ -65,7 +65,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.ref }}
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
+          token: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
@@ -83,6 +83,7 @@ jobs:
       - name: Python Semantic Release
         id: python-semantic-release
         env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
           GH_TOKEN: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
           GIT_COMMIT_AUTHOR: "worgarside-dev <worgarside.dev@gmail.com>"
           FORCE_DEPLOYMENT: ${{ inputs.force-deployment }}
@@ -93,6 +94,21 @@ jobs:
           git config --global user.email "worgarside.dev@gmail.com"
           # Root git on a runner-owned checkout refuses with dubious ownership.
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+          release_key="${RUNNER_TEMP}/semantic-release-deploy-key"
+          release_known_hosts="${RUNNER_TEMP}/semantic-release-known-hosts"
+          install -m 600 /dev/null "${release_key}"
+          printf '%s\n' "${DEPLOY_KEY}" > "${release_key}"
+          gh api meta --jq '.ssh_keys[] | "ssh.github.com " + .' \
+            > "${release_known_hosts}"
+
+          ssh_command="ssh -i ${release_key}"
+          ssh_command+=" -o IdentitiesOnly=yes"
+          ssh_command+=" -o StrictHostKeyChecking=yes"
+          ssh_command+=" -o UserKnownHostsFile=${release_known_hosts}"
+          git config --local core.sshCommand "${ssh_command}"
+          git remote set-url origin \
+            "ssh://git@ssh.github.com:443/${GITHUB_REPOSITORY}.git"
 
           command=(semantic-release -v -v --config pyproject.toml version)
 
@@ -108,7 +124,11 @@ jobs:
 
           runner_uid=$(id -u)
           runner_gid=$(id -g)
-          trap 'sudo chown -R "${runner_uid}:${runner_gid}" "$GITHUB_WORKSPACE"' EXIT
+          cleanup() {
+            rm -f "${release_key}" "${release_known_hosts}"
+            sudo chown -R "${runner_uid}:${runner_gid}" "$GITHUB_WORKSPACE"
+          }
+          trap cleanup EXIT
 
           # Temporary workaround: run PSR as root so downstream build commands
           # that call apt-get continue to work. Revert with the return to the
