@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.7.1 (2026-08-28)
+
+### Bug Fixes
+
+- **release**: Update pins after organisation move
+  ([#356](https://github.com/worganisation/github-config-files/pull/356),
+  [`9f3e3be`](https://github.com/worganisation/github-config-files/commit/9f3e3be89dca0a4c26afe167e66d0f1b09523994))
+
+
 ## v0.7.0 (2026-08-28)
 
 ### Bug Fixes
