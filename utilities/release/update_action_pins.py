@@ -18,7 +18,7 @@ SEMVER_PATTERN = re.compile(
 )
 ACTION_PIN_PATTERN = re.compile(
     r"(?P<prefix>\buses:\s*[\"']?"
-    r"worgarside/github-config-files/\.github/(?:actions|workflows)/[^@\s\"'#]+@)"
+    r"worganisation/github-config-files/\.github/(?:actions|workflows)/[^@\s\"'#]+@)"
     r"[^\s\"'#]+",
 )
 SYNC_SOURCE_DIRECTORY = Path(__file__).parents[2] / "gha_sync"
