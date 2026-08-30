@@ -31,6 +31,7 @@ group:
       worgarside/addon-item-warehouse-website
       worgarside/addon-yas-209-bridge
       worganisation/esphome
+      worganisation/gpu-worker
       worganisation/home-assistant
       worganisation/home-assistant-appdaemon
       worganisation/home-assistant-config-validator
@@ -52,6 +53,7 @@ group:
         deleteOrphaned: true
     repos: |
       worganisation/esphome
+      worganisation/gpu-worker
       worganisation/home-assistant
       worganisation/home-assistant-appdaemon
       worganisation/home-assistant-config-validator
@@ -87,6 +89,7 @@ group:
       worgarside/addon-item-warehouse-website
       worgarside/addon-yas-209-bridge
       worganisation/esphome
+      worganisation/gpu-worker
       worganisation/home-assistant-appdaemon
       worganisation/home-assistant-config-validator
       worganisation/led-matrix-controller
@@ -105,6 +108,7 @@ group:
       worgarside/addon-item-warehouse-api
       worgarside/addon-yas-209-bridge
       worganisation/esphome
+      worganisation/gpu-worker
       worganisation/home-assistant-appdaemon
       worganisation/home-assistant-config-validator
       worganisation/led-matrix-controller
@@ -205,6 +209,16 @@ worganisation/frigate-config:
   - source: gha_sync/workflows/all/auto-create-pr.yml
     dest: .github/workflows/auto-create-pr.yml
     deleteOrphaned: true
+
+worganisation/gpu-worker:
+  # The release and tag-triggered host deployment workflows are bespoke, but
+  # the repository still uses the shared hook runner and managed baseline.
+  - source: gha_sync/workflows/template/prek-hooks.template.yml
+    dest: .github/workflows/prek-hooks.yml
+    template:
+      concurrency_group: prek-hooks-${{ github.ref }}
+      python_version: '3.14'
+      sync_project_dependencies: 'false'
 
 worganisation/infrastructure:
   - source: gha_sync/workflows/all/auto-create-pr.yml
