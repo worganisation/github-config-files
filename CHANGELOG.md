@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.7.3 (2026-08-30)
+
+### Bug Fixes
+
+- **sync**: Distribute actionlint runner labels
+  ([#358](https://github.com/worganisation/github-config-files/pull/358),
+  [`4b6d644`](https://github.com/worganisation/github-config-files/commit/4b6d6440f6b3aa6bd2071ade4c486c791f225fdb))
+
+
 ## v0.7.2 (2026-08-30)
 
 ### Bug Fixes
