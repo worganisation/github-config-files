@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.7.4 (2026-08-30)
+
+### Bug Fixes
+
+- **actions**: Configure HA error log checking
+  ([#359](https://github.com/worganisation/github-config-files/pull/359),
+  [`bd0ff5b`](https://github.com/worganisation/github-config-files/commit/bd0ff5bdfeeb4cdc7afbab56190ecf217f6a55fa))
+
+
 ## v0.7.3 (2026-08-30)
 
 ### Bug Fixes
