@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.7.2 (2026-08-30)
+
+### Bug Fixes
+
+- **actions**: Prevent root-owned HA bytecode caches
+  ([#357](https://github.com/worganisation/github-config-files/pull/357),
+  [`564b484`](https://github.com/worganisation/github-config-files/commit/564b484091b14b81bced29a8e2f43a2ca3bff327))
+
+
 ## v0.7.1 (2026-08-28)
 
 ### Bug Fixes
