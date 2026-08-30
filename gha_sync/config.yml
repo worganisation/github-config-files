@@ -9,8 +9,9 @@ group:
   # repos that have moved to the PSR-based pattern (semantic-release.yml,
   # prek-hooks.yml, prek-autoupdate.yml, unit-tests.yml, etc.) keep bespoke,
   # non-synced files in this same .github/workflows/ directory, and a
-  # directory-level orphan-delete would wipe those out too.
+    # directory-level orphan-delete would wipe those out too.
   - files:
+      - .github/actionlint.yaml
       - .github/CODEOWNERS
       - .github/dependabot.yml
       - source: gha_sync/workflows/all/auto-create-pr.yml
