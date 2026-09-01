@@ -412,29 +412,32 @@ to contributors.
 
 ```mermaid
 flowchart LR
-subgraph EG[" "]
+subgraph EI[" "]
 direction LR
-DK-->DZ
-DK-->DO
-DK-->DJ
-DO-->BC
-DP-->DZ
-DP-->DO
-DZ-->BO
-DF-->V
-DH-->DF
-DH-->CW
-DH-->CQ
-DH-->CM
-DC-->DZ
-DC-->DO
-DC-->DJ
-DC-->DB
-DC-->CW
-DC-->CQ
-DC-->CM
-DB-->V
-DB-->M
+DM-->EB
+DM-->DQ
+DM-->DL
+DQ-->BC
+DR-->EB
+DR-->DQ
+EB-->BO
+DH-->V
+CE-->AZ
+CF-->CQ
+CF-->CE
+DJ-->DH
+DJ-->CY
+DJ-->CQ
+DJ-->CM
+DE-->EB
+DE-->DQ
+DE-->DL
+DE-->DD
+DE-->CY
+DE-->CQ
+DE-->CM
+DD-->V
+DD-->M
 M-->I
 M-->E
 M-->AN
@@ -443,33 +446,28 @@ V-->I
 V-->BL
 V-->A
 end
-subgraph EH[" "]
+subgraph EJ[" "]
 direction LR
-DV-->DU
-DU-->BF
+DX-->DW
+DW-->BF
 end
-subgraph EI[" "]
+subgraph EK[" "]
 direction LR
 CJ-->CI
 CI-->BI
 end
-subgraph EJ[" "]
-direction LR
-CF-->CE
-CE-->AZ
-end
-subgraph EK[" "]
+subgraph EL[" "]
 direction LR
 CB-->CA
 CA-->AW
 end
-subgraph EL[" "]
+subgraph EM[" "]
 direction LR
 BW-->BV
 BV-->AT
 BV-->AB
 end
-subgraph EM[" "]
+subgraph EN[" "]
 direction LR
 BS-->BR
 BR-->AF
@@ -508,27 +506,27 @@ Types: opened, ready_for_review
 "}}
 CM("ESLint")
 CQ("Validate Home Assistant Config")
-CW("Integration Test")
-DB("CI: Validation & Deployment")
-DC{{"PUSH
+CY("Integration Test")
+DD("CI: Validation & Deployment")
+DE{{"PUSH
 Branches: main
 "}}
-DF("CI: Validation")
-DH{{"PULL REQUEST
+DH("CI: Validation")
+DJ{{"PULL REQUEST
 Types: opened, reopened, synchronize
 "}}
-DJ("CodSpeed Benchmarks")
-DK{{"PULL REQUEST
+DL("CodSpeed Benchmarks")
+DM{{"PULL REQUEST
 Types: opened, ready_for_review, reopened, synchronize
 "}}
-DO("Prek Hooks")
-DP{{"MERGE GROUP"}}
-DU("Semantic Release")
-DV{{"PUSH
+DQ("Prek Hooks")
+DR{{"MERGE GROUP"}}
+DW("Semantic Release")
+DX{{"PUSH
 Branches: main
 Paths: !{{ version_file_glob }}, {{ source_glob }}
 "}}
-DZ("Unit Tests")
+EB("Unit Tests")
 E[["Build Documentation"]]
 I[["Build"]]
 M[["CI: Deployment"]]
