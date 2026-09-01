@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v0.8.3 (2026-09-01)
+
+### Bug Fixes
+
+- **sync**: Clean up retired and migrated targets
+  ([#363](https://github.com/worganisation/github-config-files/pull/363),
+  [`055b4dd`](https://github.com/worganisation/github-config-files/commit/055b4dd0089bad33e1d5eeb302cea28cbb341f28))
+
+- **sync**: Manage HA release and HACV Python setup
+  ([#364](https://github.com/worganisation/github-config-files/pull/364),
+  [`d253b54`](https://github.com/worganisation/github-config-files/commit/d253b540cbeac32b4d10cf78833b39f12f4b201f))
+
+
 ## v0.8.2 (2026-09-01)
 
 ### Continuous Integration
