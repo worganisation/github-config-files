@@ -53,6 +53,7 @@ group:
         deleteOrphaned: true
     repos: |
       worganisation/esphome
+      worganisation/frigate-config
       worganisation/gpu-worker
       worganisation/home-assistant
       worganisation/home-assistant-appdaemon
@@ -209,6 +210,14 @@ worganisation/frigate-config:
   - source: gha_sync/workflows/all/auto-create-pr.yml
     dest: .github/workflows/auto-create-pr.yml
     deleteOrphaned: true
+  # Frigate's hooks do not require a Python project environment; the shared
+  # workflow still installs and runs each hook's own isolated dependencies.
+  - source: gha_sync/workflows/template/prek-hooks.template.yml
+    dest: .github/workflows/prek-hooks.yml
+    template:
+      concurrency_group: prek-hooks-${{ github.ref }}
+      python_version: ''
+      sync_project_dependencies: 'false'
 
 worganisation/gpu-worker:
   # The release and tag-triggered host deployment workflows are bespoke, but
