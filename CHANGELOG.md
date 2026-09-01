@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.8.2 (2026-09-01)
+
+### Continuous Integration
+
+- Reduce self-hosted runner contention
+  ([#362](https://github.com/worganisation/github-config-files/pull/362),
+  [`02bf951`](https://github.com/worganisation/github-config-files/commit/02bf951d45c3fb567c0b7208ff2b99053171faec))
+
+
 ## v0.8.1 (2026-09-01)
 
 ### Bug Fixes
