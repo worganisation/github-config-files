@@ -27,16 +27,12 @@ group:
         dest: .github/workflows/set-pr-auto-merge.yml
         deleteOrphaned: true
     repos: |
-      worgarside/addon-item-warehouse-api
-      worgarside/addon-item-warehouse-website
-      worgarside/addon-yas-209-bridge
       worganisation/esphome
       worganisation/gpu-worker
       worganisation/home-assistant
       worganisation/home-assistant-appdaemon
       worganisation/home-assistant-config-validator
       worganisation/led-matrix-controller
-      worgarside/plant-monitor
       worganisation/pre-commit-hooks-dependency-sync
       worgarside/python-template
       worganisation/smart-mini-crt-interface
@@ -59,7 +55,6 @@ group:
       worganisation/home-assistant-appdaemon
       worganisation/home-assistant-config-validator
       worganisation/led-matrix-controller
-      worgarside/plant-monitor
       worganisation/pre-commit-hooks-dependency-sync
       worganisation/wg-scripts
       worganisation/wg-utilities
@@ -72,9 +67,6 @@ group:
       - source: gha_sync/configs/release-drafter.yml
         dest: .github/release-drafter.yml
     repos: |
-      worgarside/addon-item-warehouse-api
-      worgarside/addon-item-warehouse-website
-      worgarside/addon-yas-209-bridge
       worgarside/python-template
       worganisation/smart-mini-crt-interface
       worganisation/very-slow-movie-player
@@ -86,15 +78,11 @@ group:
       - .github/labeler.yml
       - .github/repo_labels.yml
     repos: |
-      worgarside/addon-item-warehouse-api
-      worgarside/addon-item-warehouse-website
-      worgarside/addon-yas-209-bridge
       worganisation/esphome
       worganisation/gpu-worker
       worganisation/home-assistant-appdaemon
       worganisation/home-assistant-config-validator
       worganisation/led-matrix-controller
-      worgarside/plant-monitor
       worganisation/pre-commit-hooks-dependency-sync
       worgarside/python-template
       worganisation/smart-mini-crt-interface
@@ -106,14 +94,11 @@ group:
   - files:
       - .yamllint
     repos: |
-      worgarside/addon-item-warehouse-api
-      worgarside/addon-yas-209-bridge
       worganisation/esphome
       worganisation/gpu-worker
       worganisation/home-assistant-appdaemon
       worganisation/home-assistant-config-validator
       worganisation/led-matrix-controller
-      worgarside/plant-monitor
       worganisation/pre-commit-hooks-dependency-sync
       worgarside/python-template
       worganisation/smart-mini-crt-interface
@@ -131,8 +116,6 @@ group:
           build_branch: ${{ github.ref }}
           python_version: '3.12'
     repos: |
-      worgarside/addon-item-warehouse-api
-      worgarside/addon-yas-209-bridge
       worgarside/python-template
       worganisation/smart-mini-crt-interface
       worganisation/very-slow-movie-player
@@ -150,49 +133,6 @@ group:
     repos: |
       worgarside/python-template
 
-worgarside/addon-item-warehouse-api:
-  - source: gha_sync/workflows/template/ci_deployment.template.yml
-    dest: .github/workflows/ci_deployment.yml
-    template:
-      build_branch: ${{ github.ref }}
-      pr_merged: ${{ github.event.pull_request.merged }}
-      python_version: '3.12'
-      release_tag: ${{ needs.ci-validation.outputs.release-tag }}
-      update_pyproject_toml: 'true'
-      update_yaml_file_path: item_warehouse_api/config.yaml
-
-worgarside/addon-item-warehouse-website:
-  - source: gha_sync/workflows/repo/addon-item-warehouse-website/
-    dest: .github/workflows/
-  - source: gha_sync/workflows/template/ci_validation.template.yml
-    dest: .github/workflows/ci_validation.yml
-    template:
-      build_branch: ${{ github.ref }}
-      build_type: node
-      node_build_directory: item_warehouse_website
-  - source: gha_sync/workflows/template/ci_deployment.template.yml
-    dest: .github/workflows/ci_deployment.yml
-    template:
-      build_branch: ${{ github.ref }}
-      pr_merged: ${{ github.event.pull_request.merged }}
-      build_type: node
-      node_build_directory: item_warehouse_website
-      release_tag: ${{ needs.ci-validation.outputs.release-tag }}
-      update_pyproject_toml: 'false'
-      update_json_file_path: item_warehouse_website/package.json
-      update_yaml_file_path: item_warehouse_website/config.yaml
-
-worgarside/addon-yas-209-bridge:
-  - source: gha_sync/workflows/template/ci_deployment.template.yml
-    dest: .github/workflows/ci_deployment.yml
-    template:
-      build_branch: ${{ github.ref }}
-      pr_merged: ${{ github.event.pull_request.merged }}
-      python_version: '3.12'
-      release_tag: ${{ needs.ci-validation.outputs.release-tag }}
-      update_pyproject_toml: 'true'
-      update_yaml_file_path: yas_209_bridge/config.yaml
-
 worganisation/esphome:
   # No python-version: this repo has no Python project at all - __prek-hooks.yml
   # skips the uv setup/sync steps entirely when python-version is empty.
@@ -204,7 +144,7 @@ worganisation/esphome:
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: ''
-      sync_project_dependencies: 'true'
+      sync_project_dependencies: 'false'
 
 worganisation/frigate-config:
   - source: gha_sync/workflows/all/auto-create-pr.yml
@@ -279,7 +219,9 @@ worganisation/home-assistant-config-validator:
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: '3.12'
-      sync_project_dependencies: 'true'
+      # This repository still uses Poetry and has no uv.lock. The hooks have
+      # isolated environments, so syncing the project itself is unnecessary.
+      sync_project_dependencies: 'false'
   - source: gha_sync/workflows/template/unit-tests.template.yml
     dest: .github/workflows/unit-tests.yml
     template:
@@ -321,23 +263,6 @@ worganisation/led-matrix-controller:
       python_version: '3.11'
       source_glob: led_matrix_controller/**
       version_file_glob: led_matrix_controller/__init__.py
-      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
-
-worgarside/plant-monitor:
-  - source: gha_sync/workflows/template/prek-hooks.template.yml
-    dest: .github/workflows/prek-hooks.yml
-    template:
-      concurrency_group: prek-hooks-${{ github.ref }}
-      python_version: '3.11'
-      sync_project_dependencies: 'true'
-  - source: gha_sync/workflows/template/semantic-release.template.yml
-    dest: .github/workflows/semantic-release.yml
-    template:
-      python_version: '3.11'
-      source_glob: src/**
-      # version_variables only writes pyproject.toml (repo root, not under
-      # src/**), so this exclusion is a harmless no-op, not a real target.
-      version_file_glob: pyproject.toml
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/pre-commit-hooks-dependency-sync:
