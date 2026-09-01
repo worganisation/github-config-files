@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.8.0 (2026-09-01)
+
+### Features
+
+- **sync**: Manage gpu-worker CI baseline
+  ([#360](https://github.com/worganisation/github-config-files/pull/360),
+  [`fd5efe0`](https://github.com/worganisation/github-config-files/commit/fd5efe0a8f538762eb4d58576ec3309d416df9bb))
+
+
 ## v0.7.4 (2026-08-30)
 
 ### Bug Fixes
