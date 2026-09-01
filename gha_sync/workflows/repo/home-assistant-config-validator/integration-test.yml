@@ -75,14 +75,20 @@ jobs:
           path: .venv
           key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
 
-      - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      - name: Set up uv
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
         with:
-          python-version: 3.12
+          enable-cache: true
+          python-version: '3.12'
+
+      - name: Install Python
+        run: uv python install 3.12
 
       - name: Install Dependencies
         working-directory: home-assistant-config-validator
-        run: poetry install --only main
+        run: |
+          poetry env use "$(uv python find 3.12)"
+          poetry install --only main
 
       - name: Generate README
         working-directory: home-assistant-config-validator
