@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.8.1 (2026-09-01)
+
+### Bug Fixes
+
+- **sync**: Manage Frigate Prek workflows
+  ([#361](https://github.com/worganisation/github-config-files/pull/361),
+  [`4a12920`](https://github.com/worganisation/github-config-files/commit/4a1292057fa29095ea6cb4c59b4878b0c89ae788))
+
+
 ## v0.8.0 (2026-09-01)
 
 ### Features
