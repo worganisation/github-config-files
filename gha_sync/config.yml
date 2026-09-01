@@ -216,7 +216,7 @@ worganisation/home-assistant-config-validator:
     dest: .github/workflows/prek-hooks.yml
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
-      python_version: '3.12'
+      python_version: ''
       # This repository still uses Poetry and has no uv.lock. The hooks have
       # isolated environments, so syncing the project itself is unnecessary.
       sync_project_dependencies: 'false'
