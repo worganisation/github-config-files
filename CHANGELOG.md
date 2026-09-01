@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.8.4 (2026-09-01)
+
+### Bug Fixes
+
+- **prek**: Disable empty dependency cache
+  ([#365](https://github.com/worganisation/github-config-files/pull/365),
+  [`72ea42f`](https://github.com/worganisation/github-config-files/commit/72ea42fa418630871a3e0be762b47077b04df7ff))
+
+
 ## v0.8.3 (2026-09-01)
 
 ### Bug Fixes
