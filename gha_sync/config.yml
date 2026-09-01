@@ -175,10 +175,8 @@ worganisation/infrastructure:
     deleteOrphaned: true
 
 worganisation/home-assistant:
-  # semantic-release.yml stays bespoke/unmanaged here: unlike every other repo
-  # it intentionally has no `paths:` filter (changes anywhere in the HA config
-  # should trigger a release check) plus a commit-message guard instead of a
-  # path exclusion, since its version bump only touches pyproject.toml.
+  # HA's release workflow is kept in this repo-specific directory because it
+  # intentionally has no paths filter and uses a commit-message guard.
   - source: gha_sync/workflows/repo/home-assistant/
     dest: .github/workflows/
   - source: gha_sync/workflows/template/prek-hooks.template.yml
