@@ -60,7 +60,7 @@ jobs:
         with:
           prek-version: ${{ inputs.prek-version }}
           extra-args: --all-files
-          cache: true
+          cache: ${{ runner.environment == 'github-hosted' }}
 
       - name: Commit Modified Files
         if: steps.run-prek.outcome == 'failure'
