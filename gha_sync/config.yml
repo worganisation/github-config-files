@@ -27,6 +27,7 @@ group:
         dest: .github/workflows/set-pr-auto-merge.yml
         deleteOrphaned: true
     repos: |
+      worgarside/backplane
       worganisation/esphome
       worganisation/gpu-worker
       worganisation/home-assistant
@@ -48,6 +49,7 @@ group:
         dest: .github/workflows/prek-autoupdate.yml
         deleteOrphaned: true
     repos: |
+      worgarside/backplane
       worganisation/esphome
       worganisation/frigate-config
       worganisation/gpu-worker
@@ -78,6 +80,7 @@ group:
       - .github/labeler.yml
       - .github/repo_labels.yml
     repos: |
+      worgarside/backplane
       worganisation/esphome
       worganisation/gpu-worker
       worganisation/home-assistant-appdaemon
@@ -94,6 +97,7 @@ group:
   - files:
       - .yamllint
     repos: |
+      worgarside/backplane
       worganisation/esphome
       worganisation/gpu-worker
       worganisation/home-assistant-appdaemon
@@ -145,6 +149,22 @@ worganisation/esphome:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: ''
       sync_project_dependencies: 'false'
+
+worgarside/backplane:
+  # The release workflow remains bespoke because it chains a Tailscale/SSH
+  # deployment after publishing the release.
+  - source: gha_sync/workflows/template/prek-hooks.template.yml
+    dest: .github/workflows/prek-hooks.yml
+    template:
+      concurrency_group: prek-hooks-${{ github.ref }}
+      python_version: '3.14'
+      sync_project_dependencies: 'true'
+  - source: gha_sync/workflows/template/unit-tests.template.yml
+    dest: .github/workflows/unit-tests.yml
+    template:
+      concurrency_group: unit-tests-${{ github.ref }}
+      python_version: '3.14'
+      source_dir: src
 
 worganisation/frigate-config:
   - source: gha_sync/workflows/all/auto-create-pr.yml
