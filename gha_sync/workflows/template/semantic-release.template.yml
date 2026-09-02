@@ -33,7 +33,7 @@ concurrency:
 jobs:
   release:
     name: Release
-    uses: worganisation/github-config-files/.github/workflows/__semantic-release.yml@0.8.5
+    uses: worganisation/github-config-files/.github/workflows/__semantic-release.yml@0.8.6
     with:
       python-version: '{{ python_version }}'
       force-deployment: "{{ force_deployment_expr }}"

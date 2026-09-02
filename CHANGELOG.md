@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.8.6 (2026-09-02)
+
+### Bug Fixes
+
+- **sync**: Manage Backplane CI with GCF
+  ([#367](https://github.com/worganisation/github-config-files/pull/367),
+  [`2e0e371`](https://github.com/worganisation/github-config-files/commit/2e0e371b466b03f1aa1d7e179ce26f9072941b92))
+
+
 ## v0.8.5 (2026-09-02)
 
 ### Bug Fixes
