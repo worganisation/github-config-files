@@ -13,6 +13,7 @@ group:
   - files:
       - .github/actionlint.yaml
       - .github/CODEOWNERS
+      - .github/dependabot.yml
       - source: gha_sync/workflows/all/auto-create-pr.yml
         dest: .github/workflows/auto-create-pr.yml
         deleteOrphaned: true
@@ -27,24 +28,6 @@ group:
         deleteOrphaned: true
     repos: |
       worganisation/backplane
-      worganisation/esphome
-      worganisation/gpu-worker
-      worganisation/home-assistant
-      worganisation/home-assistant-appdaemon
-      worganisation/home-assistant-config-validator
-      worganisation/led-matrix-controller
-      worganisation/pre-commit-hooks-dependency-sync
-      worgarside/python-template
-      worganisation/smart-mini-crt-interface
-      worganisation/very-slow-movie-player
-      worganisation/wg-scripts
-      worganisation/wg-utilities
-
-  # Backplane owns a bespoke uv definition; every other managed repository
-  # continues to receive the shared pip/npm/actions definition.
-  - files:
-      - .github/dependabot.yml
-    repos: |
       worganisation/esphome
       worganisation/gpu-worker
       worganisation/home-assistant
