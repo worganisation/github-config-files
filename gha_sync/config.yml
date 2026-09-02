@@ -40,9 +40,8 @@ group:
       worganisation/wg-scripts
       worganisation/wg-utilities
 
-  # Most repositories use the shared pip/npm/actions Dependabot definition.
-  # Backplane uses uv and has a repository-specific definition below so its
-  # shared lockfile updates can be grouped into one conflict-free PR.
+  # Backplane owns a bespoke uv definition; every other managed repository
+  # continues to receive the shared pip/npm/actions definition.
   - files:
       - .github/dependabot.yml
     repos: |
@@ -171,8 +170,6 @@ worganisation/esphome:
 worganisation/backplane:
   # The release workflow remains bespoke because it chains a Tailscale/SSH
   # deployment after publishing the release.
-  - source: gha_sync/configs/repo/backplane/dependabot.yml
-    dest: .github/dependabot.yml
   - source: gha_sync/workflows/template/prek-hooks.template.yml
     dest: .github/workflows/prek-hooks.yml
     template:
