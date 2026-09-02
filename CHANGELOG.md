@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.8.7 (2026-09-02)
+
+### Bug Fixes
+
+- **dependabot**: Standardize managed repos on grouped uv updates
+  ([#368](https://github.com/worganisation/github-config-files/pull/368),
+  [`bc0d48b`](https://github.com/worganisation/github-config-files/commit/bc0d48beb31fc70622667461e1c15e493f874832))
+
+
 ## v0.8.6 (2026-09-02)
 
 ### Bug Fixes
