@@ -43,7 +43,7 @@ jobs:
           python-version: ${{ inputs.python-version }}
 
       - name: Install uv dependencies
-        run: uv sync --locked --all-groups --no-build
+        run: uv sync --locked --all-groups
 
       - name: Test
         id: test
