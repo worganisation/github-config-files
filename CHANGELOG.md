@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.8.5 (2026-09-02)
+
+### Bug Fixes
+
+- **ci**: Accept explicit PR automation token
+  ([#366](https://github.com/worganisation/github-config-files/pull/366),
+  [`6469002`](https://github.com/worganisation/github-config-files/commit/6469002882e2a328d484b007ed852c851a64756f))
+
+
 ## v0.8.4 (2026-09-01)
 
 ### Bug Fixes
