@@ -4,6 +4,10 @@ name: '"Create Pull Request" Runner'
 
 on:
   workflow_call:
+    secrets:
+      WORGARSIDE_DEV_TOKEN:
+        description: Token used for authenticated pull-request automation
+        required: true
     inputs:
       base-ref-name:
         description: The base branch's name (target branch)
