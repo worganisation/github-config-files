@@ -6,6 +6,7 @@
 *.pyc
 *.csv
 *.json
+!default.json
 *.xlsx
 *.xlsm
 *.docx

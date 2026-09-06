@@ -1,0 +1,47 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Shared Renovate defaults for worganisation and worgarside repositories",
+  "extends": [
+    "config:recommended",
+    "docker:pinDigests"
+  ],
+  "timezone": "Europe/London",
+  "schedule": [
+    "before 6am on Monday"
+  ],
+  "dependencyDashboard": true,
+  "reviewers": [
+    "worgarside"
+  ],
+  "rebaseWhen": "behind-base-branch",
+  "prConcurrentLimit": 10,
+  "prHourlyLimit": 2,
+  "automerge": false,
+  "semanticCommits": "enabled",
+  "semanticCommitType": "deps",
+  "packageRules": [
+    {
+      "description": "Group container digest updates",
+      "matchManagers": [
+        "docker-compose",
+        "dockerfile"
+      ],
+      "matchUpdateTypes": [
+        "digest"
+      ],
+      "groupName": "container digest updates"
+    },
+    {
+      "description": "Group non-major GitHub Actions updates",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchUpdateTypes": [
+        "digest",
+        "minor",
+        "patch"
+      ],
+      "groupName": "github actions"
+    }
+  ]
+}
