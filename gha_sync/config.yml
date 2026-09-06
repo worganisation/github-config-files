@@ -27,6 +27,7 @@ group:
         deleteOrphaned: true
     repos: |
       worganisation/backplane
+      worganisation/docker-compose
       worganisation/esphome
       worganisation/gpu-worker
       worganisation/home-assistant
@@ -67,6 +68,7 @@ group:
         deleteOrphaned: true
     repos: |
       worganisation/backplane
+      worganisation/docker-compose
       worganisation/esphome
       worganisation/frigate-config
       worganisation/gpu-worker
@@ -98,6 +100,7 @@ group:
       - .github/repo_labels.yml
     repos: |
       worganisation/backplane
+      worganisation/docker-compose
       worganisation/esphome
       worganisation/gpu-worker
       worganisation/home-assistant-appdaemon
@@ -182,6 +185,19 @@ worganisation/backplane:
       concurrency_group: unit-tests-${{ github.ref }}
       python_version: '3.14'
       source_dir: src
+
+worganisation/docker-compose:
+  # This is a Compose/configuration repository with no Python project. Keep its
+  # existing yamllint filename while sourcing the organisation-wide rules, and
+  # run each Prek hook in its own isolated environment.
+  - source: .yamllint
+    dest: .yamllint.yml
+  - source: gha_sync/workflows/template/prek-hooks.template.yml
+    dest: .github/workflows/prek-hooks.yml
+    template:
+      concurrency_group: prek-hooks-${{ github.ref }}
+      python_version: ''
+      sync_project_dependencies: 'false'
 
 worganisation/frigate-config:
   - source: gha_sync/workflows/all/auto-create-pr.yml
