@@ -45,7 +45,9 @@ jobs:
         if: inputs.python-version
         uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
         with:
-          enable-cache: ${{ inputs.sync-project-dependencies == 'true' }}
+          enable-cache: >-
+            ${{ inputs.sync-project-dependencies == 'true'
+                && runner.environment == 'github-hosted' }}
           cache-local-path: ${{ github.workspace }}/.uv-cache
           python-version: ${{ inputs.python-version }}
 
