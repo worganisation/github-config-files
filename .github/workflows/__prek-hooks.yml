@@ -48,7 +48,7 @@ jobs:
           enable-cache: >-
             ${{ inputs.sync-project-dependencies == 'true'
                 && runner.environment == 'github-hosted' }}
-          cache-local-path: ${{ github.workspace }}/.uv-cache
+          cache-local-path: ${{ runner.tool_cache }}/uv-cache
           python-version: ${{ inputs.python-version }}
 
       - name: Install uv dependencies
