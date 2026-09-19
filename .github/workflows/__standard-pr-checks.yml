@@ -1,0 +1,141 @@
+---
+name: '"Standard PR Checks" Runner'
+
+on:
+  workflow_call:
+    inputs:
+      validate-title:
+        description: Validate conventional PR titles (opt in when adopting the policy)
+        type: boolean
+        default: false
+      manage-labels:
+        description: Apply the repository's existing labeler configuration
+        type: boolean
+        default: true
+      close-empty:
+        description: Close empty PRs unless bot:do-not-close is present
+        type: boolean
+        default: true
+      auto-merge:
+        description: Enable auto-merge on opened or ready-for-review PRs
+        type: boolean
+        default: false
+
+jobs:
+  metadata:
+    name: PR metadata
+    if: >-
+      github.event_name == 'pull_request' &&
+      (inputs.validate-title || inputs.manage-labels || inputs.close-empty || inputs.auto-merge) &&
+      (
+        (github.event.action == 'edited' && inputs.validate-title) ||
+        (contains(fromJSON('["labeled", "unlabeled"]'), github.event.action) &&
+          inputs.close-empty && github.event.label.name == 'bot:do-not-close') ||
+        contains(fromJSON('["opened", "reopened", "synchronize", "ready_for_review"]'), github.event.action)
+      )
+    runs-on:
+      - self-hosted
+      - linux
+      - x64
+      - cc
+      - iac
+      - opentofu
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: write
+    env:
+      GH_REPO: ${{ github.repository }}
+      GH_TOKEN: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+    steps:
+      - name: Read current PR state and close if empty
+        id: pr
+        env:
+          CLOSE_EMPTY: ${{ inputs.close-empty && github.event.action != 'edited' }}
+        run: |
+          pr=$(gh pr view "$PR_NUMBER" --json state,isDraft,author,headRefOid,additions,deletions,labels)
+          if [[ $(jq -r '.state' <<< "$pr") != 'OPEN' ]]; then
+            echo 'open=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [[ "$CLOSE_EMPTY" == 'true' ]] && jq -e '
+            (.additions + .deletions == 0) and
+            ([.labels[].name] | index("bot:do-not-close") | not)
+          ' <<< "$pr" > /dev/null; then
+            gh pr close "$PR_NUMBER" --delete-branch \
+              --comment 'This PR is empty, closing it. :no_good:'
+            echo 'open=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          {
+            echo 'open=true'
+            echo "draft=$(jq -r '.isDraft' <<< "$pr")"
+            echo "author=$(jq -r '.author.login' <<< "$pr")"
+            echo "head=$(jq -r '.headRefOid' <<< "$pr")"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Validate conventional title
+        id: title
+        if: inputs.validate-title && steps.pr.outputs.open == 'true'
+        continue-on-error: true
+        uses: amannn/action-semantic-pull-request@48f256284bd46cdaab1048c3721360e808335d50 # v6.1.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
+        with:
+          types: |
+            build
+            chore
+            ci
+            deps
+            docs
+            hotfix
+            feat
+            fix
+            perf
+            style
+            refactor
+            test
+
+      - name: Clean Dependabot labels
+        if: >-
+          inputs.manage-labels && steps.pr.outputs.open == 'true' &&
+          contains(fromJSON('["opened", "reopened", "synchronize", "ready_for_review"]'), github.event.action) &&
+          contains(fromJSON('["dependabot[bot]", "app/dependabot"]'), steps.pr.outputs.author)
+        run: |
+          labels=$(gh pr view "$PR_NUMBER" --json labels --jq '.labels[].name')
+          args=()
+          for label in major minor patch github_actions; do
+            if grep -Fxq "$label" <<< "$labels"; then
+              args+=(--remove-label "$label")
+            fi
+          done
+          if (( ${#args[@]} )); then
+            gh pr edit "$PR_NUMBER" "${args[@]}"
+          fi
+
+      - name: Apply PR labels
+        if: >-
+          inputs.manage-labels && steps.pr.outputs.open == 'true' &&
+          contains(fromJSON('["opened", "reopened", "synchronize", "ready_for_review"]'), github.event.action)
+        uses: srvaroa/labeler@bf262763a8a8e191f5847873aecc0f29df84f957 # v1.14.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
+
+      - name: Enable auto-merge
+        if: >-
+          inputs.auto-merge && steps.pr.outputs.open == 'true' && steps.pr.outputs.draft == 'false' &&
+          steps.title.outcome != 'failure' &&
+          contains(fromJSON('["opened", "ready_for_review"]'), github.event.action)
+        env:
+          # Preserve the dedicated account used for Home Assistant bot PRs.
+          GH_TOKEN: >-
+            ${{ steps.pr.outputs.author == 'worgarside-hass'
+                && secrets.WORGARSIDE_HASS_TOKEN || secrets.WORGARSIDE_DEV_TOKEN }}
+          HEAD_SHA: ${{ steps.pr.outputs.head }}
+        run: |
+          gh pr merge "$PR_NUMBER" --delete-branch --squash --auto --match-head-commit "$HEAD_SHA"
+
+      - name: Report invalid title
+        if: ${{ !cancelled() && steps.title.outcome == 'failure' }}
+        run: exit 1

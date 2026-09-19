@@ -25,7 +25,9 @@ on:
 jobs:
   prek:
     name: Prek Hooks
-    if: github.event_name != 'pull_request' || !github.event.pull_request.draft
+    if: >-
+      vars.CI_DISABLE_PREK != 'true' &&
+      (github.event_name != 'pull_request' || !github.event.pull_request.draft)
     runs-on:
       - self-hosted
       - linux
