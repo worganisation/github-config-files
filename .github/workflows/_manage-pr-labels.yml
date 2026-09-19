@@ -25,7 +25,7 @@ jobs:
       contents: read
       pull-requests: write
     with:
-      validate-title: ${{ vars.CI_ENABLE_PR_TITLE == 'true' && vars.CI_DISABLE_PR_TITLE != 'true' }}
+      validate-title: ${{ vars.CI_DISABLE_PR_TITLE != 'true' }}
       manage-labels: ${{ vars.CI_DISABLE_PR_LABELS != 'true' }}
       close-empty: false
       auto-merge: ${{ vars.CI_DISABLE_AUTO_MERGE != 'true' }}

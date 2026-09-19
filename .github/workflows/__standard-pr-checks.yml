@@ -5,9 +5,9 @@ on:
   workflow_call:
     inputs:
       validate-title:
-        description: Validate conventional PR titles (opt in when adopting the policy)
+        description: Validate conventional PR titles
         type: boolean
-        default: false
+        default: true
       manage-labels:
         description: Apply the repository's existing labeler configuration
         type: boolean

@@ -60,9 +60,9 @@ one of these values to the literal string `true`:
 | `CI_DISABLE_PREK` | Shared prek job (also applies on main/merge groups) |
 | `CI_DISABLE_PR_TITLE` | Conventional title validation |
 
-Title validation is opt-in with `CI_ENABLE_PR_TITLE=true`, preserving repositories
-that do not currently require conventional titles. Other metadata operations are
-on by default. Home Assistant auto-merge remains disabled regardless of variables.
+Title validation and other metadata operations are enabled by default. Set
+`CI_DISABLE_PR_TITLE=true` to opt out of conventional title validation.
+Home Assistant auto-merge remains disabled regardless of variables.
 The reusable workflow also accepts boolean inputs for bespoke callers.
 
 Metadata runs on code events; edits run only when title validation is enabled.

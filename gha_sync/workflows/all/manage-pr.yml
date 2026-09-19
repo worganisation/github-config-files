@@ -25,7 +25,7 @@ jobs:
       contents: read
       pull-requests: write
     with:
-      validate-title: ${{ vars.CI_ENABLE_PR_TITLE == 'true' && vars.CI_DISABLE_PR_TITLE != 'true' }}
+      validate-title: ${{ vars.CI_DISABLE_PR_TITLE != 'true' }}
       manage-labels: ${{ vars.CI_DISABLE_PR_LABELS != 'true' }}
       close-empty: ${{ vars.CI_DISABLE_CLOSE_EMPTY_PR != 'true' }}
       # Home Assistant deliberately has no automatic merging.
