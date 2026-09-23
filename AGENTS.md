@@ -27,3 +27,20 @@
 
 If the repository begins accepting untrusted or fork-based contributions, this
 trust model and the affected workflows must be revisited together.
+
+## Manual release policy
+
+Release creation in every `worganisation` repository starts only from an explicit
+`workflow_dispatch` on `main`. Keep semantic-release callers
+manual-only, and retain the same event/ref guard in reusable release-creation jobs.
+Do not add push, pull-request, schedule, workflow-run or repository-dispatch
+release triggers. Shared templates must preserve this policy on every sync.
+The manual dispatch is the release authorization; do not rely on environment
+approval gates. Use one shared release job with `environment: production` for
+all repositories. Public repositories may keep environment-scoped credentials;
+private repositories on GitHub Free use repository secrets and variables.
+
+
+Application deployment workflows run from a published release or release tag,
+not a branch push or separate manual dispatch. Keep deployment logic separate
+from release creation so the published revision is the deployment input.
