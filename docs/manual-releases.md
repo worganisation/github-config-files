@@ -3,11 +3,12 @@
 Release creation across `worganisation` requires `workflow_dispatch` on `main`.
 Merging or pushing commits does not publish a release. The manual dispatch is
 the authorization step; GitHub environment approval gates are not required.
-Public repositories retain their `production` environment for credential scoping.
-Private repositories use repository-level `DEPLOY_KEY` and
-`WORGARSIDE_DEV_TOKEN` secrets because environments and organization secrets are
-not available to private repositories on GitHub Free. Configure deployment
-secrets and variables at repository level there too.
+All repositories use one shared release job declaring `environment: production`.
+The declaration does not require environment-scoped credentials. Private
+repositories on GitHub Free use repository-level `DEPLOY_KEY` and
+`WORGARSIDE_DEV_TOKEN` secrets; public repositories can retain their existing
+environment secrets. Configure private-repository deployment secrets and
+variables at repository level too. No separate private-repository job is needed.
 
 Semantic Release calculates the next version from conventional commits when
 `force-deployment` is `auto`. This choice controls version calculation, not the
