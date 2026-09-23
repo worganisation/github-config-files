@@ -13,7 +13,6 @@ group:
   - files:
       - .github/actionlint.yaml
       - .github/CODEOWNERS
-      - .github/dependabot.yml
       - source: gha_sync/workflows/all/auto-create-pr.yml
         dest: .github/workflows/auto-create-pr.yml
         deleteOrphaned: true
@@ -41,6 +40,30 @@ group:
       worganisation/very-slow-movie-player
       worganisation/wg-scripts
       worganisation/wg-utilities
+
+  # Renovate owns version updates; Dependabot retains security updates.
+  - files:
+      - .github/dependabot.yml
+    repos: |
+      worganisation/backplane
+      worganisation/esphome
+      worganisation/gpu-worker
+      worganisation/home-assistant
+      worganisation/home-assistant-appdaemon
+      worganisation/home-assistant-config-validator
+      worganisation/led-matrix-controller
+      worganisation/pre-commit-hooks-dependency-sync
+      worganisation/smart-mini-crt-interface
+      worganisation/very-slow-movie-player
+      worganisation/wg-scripts
+      worganisation/wg-utilities
+
+  # The personal template retains its independent Dependabot policy.
+  - files:
+      - source: gha_sync/configs/dependabot.yml
+        dest: .github/dependabot.yml
+    repos: |
+      worgarside/python-template
 
   # Prek Auto-Update - identical for every repo on the prek/PSR pattern, no
   # per-repo variation, so this is a plain synced file rather than a

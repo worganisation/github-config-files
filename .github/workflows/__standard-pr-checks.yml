@@ -17,7 +17,7 @@ on:
         type: boolean
         default: true
       auto-merge:
-        description: Enable auto-merge on opened or ready-for-review PRs
+        description: Enable auto-merge outside worganisation only
         type: boolean
         default: false
 
@@ -26,7 +26,8 @@ jobs:
     name: PR metadata
     if: >-
       github.event_name == 'pull_request' &&
-      (inputs.validate-title || inputs.manage-labels || inputs.close-empty || inputs.auto-merge) &&
+      (inputs.validate-title || inputs.manage-labels || inputs.close-empty ||
+        (inputs.auto-merge && github.repository_owner != 'worganisation')) &&
       (
         (github.event.action == 'edited' && inputs.validate-title) ||
         (contains(fromJSON('["labeled", "unlabeled"]'), github.event.action) &&
@@ -124,6 +125,7 @@ jobs:
 
       - name: Enable auto-merge
         if: >-
+          github.repository_owner != 'worganisation' &&
           inputs.auto-merge && steps.pr.outputs.open == 'true' && steps.pr.outputs.draft == 'false' &&
           steps.title.outcome != 'failure' &&
           contains(fromJSON('["opened", "ready_for_review"]'), github.event.action)

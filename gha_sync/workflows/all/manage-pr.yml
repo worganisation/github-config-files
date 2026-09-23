@@ -28,6 +28,6 @@ jobs:
       validate-title: ${{ vars.CI_DISABLE_PR_TITLE != 'true' }}
       manage-labels: ${{ vars.CI_DISABLE_PR_LABELS != 'true' }}
       close-empty: ${{ vars.CI_DISABLE_CLOSE_EMPTY_PR != 'true' }}
-      # Home Assistant deliberately has no automatic merging.
-      auto-merge: ${{ github.event.repository.name != 'home-assistant' && vars.CI_DISABLE_AUTO_MERGE != 'true' }}
+      # Organisation repositories always require a deliberate merge.
+      auto-merge: ${{ github.repository_owner != 'worganisation' && vars.CI_DISABLE_AUTO_MERGE != 'true' }}
     secrets: inherit

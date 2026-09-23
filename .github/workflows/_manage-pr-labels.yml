@@ -28,5 +28,5 @@ jobs:
       validate-title: ${{ vars.CI_DISABLE_PR_TITLE != 'true' }}
       manage-labels: ${{ vars.CI_DISABLE_PR_LABELS != 'true' }}
       close-empty: false
-      auto-merge: ${{ vars.CI_DISABLE_AUTO_MERGE != 'true' }}
+      auto-merge: ${{ github.repository_owner != 'worganisation' && vars.CI_DISABLE_AUTO_MERGE != 'true' }}
     secrets: inherit

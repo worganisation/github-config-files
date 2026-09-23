@@ -56,13 +56,14 @@ one of these values to the literal string `true`:
 | --- | --- |
 | `CI_DISABLE_PR_LABELS` | Automatic labels |
 | `CI_DISABLE_CLOSE_EMPTY_PR` | Empty-PR closing |
-| `CI_DISABLE_AUTO_MERGE` | Enabling auto-merge |
+| `CI_DISABLE_AUTO_MERGE` | Enabling auto-merge outside `worganisation` |
 | `CI_DISABLE_PREK` | Shared prek job (also applies on main/merge groups) |
 | `CI_DISABLE_PR_TITLE` | Conventional title validation |
 
 Title validation and other metadata operations are enabled by default. Set
 `CI_DISABLE_PR_TITLE=true` to opt out of conventional title validation.
-Home Assistant auto-merge remains disabled regardless of variables.
+Auto-merge is always disabled for every `worganisation` repository, including
+future repositories, regardless of inputs or variables.
 The reusable workflow also accepts boolean inputs for bespoke callers.
 
 Metadata runs on code events; edits run only when title validation is enabled.
