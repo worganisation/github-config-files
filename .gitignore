@@ -348,3 +348,5 @@ resources/gh_cli/
 # Renovate repository policy
 !/renovate.json
 !/renovate-default.json
+
+!renovate-sync-policy.json

@@ -66,3 +66,10 @@ Do not sync unit-test workflows or add unit tests there unless the user explicit
 requests them. Container builds, Compose validation and release deployment remain
 Dockarr-owned; shared PR housekeeping, hook checks and Semantic Release come
 from GCF.
+
+## Renovate sync ownership
+
+When workflow sync mappings change, regenerate `renovate-sync-policy.json` with
+`python utilities/renovate_sync_policy.py`. Keep source templates discoverable
+in Renovate and exclude only exact synced destination files. Bespoke workflows
+retain their repository's dependency ownership.

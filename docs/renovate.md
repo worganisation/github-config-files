@@ -74,3 +74,18 @@ A local `renovate --platform=local --dry-run=extract` checks discovery without
 opening PRs. Review the Dependency Dashboard and hosted app logs after activation
 for private-package access or lockfile-generation errors. Passing configuration
 validation does not prove hosted registry access or successful lockfile updates.
+
+## Workflow sync ownership
+
+Renovate scans `.github/workflows` and the source workflows under
+`gha_sync/workflows`. Synced destination workflows are excluded by exact
+repository and path, while bespoke workflows remain eligible.
+
+`utilities/renovate_sync_policy.py` derives `renovate-sync-policy.json` from
+`gha_sync/config.yml`. Run it when sync mappings or source files change; the
+hook checks the result. The shared `renovate-default` preset inherits that
+policy, so consumers need no duplicate exclusion lists.
+
+Merge updates to source workflows in GCF, then use the existing manual release
+or file-sync process to distribute them. Renovate does not dispatch releases,
+merge PRs, or deploy applications.

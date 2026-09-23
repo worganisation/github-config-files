@@ -3,7 +3,8 @@
   "extends": [
     "config:recommended",
     ":semanticCommits",
-    "helpers:pinGitHubActionDigests"
+    "helpers:pinGitHubActionDigests",
+    "github>worganisation/github-config-files:renovate-sync-policy"
   ],
   "timezone": "Europe/London",
   "schedule": [
