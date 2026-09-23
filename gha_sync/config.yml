@@ -380,3 +380,32 @@ worganisation/very-slow-movie-player:
     template:
       python_version: '3.12'
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
+worganisation/dockarr:
+  # Container builds/deployment are bespoke. Do not sync unit tests or auto-merge.
+  - .github/actionlint.yaml
+  - .github/CODEOWNERS
+  - .github/labeler.yml
+  - .github/repo_labels.yml
+  - source: gha_sync/workflows/all/auto-create-pr.yml
+    dest: .github/workflows/auto-create-pr.yml
+    deleteOrphaned: true
+  - source: gha_sync/workflows/all/manage-pr.yml
+    dest: .github/workflows/manage-pr.yml
+    deleteOrphaned: true
+  - source: gha_sync/workflows/all/manage-repo-labels.yml
+    dest: .github/workflows/manage-repo-labels.yml
+    deleteOrphaned: true
+  - source: gha_sync/workflows/all/prek-autoupdate.yml
+    dest: .github/workflows/prek-autoupdate.yml
+    deleteOrphaned: true
+  - source: gha_sync/workflows/template/prek-hooks.template.yml
+    dest: .github/workflows/prek-hooks.yml
+    template:
+      concurrency_group: prek-hooks-${{ github.ref }}
+      python_version: ''
+      sync_project_dependencies: 'false'
+  - source: gha_sync/workflows/template/semantic-release.template.yml
+    dest: .github/workflows/semantic-release.yml
+    template:
+      python_version: '3.11'
+      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}

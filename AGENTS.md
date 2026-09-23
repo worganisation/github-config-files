@@ -58,3 +58,11 @@ private repositories on GitHub Free use repository secrets and variables.
 Application deployment workflows run from a published release or release tag,
 not a branch push or separate manual dispatch. Keep deployment logic separate
 from release creation so the published revision is the deployment input.
+
+## Dockarr CI
+
+Keep Dockarr enrolled only in the selected shared workflows and settings.
+Do not sync unit-test workflows or add unit tests there unless the user explicitly
+requests them. Container builds, Compose validation and release deployment remain
+Dockarr-owned; shared PR housekeeping, hook checks and Semantic Release come
+from GCF.
