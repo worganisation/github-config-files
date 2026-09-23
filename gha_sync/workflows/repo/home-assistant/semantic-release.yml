@@ -2,9 +2,6 @@
 name: Semantic Release
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
     inputs:
       force-deployment:
@@ -30,8 +27,7 @@ jobs:
   release:
     name: Release
     if: >-
-      github.event_name != 'push' ||
-      !startsWith(github.event.head_commit.message, 'chore(release):')
+      github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     uses: worganisation/github-config-files/.github/workflows/__semantic-release.yml@0.8.7
     with:
       python-version: '3.12'

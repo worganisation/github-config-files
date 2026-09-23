@@ -2,13 +2,6 @@
 name: Semantic Release
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - '{{ source_glob }}'
-      - '!{{ version_file_glob }}'
-
   workflow_dispatch:
     inputs:
       force-deployment:
@@ -32,9 +25,13 @@ concurrency:
 
 jobs:
   release:
+    if: >-
+      github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     name: Release
+    # yamllint disable-line rule:line-length
     uses: worganisation/github-config-files/.github/workflows/__semantic-release.yml@0.8.7
     with:
       python-version: '{{ python_version }}'
-      force-deployment: "{{ force_deployment_expr }}"
+      force-deployment: >-
+        {{ force_deployment_expr }}
     secrets: inherit

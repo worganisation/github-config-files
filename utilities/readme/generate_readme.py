@@ -74,11 +74,13 @@ label rules driven by label or auto-merge events need their own event policy.
 
 The next release updates the reusable-workflow pin and syncs the metadata caller
 while deleting `set-pr-auto-merge.yml` through its retained `deleteOrphaned`
-mapping. Do not sync unreleased source pins: the new reusable workflow must exist
-at the referenced release. Older pinned callers remain supported. Infrastructure
+mapping. Source callers pin an existing guarded implementation, so manual sync
+is also supported before the next release. Older pinned callers remain supported. Infrastructure
 keeps its bespoke hooks/title checks; deployments and schedules stay independent.
 When migrating bespoke callers, check branch rules before renaming required jobs.
 Disabling a required job makes it skipped, so opt-outs are also policy changes.
+Release creation requires manual dispatch on main; see [manual releases](docs/manual-releases.md).
+Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 
 """
 

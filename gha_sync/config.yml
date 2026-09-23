@@ -22,7 +22,24 @@ group:
       - source: gha_sync/workflows/all/manage-repo-labels.yml
         dest: .github/workflows/manage-repo-labels.yml
         deleteOrphaned: true
-      # Retired source: delete the standalone caller when metadata is installed.
+    repos: |
+      worganisation/backplane
+      worganisation/esphome
+      worganisation/gpu-worker
+      worganisation/home-assistant
+      worganisation/home-assistant-appdaemon
+      worganisation/home-assistant-config-validator
+      worganisation/led-matrix-controller
+      worganisation/pre-commit-hooks-dependency-sync
+      worgarside/python-template
+      worganisation/smart-mini-crt-interface
+      worganisation/very-slow-movie-player
+      worganisation/wg-scripts
+      worganisation/wg-utilities
+
+  # Retired source: remove standalone callers as consolidated metadata is installed.
+  - files:
+
       - source: gha_sync/workflows/all/set-pr-auto-merge.yml
         dest: .github/workflows/set-pr-auto-merge.yml
         deleteOrphaned: true
@@ -94,8 +111,6 @@ group:
         dest: .github/release-drafter.yml
     repos: |
       worgarside/python-template
-      worganisation/smart-mini-crt-interface
-      worganisation/very-slow-movie-player
 
   # No Custom Labels
   # The only exclusion is `home-assistant`, which has its own repo_labels.yml:
@@ -162,21 +177,21 @@ group:
       worgarside/python-template
 
 worganisation/esphome:
-  # No python-version: this repo has no Python project at all - __prek-hooks.yml
-  # skips the uv setup/sync steps entirely when python-version is empty.
-  # semantic-release.yml stays bespoke/unmanaged here: it has a submodule-deploy
-  # job (bumping this repo into worganisation/home-assistant) that doesn't fit the
-  # shared template.
+  # Hooks need no Python project environment; published releases propose submodule updates.
   - source: gha_sync/workflows/template/prek-hooks.template.yml
     dest: .github/workflows/prek-hooks.yml
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: ''
       sync_project_dependencies: 'false'
+  - source: gha_sync/workflows/template/semantic-release.template.yml
+    dest: .github/workflows/semantic-release.yml
+    template:
+      python_version: '3.12'
+      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/backplane:
-  # The release workflow remains bespoke because it chains a Tailscale/SSH
-  # deployment after publishing the release.
+  # Release creation preserves Backplane's prerelease options; deployment uses published releases.
   - source: gha_sync/workflows/template/prek-hooks.template.yml
     dest: .github/workflows/prek-hooks.yml
     template:
@@ -202,9 +217,14 @@ worganisation/frigate-config:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: ''
       sync_project_dependencies: 'false'
+  - source: gha_sync/workflows/template/semantic-release.template.yml
+    dest: .github/workflows/semantic-release.yml
+    template:
+      python_version: '3.11'
+      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/gpu-worker:
-  # The release and tag-triggered host deployment workflows are bespoke, but
+  # Host-specific workflows remain bespoke, but
   # the repository still uses the shared hook runner and managed baseline.
   - source: gha_sync/workflows/template/prek-hooks.template.yml
     dest: .github/workflows/prek-hooks.yml
@@ -219,8 +239,7 @@ worganisation/infrastructure:
     deleteOrphaned: true
 
 worganisation/home-assistant:
-  # HA's release workflow is kept in this repo-specific directory because it
-  # intentionally has no paths filter and uses a commit-message guard.
+  # HA maintains its manual release caller beside its configuration workflows.
   - source: gha_sync/workflows/repo/home-assistant/
     dest: .github/workflows/
   - source: gha_sync/workflows/template/prek-hooks.template.yml
@@ -241,10 +260,6 @@ worganisation/home-assistant-appdaemon:
     dest: .github/workflows/semantic-release.yml
     template:
       python_version: '3.12'
-      source_glob: apps/**
-      # version_variables only writes pyproject.toml (repo root, not under
-      # apps/**), so this exclusion is a harmless no-op, not a real target.
-      version_file_glob: pyproject.toml
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/home-assistant-config-validator:
@@ -274,8 +289,6 @@ worganisation/home-assistant-config-validator:
     dest: .github/workflows/semantic-release.yml
     template:
       python_version: '3.12'
-      source_glob: home_assistant_config_validator/**
-      version_file_glob: home_assistant_config_validator/__init__.py
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/led-matrix-controller:
@@ -303,8 +316,6 @@ worganisation/led-matrix-controller:
     dest: .github/workflows/semantic-release.yml
     template:
       python_version: '3.11'
-      source_glob: led_matrix_controller/**
-      version_file_glob: led_matrix_controller/__init__.py
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/pre-commit-hooks-dependency-sync:
@@ -321,8 +332,6 @@ worganisation/pre-commit-hooks-dependency-sync:
     dest: .github/workflows/semantic-release.yml
     template:
       python_version: '3.13'
-      source_glob: pre_commit_hooks_dependency_sync/**
-      version_file_glob: pre_commit_hooks_dependency_sync/__init__.py
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/wg-scripts:
@@ -336,14 +345,10 @@ worganisation/wg-scripts:
     dest: .github/workflows/semantic-release.yml
     template:
       python_version: '3.14'
-      source_glob: src/**
-      version_file_glob: src/wg_scripts/__init__.py
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/wg-utilities:
-  # semantic-release.yml stays bespoke/unmanaged here: it has PyPI-publish and
-  # docs build/deploy jobs chained after release, which don't fit the shared
-  # release-only template.
+  # PyPI and documentation publishing consume the published release event.
   - source: gha_sync/workflows/template/prek-hooks.template.yml
     dest: .github/workflows/prek-hooks.yml
     template:
@@ -356,23 +361,22 @@ worganisation/wg-utilities:
       concurrency_group: unit-tests-${{ github.ref }}
       python_version: '3.12'
       source_dir: wg_utilities
+  - source: gha_sync/workflows/template/semantic-release.template.yml
+    dest: .github/workflows/semantic-release.yml
+    template:
+      python_version: '3.12'
+      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/smart-mini-crt-interface:
-  - source: gha_sync/workflows/template/ci_deployment.template.yml
-    dest: .github/workflows/ci_deployment.yml
+  - source: gha_sync/workflows/template/semantic-release.template.yml
+    dest: .github/workflows/semantic-release.yml
     template:
-      build_branch: ${{ github.ref }}
-      path_to___version___file: smart_mini_crt_interface/__init__.py
       python_version: '3.12'
-      release_tag: ${{ needs.ci-validation.outputs.release-tag }}
-      update_pyproject_toml: 'true'
+      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/very-slow-movie-player:
-  - source: gha_sync/workflows/template/ci_deployment.template.yml
-    dest: .github/workflows/ci_deployment.yml
+  - source: gha_sync/workflows/template/semantic-release.template.yml
+    dest: .github/workflows/semantic-release.yml
     template:
-      build_branch: ${{ github.ref }}
-      path_to___version___file: very_slow_movie_player/__init__.py
       python_version: '3.12'
-      release_tag: ${{ needs.ci-validation.outputs.release-tag }}
-      update_pyproject_toml: 'true'
+      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
