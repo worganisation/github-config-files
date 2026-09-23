@@ -34,8 +34,8 @@ outside the Renovate rollout.
 
 ## Repository coverage
 
-All active `worganisation` repositories participate, together with
-`worgarside/vaultpi`. `dockarr` is the repository for the Compose applications.
+All active `worganisation` repositories participate, including `vaultpi`.
+`dockarr` is the repository for the Compose applications.
 
 Built-in managers discover supported GitHub Actions, Python manifests and lock
 files, Dockerfiles, Compose files, Ansible dependencies, and OpenTofu providers.
