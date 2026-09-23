@@ -25,6 +25,7 @@ on: # yamllint disable-line rule:truthy
 
 jobs:
   set-auto-merge:
+    if: github.repository_owner != 'worganisation'
     name: Set Auto Merge
     runs-on:
       - self-hosted

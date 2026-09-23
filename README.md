@@ -7,6 +7,7 @@ Linux jobs use the CC self-hosted runner labels `self-hosted`, `linux`, `x64`,
 to contributors.
 
 Release creation requires manual dispatch on main; see [manual releases](docs/manual-releases.md).
+Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 
 ## Repository File Mappings
 

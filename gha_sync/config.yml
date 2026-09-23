@@ -22,6 +22,25 @@ group:
       - source: gha_sync/workflows/all/manage-repo-labels.yml
         dest: .github/workflows/manage-repo-labels.yml
         deleteOrphaned: true
+    repos: |
+      worganisation/backplane
+      worganisation/esphome
+      worganisation/gpu-worker
+      worganisation/home-assistant
+      worganisation/home-assistant-appdaemon
+      worganisation/home-assistant-config-validator
+      worganisation/led-matrix-controller
+      worganisation/pre-commit-hooks-dependency-sync
+      worgarside/python-template
+      worganisation/smart-mini-crt-interface
+      worganisation/very-slow-movie-player
+      worganisation/wg-scripts
+      worganisation/wg-utilities
+
+  # Compatibility callers are deliberately disabled for every worganisation
+  # repository by owner guards in both caller and runner. Syncing them replaces
+  # older active callers; the guard also covers future organisation repositories.
+  - files:
       - source: gha_sync/workflows/all/set-pr-auto-merge.yml
         dest: .github/workflows/set-pr-auto-merge.yml
         deleteOrphaned: true
