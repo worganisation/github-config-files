@@ -7,6 +7,7 @@ on:
     types:
       - published
 
+  workflow_dispatch:
 
 concurrency:
   group: sync
@@ -59,6 +60,19 @@ jobs:
           - $url_list_formatted"
 
           echo -e "${output}" >> $GITHUB_STEP_SUMMARY
+
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            gh pr comment \
+              "$(
+                gh pr list \
+                  --base main \
+                  --state merged \
+                  --limit 1 \
+                  --json url  |
+                    jq -r '.[].url'
+              )" \
+              --body "$output"
+          fi
 
       - name: Enable Auto-Merge on PRs
         env:
