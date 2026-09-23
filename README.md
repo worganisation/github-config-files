@@ -368,62 +368,62 @@ Release creation requires manual dispatch on main; see [manual releases](docs/ma
 
 ```mermaid
 flowchart LR
+subgraph EH[" "]
+direction LR
+CM-->BF
+end
 subgraph EI[" "]
 direction LR
-CN-->BF
-end
-subgraph EJ[" "]
-direction LR
-DN-->EB
-DN-->DR
-DN-->DM
-DR-->BC
-DS-->EB
-DS-->DR
-EB-->BP
-DI-->V
-CF-->AZ
-CG-->CR
-CG-->CF
-DK-->DI
-DK-->CZ
-DK-->CR
-DF-->EB
-DF-->DR
-DF-->DM
-DF-->DE
-DF-->CZ
-DF-->CR
-DE-->V
-DE-->M
+DM-->EA
+DM-->DQ
+DM-->DL
+DQ-->BC
+DR-->EA
+DR-->DQ
+EA-->BO
+DH-->V
+CE-->AZ
+CF-->CQ
+CF-->CE
+DJ-->DH
+DJ-->CY
+DJ-->CQ
+DE-->EA
+DE-->DQ
+DE-->DL
+DE-->DD
+DE-->CY
+DE-->CQ
+DD-->V
+DD-->M
 M-->I
 M-->E
 M-->AN
 M-->AJ
 V-->I
-V-->BM
+V-->BL
 V-->A
+end
+subgraph EJ[" "]
+direction LR
+CJ-->CI
+CI-->BI
 end
 subgraph EK[" "]
 direction LR
-CK-->CJ
-CJ-->BJ
+CB-->CA
+CA-->AW
 end
 subgraph EL[" "]
 direction LR
-CC-->CB
-CB-->AW
+BW-->BV
+BV-->AT
+BV-->AB
 end
 subgraph EM[" "]
 direction LR
-BX-->BW
-BW-->AT
-BW-->AB
-end
-subgraph EN[" "]
-direction LR
-BT-->BS
-BS-->AF
+BS-->BR
+BR-->AF
 end
 AB[["Close Empty PR"]]
 AF[["Create Pull Request"]]
@@ -435,46 +435,46 @@ AZ[["Prek Auto-Update"]]
 A[["actionlint"]]
 BC[["Prek Hooks"]]
 BF[["Semantic Release"]]
-BJ[["Set PR Auto Merge"]]
-BM[["Test"]]
-BP[["Unit Tests"]]
-BS("Auto-Create PR")
-BT{{"PUSH
+BI[["Set PR Auto Merge"]]
+BL[["Test"]]
+BO[["Unit Tests"]]
+BR("Auto-Create PR")
+BS{{"PUSH
 Branches Ignore: dependabot/**, main, renovate/**
 "}}
-BW("Manage PR")
-BX{{"PULL REQUEST
+BV("Manage PR")
+BW{{"PULL REQUEST
 Types: auto_merge_disabled, auto_merge_enabled, labeled, opened, ready_for_review, reopened, synchronize, unlabeled
 "}}
-CB("Manage Repo Labels")
-CC{{"PUSH
+CA("Manage Repo Labels")
+CB{{"PUSH
 Branches: main
 Paths: .github/repo_labels.yml, .github/workflows/manage-repo-labels.yml
 "}}
-CF("Prek Auto-Update")
-CG{{"SCHEDULE"}}
-CJ("Set PR Auto Merge")
-CK{{"PULL REQUEST
+CE("Prek Auto-Update")
+CF{{"SCHEDULE"}}
+CI("Set PR Auto Merge")
+CJ{{"PULL REQUEST
 Types: opened, ready_for_review
 "}}
-CN("Semantic Release")
-CR("Validate Home Assistant Config")
-CZ("Integration Test")
-DE("CI: Validation & Deployment")
-DF{{"PUSH
+CM("Semantic Release")
+CQ("Validate Home Assistant Config")
+CY("Integration Test")
+DD("CI: Validation & Deployment")
+DE{{"PUSH
 Branches: main
 "}}
-DI("CI: Validation")
-DK{{"PULL REQUEST
+DH("CI: Validation")
+DJ{{"PULL REQUEST
 Types: opened, reopened, synchronize
 "}}
-DM("CodSpeed Benchmarks")
-DN{{"PULL REQUEST
+DL("CodSpeed Benchmarks")
+DM{{"PULL REQUEST
 Types: opened, ready_for_review, reopened, synchronize
 "}}
-DR("Prek Hooks")
-DS{{"MERGE GROUP"}}
-EB("Unit Tests")
+DQ("Prek Hooks")
+DR{{"MERGE GROUP"}}
+EA("Unit Tests")
 E[["Build Documentation"]]
 I[["Build"]]
 M[["CI: Deployment"]]

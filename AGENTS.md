@@ -36,8 +36,9 @@ manual-only, and retain the same event/ref guard in reusable release-creation jo
 Do not add push, pull-request, schedule, workflow-run or repository-dispatch
 release triggers. Shared templates must preserve this policy on every sync.
 The manual dispatch is the release authorization; do not rely on environment
-approval gates. Public repositories may keep environment-scoped credentials; private repositories
-on GitHub Free use repository secrets and variables.
+approval gates. Use one shared release job with `environment: production` for
+all repositories. Public repositories may keep environment-scoped credentials;
+private repositories on GitHub Free use repository secrets and variables.
 
 
 Application deployment workflows run from a published release or release tag,

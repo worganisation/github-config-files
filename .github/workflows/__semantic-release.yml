@@ -20,16 +20,13 @@ on:
     outputs:
       released:
         description: Whether a release was made
-        value: >-
-          ${{ jobs.release.outputs.released || jobs.release-private.outputs.released }}
+        value: ${{ jobs.release.outputs.released }}
       tag:
         description: The tag of the release
-        value: >-
-          ${{ jobs.release.outputs.tag || jobs.release-private.outputs.tag }}
+        value: ${{ jobs.release.outputs.tag }}
       version:
         description: The version of the release
-        value: >-
-          ${{ jobs.release.outputs.version || jobs.release-private.outputs.version }}
+        value: ${{ jobs.release.outputs.version }}
     secrets:
       DEPLOY_KEY:
         description: SSH deploy key used to push release commits and tags
@@ -41,8 +38,7 @@ on:
 jobs:
   release:
     if: >-
-      github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' &&
-      !github.event.repository.private
+      github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     name: Release
     environment: production
     runs-on:
@@ -59,7 +55,7 @@ jobs:
       released: ${{ steps.python-semantic-release.outputs.released }}
       tag: ${{ steps.python-semantic-release.outputs.tag }}
       version: ${{ steps.python-semantic-release.outputs.version }}
-    steps: &release-steps
+    steps:
       - name: Log Inputs
         if: runner.debug == '1'
         env:
@@ -134,26 +130,3 @@ jobs:
           trap cleanup EXIT
 
           "${command[@]}"
-
-  # Private repositories on GitHub Free use repository secrets, without an
-  # environment. Public repositories retain their existing credential scope.
-  release-private:
-    if: >-
-      github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' &&
-      github.event.repository.private
-    name: Release (repository secrets)
-    runs-on:
-      - self-hosted
-      - linux
-      - x64
-      - cc
-      - iac
-      - opentofu
-    timeout-minutes: 60
-    permissions:
-      contents: write
-    outputs:
-      released: ${{ steps.python-semantic-release.outputs.released }}
-      tag: ${{ steps.python-semantic-release.outputs.tag }}
-      version: ${{ steps.python-semantic-release.outputs.version }}
-    steps: *release-steps
