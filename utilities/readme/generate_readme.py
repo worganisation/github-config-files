@@ -42,6 +42,8 @@ Linux jobs use the CC self-hosted runner labels `self-hosted`, `linux`, `x64`,
 `cc`, `iac`, and `opentofu`. All managed repositories restrict pull requests
 to contributors.
 
+Release creation requires manual dispatch on main; see [manual releases](docs/manual-releases.md).
+
 """
 
     readme += generate_config_mappings()
