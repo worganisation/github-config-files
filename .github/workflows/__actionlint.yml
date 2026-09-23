@@ -7,6 +7,10 @@ name: '"actionlint" Runner'
 on:
   workflow_call:
     inputs:
+      include-sync-workflows:
+        description: Also lint workflow sources under gha_sync/workflows
+        type: boolean
+        default: false
       workflow-files:
         description: Space-separated list of workflow files to check
         required: false
@@ -41,11 +45,23 @@ jobs:
         id: get-actionlint
         run: bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
 
+      - name: Discover workflow files
+        id: files
+        env:
+          INCLUDE_SYNC: ${{ inputs.include-sync-workflows }}
+          WORKFLOW_FILES: ${{ inputs.workflow-files }}
+        run: |
+          if [[ "$INCLUDE_SYNC" == 'true' ]]; then
+            WORKFLOW_FILES=$(find .github/workflows gha_sync/workflows -type f \
+              \( -name '*.yml' -o -name '*.yaml' \) -print | sort | tr '\n' ' ')
+          fi
+          echo "paths=$WORKFLOW_FILES" >> "$GITHUB_OUTPUT"
+
       - name: Check Workflow Files
         uses: nick-fields/retry@ad984534de44a9489a53aefd81eb77f87c70dc60 # v4.0.0
         with:
           timeout_minutes: 1
           max_attempts: 5
           # yamllint disable-line rule:line-length
-          command: ./actionlint -color -shellcheck "" -format '{{range $err := .}}::error file={{$err.Filepath}},line={{$err.Line}},col={{$err.Column}}::{{$err.Message}}%0A```%0A{{replace $err.Snippet "\\n" "%0A"}}%0A```\n{{end}}' ${{ inputs.workflow-files || '' }}
+          command: ./actionlint -color -shellcheck "" -format '{{range $err := .}}::error file={{$err.Filepath}},line={{$err.Line}},col={{$err.Column}}::{{$err.Message}}%0A```%0A{{replace $err.Snippet "\\n" "%0A"}}%0A```\n{{end}}' ${{ steps.files.outputs.paths }}
           retry_on_exit_code: 2

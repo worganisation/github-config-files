@@ -9,7 +9,7 @@ group:
   # repos that have moved to the PSR-based pattern (semantic-release.yml,
   # prek-hooks.yml, prek-autoupdate.yml, unit-tests.yml, etc.) keep bespoke,
   # non-synced files in this same .github/workflows/ directory, and a
-    # directory-level orphan-delete would wipe those out too.
+  # directory-level orphan-delete would wipe those out too.
   - files:
       - .github/actionlint.yaml
       - .github/CODEOWNERS
@@ -37,10 +37,9 @@ group:
       worganisation/wg-scripts
       worganisation/wg-utilities
 
-  # Compatibility callers are deliberately disabled for every worganisation
-  # repository by owner guards in both caller and runner. Syncing them replaces
-  # older active callers; the guard also covers future organisation repositories.
+  # Retired source: remove standalone callers as consolidated metadata is installed.
   - files:
+
       - source: gha_sync/workflows/all/set-pr-auto-merge.yml
         dest: .github/workflows/set-pr-auto-merge.yml
         deleteOrphaned: true
