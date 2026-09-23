@@ -16,6 +16,7 @@ jobs:
   set-auto-merge:
     name: Set PR Auto Merge
     if: >-
+      github.repository_owner != 'worganisation' &&
       !github.event.pull_request.draft &&
       !startsWith(github.head_ref, 'renovate/')
     uses: ./.github/workflows/__set-pr-auto-merge.yml
