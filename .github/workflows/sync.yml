@@ -74,7 +74,7 @@ jobs:
               --body "$output"
           fi
 
-      - name: Enable Auto-Merge on PRs
+      - name: Update PR titles and apply merge policy
         env:
           GH_TOKEN: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
           # yamllint disable-line rule:line-length
@@ -87,7 +87,9 @@ jobs:
               pr_status=$(gh pr view "$url" --json state -q '.state')
               if [[ "$pr_status" == "OPEN" ]]; then
                   gh pr edit "${url}" --title "${COMMIT_MESSAGE}"
-                  gh pr merge "${url}" --delete-branch --squash --auto
+                  if [[ "${url,,}" != https://github.com/worganisation/* ]]; then
+                      gh pr merge "${url}" --delete-branch --squash --auto
+                  fi
               else
                   IFS='/' read -ra ADDR <<< "$url"
                   repo_owner="${ADDR[-4]}"
