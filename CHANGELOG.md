@@ -2,6 +2,53 @@
 
 <!-- version list -->
 
+## v0.9.0 (2026-09-24)
+
+### Bug Fixes
+
+- **ci**: Require deliberate merges across worganisation
+  ([#372](https://github.com/worganisation/github-config-files/pull/372),
+  [`f504e21`](https://github.com/worganisation/github-config-files/commit/f504e21cbc12a94e9aa3f75e42612a1e3cb4c85f))
+
+- **ci**: Share the self-hosted release runtime through the generic template
+  ([#379](https://github.com/worganisation/github-config-files/pull/379),
+  [`c62c31e`](https://github.com/worganisation/github-config-files/commit/c62c31e5edb6275361804e953686e6c2d0f9fcb5))
+
+- **renovate**: Track workflow templates at their sync source
+  ([#378](https://github.com/worganisation/github-config-files/pull/378),
+  [`e717895`](https://github.com/worganisation/github-config-files/commit/e7178957d77c09655135c793ffb222d26c32e2aa))
+
+### Chores
+
+- **deps**: Bump pydantic in the uv-dependencies group
+  ([#369](https://github.com/worganisation/github-config-files/pull/369),
+  [`b2b06cf`](https://github.com/worganisation/github-config-files/commit/b2b06cffc3d495834536c0b4ede950d896de071f))
+
+- **deps**: Centralize Renovate policy
+  ([#374](https://github.com/worganisation/github-config-files/pull/374),
+  [`62b85b8`](https://github.com/worganisation/github-config-files/commit/62b85b899ed9962eeff5c0568b921f09f49a3af4))
+
+### Features
+
+- **ci**: Enroll Dockarr in shared workflows
+  ([#376](https://github.com/worganisation/github-config-files/pull/376),
+  [`6176051`](https://github.com/worganisation/github-config-files/commit/617605108c0749c923bee216a38b5919eb5d032b))
+
+- **ci**: Require manually invoked semantic releases
+  ([#375](https://github.com/worganisation/github-config-files/pull/375),
+  [`a1eb032`](https://github.com/worganisation/github-config-files/commit/a1eb032c8511337836af2645fc4773f7036c69ca))
+
+### Performance Improvements
+
+- **ci**: Consolidate standard PR housekeeping
+  ([#373](https://github.com/worganisation/github-config-files/pull/373),
+  [`539b889`](https://github.com/worganisation/github-config-files/commit/539b889c12470285760b747e8bb4a4c221213b59))
+
+- **ci**: Retain local uv caches and skip self-hosted uploads
+  ([#371](https://github.com/worganisation/github-config-files/pull/371),
+  [`6f09061`](https://github.com/worganisation/github-config-files/commit/6f09061b803260231d87c08a30d98f0f4c39b1a2))
+
+
 ## v0.8.7 (2026-09-02)
 
 ### Bug Fixes
