@@ -1,0 +1,58 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":semanticCommits",
+    "helpers:pinGitHubActionDigests",
+    "github>worganisation/github-config-files:renovate-sync-policy"
+  ],
+  "timezone": "Europe/London",
+  "schedule": [
+    "* 0-6 * * 1"
+  ],
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 1,
+  "automerge": false,
+  "dependencyDashboard": true,
+  "reviewers": [
+    "worgarside"
+  ],
+  "pre-commit": {
+    "enabled": false
+  },
+  "packageRules": [
+    {
+      "description": "Keep major upgrades individually reviewable.",
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Group routine GitHub Actions updates.",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest",
+        "pin",
+        "pinDigest"
+      ],
+      "groupName": "GitHub Actions"
+    },
+    {
+      "description": "Shared workflow releases are owned by github-config-files sync.",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchPackageNames": [
+        "worganisation/github-config-files",
+        "worgarside/github-config-files"
+      ],
+      "enabled": false
+    }
+  ],
+  "description": "Shared dependency update policy for worganisation repositories."
+}

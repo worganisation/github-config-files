@@ -37,6 +37,8 @@ on:
 
 jobs:
   release:
+    if: >-
+      github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     name: Release
     environment: production
     runs-on:
@@ -99,7 +101,7 @@ jobs:
           release_known_hosts="${RUNNER_TEMP}/semantic-release-known-hosts"
           install -m 600 /dev/null "${release_key}"
           printf '%s\n' "${DEPLOY_KEY}" > "${release_key}"
-          gh api meta --jq '.ssh_keys[] | "ssh.github.com " + .' \
+          gh api meta --jq '.ssh_keys[] | "[ssh.github.com]:443 " + .' \
             > "${release_known_hosts}"
 
           ssh_command="ssh -i ${release_key}"

@@ -229,6 +229,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.SUBMODULE_DEPLOYMENT_TOKEN || secrets.WORGARSIDE_DEV_TOKEN }}
           PR_BODY_FILE: /tmp/pr_body.txt
+          TARGET_REPO: ${{ steps.get-target-repo.outputs.repo }}
         run: |
           release_link="# [${{ inputs.release-tag }}](https://github.com/${{ github.repository }}/releases/tag/${{ inputs.release-tag }})"
 
@@ -252,5 +253,7 @@ jobs:
               --reviewer ${{ github.repository_owner }}
           )
 
-          gh pr merge --delete-branch --squash --auto "$pr_url"
+          if [[ "${TARGET_REPO,,}" != worganisation/* ]]; then
+            gh pr merge --delete-branch --squash --auto "$pr_url"
+          fi
         # yamllint enable rule:line-length

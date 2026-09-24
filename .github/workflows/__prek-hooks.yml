@@ -25,7 +25,9 @@ on:
 jobs:
   prek:
     name: Prek Hooks
-    if: github.event_name != 'pull_request' || !github.event.pull_request.draft
+    if: >-
+      vars.CI_DISABLE_PREK != 'true' &&
+      (github.event_name != 'pull_request' || !github.event.pull_request.draft)
     runs-on:
       - self-hosted
       - linux
@@ -45,8 +47,10 @@ jobs:
         if: inputs.python-version
         uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
         with:
-          enable-cache: ${{ inputs.sync-project-dependencies == 'true' }}
-          cache-local-path: ${{ github.workspace }}/.uv-cache
+          enable-cache: >-
+            ${{ inputs.sync-project-dependencies == 'true'
+                && runner.environment == 'github-hosted' }}
+          cache-local-path: ${{ runner.tool_cache }}/uv-cache
           python-version: ${{ inputs.python-version }}
 
       - name: Install uv dependencies

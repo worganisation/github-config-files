@@ -1,0 +1,286 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/backplane"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/auto-create-pr.yml",
+        ".github/workflows/manage-pr.yml",
+        ".github/workflows/manage-repo-labels.yml",
+        ".github/workflows/prek-autoupdate.yml",
+        ".github/workflows/prek-hooks.yml",
+        ".github/workflows/unit-tests.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/dockarr"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/auto-create-pr.yml",
+        ".github/workflows/manage-pr.yml",
+        ".github/workflows/manage-repo-labels.yml",
+        ".github/workflows/prek-autoupdate.yml",
+        ".github/workflows/prek-hooks.yml",
+        ".github/workflows/semantic-release.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/docker-compose"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/prek-autoupdate.yml",
+        ".github/workflows/prek-hooks.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/esphome"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/auto-create-pr.yml",
+        ".github/workflows/manage-pr.yml",
+        ".github/workflows/manage-repo-labels.yml",
+        ".github/workflows/prek-autoupdate.yml",
+        ".github/workflows/prek-hooks.yml",
+        ".github/workflows/semantic-release.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/frigate-config"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/auto-create-pr.yml",
+        ".github/workflows/prek-autoupdate.yml",
+        ".github/workflows/prek-hooks.yml",
+        ".github/workflows/semantic-release.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/gpu-worker"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/auto-create-pr.yml",
+        ".github/workflows/manage-pr.yml",
+        ".github/workflows/manage-repo-labels.yml",
+        ".github/workflows/prek-autoupdate.yml",
+        ".github/workflows/prek-hooks.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/home-assistant"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/auto-create-pr.yml",
+        ".github/workflows/manage-pr.yml",
+        ".github/workflows/manage-repo-labels.yml",
+        ".github/workflows/prek-autoupdate.yml",
+        ".github/workflows/prek-hooks.yml",
+        ".github/workflows/semantic-release.yml",
+        ".github/workflows/validate-home-assistant-config.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/home-assistant-appdaemon"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/auto-create-pr.yml",
+        ".github/workflows/manage-pr.yml",
+        ".github/workflows/manage-repo-labels.yml",
+        ".github/workflows/prek-autoupdate.yml",
+        ".github/workflows/prek-hooks.yml",
+        ".github/workflows/semantic-release.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/home-assistant-config-validator"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/auto-create-pr.yml",
+        ".github/workflows/codspeed.yml",
+        ".github/workflows/integration-test.yml",
+        ".github/workflows/manage-pr.yml",
+        ".github/workflows/manage-repo-labels.yml",
+        ".github/workflows/prek-autoupdate.yml",
+        ".github/workflows/prek-hooks.yml",
+        ".github/workflows/semantic-release.yml",
+        ".github/workflows/unit-tests.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/infrastructure"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/auto-create-pr.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/led-matrix-controller"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/auto-create-pr.yml",
+        ".github/workflows/codspeed.yml",
+        ".github/workflows/manage-pr.yml",
+        ".github/workflows/manage-repo-labels.yml",
+        ".github/workflows/prek-autoupdate.yml",
+        ".github/workflows/prek-hooks.yml",
+        ".github/workflows/semantic-release.yml",
+        ".github/workflows/unit-tests.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/pre-commit-hooks-dependency-sync"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/auto-create-pr.yml",
+        ".github/workflows/manage-pr.yml",
+        ".github/workflows/manage-repo-labels.yml",
+        ".github/workflows/prek-autoupdate.yml",
+        ".github/workflows/prek-hooks.yml",
+        ".github/workflows/semantic-release.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/smart-mini-crt-interface"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/auto-create-pr.yml",
+        ".github/workflows/ci_validation.yml",
+        ".github/workflows/manage-pr.yml",
+        ".github/workflows/manage-repo-labels.yml",
+        ".github/workflows/semantic-release.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/very-slow-movie-player"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/auto-create-pr.yml",
+        ".github/workflows/ci_validation.yml",
+        ".github/workflows/manage-pr.yml",
+        ".github/workflows/manage-repo-labels.yml",
+        ".github/workflows/semantic-release.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/wg-scripts"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/auto-create-pr.yml",
+        ".github/workflows/manage-pr.yml",
+        ".github/workflows/manage-repo-labels.yml",
+        ".github/workflows/prek-autoupdate.yml",
+        ".github/workflows/prek-hooks.yml",
+        ".github/workflows/semantic-release.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/wg-utilities"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/auto-create-pr.yml",
+        ".github/workflows/manage-pr.yml",
+        ".github/workflows/manage-repo-labels.yml",
+        ".github/workflows/prek-autoupdate.yml",
+        ".github/workflows/prek-hooks.yml",
+        ".github/workflows/semantic-release.yml",
+        ".github/workflows/unit-tests.yml"
+      ],
+      "enabled": false
+    }
+  ]
+}

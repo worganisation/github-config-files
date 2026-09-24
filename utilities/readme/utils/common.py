@@ -110,6 +110,11 @@ def _process_complex_entry(entry: dict[str, str]) -> dict[str, str]:
             if file.name not in excluded_files
         }
 
+    # A missing source with orphan deletion retires the destination workflow.
+    # It is not an active file mapping and must not link to a nonexistent file.
+    if entry.get("deleteOrphaned"):
+        return {}
+
     raise InvalidMappingError(entry, reason=f"Source `{source}` does not exist")
 
 

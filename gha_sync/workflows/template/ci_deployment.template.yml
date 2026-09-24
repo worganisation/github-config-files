@@ -29,7 +29,8 @@ jobs:
       id-token: write
       contents: read
       pages: write
-    uses: worganisation/github-config-files/.github/workflows/__ci-deployment.yml@0.8.7
+    # yamllint disable-line rule:line-length
+    uses: worganisation/github-config-files/.github/workflows/__ci-deployment.yml@e30191779b5d3c48ec227bab47f8d7e9725cc1f2
     with:
       build-branch: '{{ build_branch }}'
       build-type: '{{ build_type }}'
