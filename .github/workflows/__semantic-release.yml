@@ -10,7 +10,7 @@ on:
         type: string
       force-deployment:
         description: >-
-          Forces a release at a specific level ("prerelease", "patch", "minor", "major"),
+          Forces a release at a specific level ("patch", "minor", "major"),
           bypassing normal commit-based detection. Pass an empty string (the
           caller's own "auto" choice) for normal behaviour - workflow_call
           inputs can't be typed as a dropdown, so the choice UI lives in each
@@ -116,10 +116,10 @@ jobs:
 
           case "${FORCE_DEPLOYMENT}" in
             "") ;;
-            prerelease|patch|minor|major) command+=("--${FORCE_DEPLOYMENT}") ;;
+            patch|minor|major) command+=("--${FORCE_DEPLOYMENT}") ;;
             *)
               echo "::error title=Invalid force deployment::" \
-                "'${FORCE_DEPLOYMENT}' must be prerelease, patch, minor, major, or empty."
+                "'${FORCE_DEPLOYMENT}' must be patch, minor, major, or empty."
               exit 1
               ;;
           esac
