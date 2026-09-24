@@ -32,7 +32,7 @@ All generic callers use the shared CC self-hosted runner and the single Python
 Semantic Release pin in `__semantic-release.yml`. Renovate tracks that pin via
 GCF's PyPI regex manager and proposes stable updates; callers cannot override
 the runner or tool version. The existing GitPython compatibility pin is retained.
-The generic template includes the prerelease choice alongside auto/patch/minor/major.
+The generic template offers only auto, patch, minor and major releases.
 
 Backplane uses `gha_sync/workflows/template/semantic-release.template.yml`, with
 Python 3.14 selected in its sync mapping. No repository-specific release source

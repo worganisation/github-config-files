@@ -12,7 +12,6 @@ on:
         default: auto
         options:
           - auto
-          - prerelease
           - patch
           - minor
           - major
@@ -30,7 +29,7 @@ jobs:
       github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     name: Release
     # yamllint disable-line rule:line-length
-    uses: worganisation/github-config-files/.github/workflows/__semantic-release.yml@a976a79f39dc6d632a23081d51074e2335619b65
+    uses: worganisation/github-config-files/.github/workflows/__semantic-release.yml@487fde4885db2234cb266540f8c114b50674608e
     with:
       python-version: '{{ python_version }}'
       force-deployment: >-
