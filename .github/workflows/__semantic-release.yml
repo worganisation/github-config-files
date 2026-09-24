@@ -8,16 +8,6 @@ on:
         description: The Python version to release with
         required: true
         type: string
-      runner-labels:
-        description: JSON runner label string or array; defaults to the shared CC runner
-        required: false
-        type: string
-        default: '["self-hosted", "linux", "x64", "cc", "iac", "opentofu"]'
-      semantic-release-version:
-        description: Python Semantic Release version to install
-        required: false
-        type: string
-        default: '10.6.1'
       force-deployment:
         description: >-
           Forces a release at a specific level ("prerelease", "patch", "minor", "major"),
@@ -51,7 +41,13 @@ jobs:
       github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     name: Release
     environment: production
-    runs-on: ${{ fromJSON(inputs.runner-labels) }}
+    runs-on:
+      - self-hosted
+      - linux
+      - x64
+      - cc
+      - iac
+      - opentofu
     timeout-minutes: 60
     permissions:
       contents: write
@@ -82,12 +78,10 @@ jobs:
       # Run PSR directly instead of through its Docker action so we can pin its
       # GitPython dependency: https://github.com/python-semantic-release/python-semantic-release/issues/1476
       - name: Install Python Semantic Release
-        env:
-          PSR_VERSION: ${{ inputs.semantic-release-version }}
         run: |
           uv pip install \
             "pip" \
-            "python-semantic-release==${PSR_VERSION}" \
+            "python-semantic-release==10.7.0" \
             "GitPython==3.1.59"
 
       - name: Python Semantic Release
