@@ -25,3 +25,22 @@ manual; its resulting published release can still trigger file sync.
 Repositories without a release workflow do not need a placeholder. Infrastructure preserves its owner/controller authorization across the release
 event. Application deployments consume published releases or release tags; merges and
 branch pushes never deploy. Re-run a deployment for its original release to retry.
+
+## Backplane shared runner
+
+Backplane's managed caller is `gha_sync/workflows/repo/backplane/semantic-release.yml`.
+It preserves the `prerelease` choice and opts into Python 3.14, PSR 10.6.2 and
+`ubuntu-latest`. Other callers retain PSR 10.6.1 and the existing CC runner labels
+unless they opt in through `semantic-release-version` and `runner-labels` (JSON).
+The shared GitPython pin remains unchanged. SSH setup, host verification, key
+cleanup and release invocation stay in `__semantic-release.yml`.
+
+The initial caller pins the shared implementation commit so it can be reviewed
+and adopted without inventing an unreleased version tag. GCF's existing release
+pin updater will replace this SHA with the published GCF version during release.
+Review/merge GCF first, then the matching Backplane caller PR, or distribute it
+through the existing authorized release/file-sync process. Neither PR publishes
+a release. Backplane's `pyproject.toml` must set
+`tool.semantic_release.remote.ignore_token_for_push = true`; its repository
+requires the `DEPLOY_KEY` secret and an explicitly approved DeployKey ruleset
+bypass. The GitHub API token still creates the published release.

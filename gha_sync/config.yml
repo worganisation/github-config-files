@@ -191,7 +191,9 @@ worganisation/esphome:
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/backplane:
-  # Release creation preserves Backplane's prerelease options; deployment uses published releases.
+  # Keep the prerelease-capable caller managed; deployment remains Backplane-owned.
+  - source: gha_sync/workflows/repo/backplane/semantic-release.yml
+    dest: .github/workflows/semantic-release.yml
   - source: gha_sync/workflows/template/prek-hooks.template.yml
     dest: .github/workflows/prek-hooks.yml
     template:
