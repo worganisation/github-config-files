@@ -26,21 +26,22 @@ Repositories without a release workflow do not need a placeholder. Infrastructur
 event. Application deployments consume published releases or release tags; merges and
 branch pushes never deploy. Re-run a deployment for its original release to retry.
 
-## Backplane shared runner
+## Shared release runtime
 
-Backplane's managed caller is `gha_sync/workflows/repo/backplane/semantic-release.yml`.
-It preserves the `prerelease` choice and opts into Python 3.14, PSR 10.6.2 and
-`ubuntu-latest`. Other callers retain PSR 10.6.1 and the existing CC runner labels
-unless they opt in through `semantic-release-version` and `runner-labels` (JSON).
-The shared GitPython pin remains unchanged. SSH setup, host verification, key
-cleanup and release invocation stay in `__semantic-release.yml`.
+All generic callers use the shared CC self-hosted runner and the single Python
+Semantic Release pin in `__semantic-release.yml`. Renovate tracks that pin via
+GCF's PyPI regex manager and proposes stable updates; callers cannot override
+the runner or tool version. The existing GitPython compatibility pin is retained.
+The generic template includes the prerelease choice alongside auto/patch/minor/major.
 
-The initial caller pins the shared implementation commit so it can be reviewed
-and adopted without inventing an unreleased version tag. GCF's existing release
-pin updater will replace this SHA with the published GCF version during release.
-Review/merge GCF first, then the matching Backplane caller PR, or distribute it
-through the existing authorized release/file-sync process. Neither PR publishes
-a release. Backplane's `pyproject.toml` must set
+Backplane uses `gha_sync/workflows/template/semantic-release.template.yml`, with
+Python 3.14 selected in its sync mapping. No repository-specific release source
+is needed. Its application deployment workflow remains Backplane-owned.
+The template initially pins the shared implementation commit; the normal release
+pin updater advances it to a published GCF version. Review/merge GCF before the
+Backplane caller. Neither PR publishes a release.
+
+Backplane's project configuration must set
 `tool.semantic_release.remote.ignore_token_for_push = true`; its repository
-requires the `DEPLOY_KEY` secret and an explicitly approved DeployKey ruleset
-bypass. The GitHub API token still creates the published release.
+needs `DEPLOY_KEY` and an explicitly approved DeployKey ruleset bypass.
+The API token still creates the published release.
