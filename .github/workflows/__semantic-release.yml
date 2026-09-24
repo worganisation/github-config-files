@@ -8,9 +8,19 @@ on:
         description: The Python version to release with
         required: true
         type: string
+      runner-labels:
+        description: JSON runner label string or array; defaults to the shared CC runner
+        required: false
+        type: string
+        default: '["self-hosted", "linux", "x64", "cc", "iac", "opentofu"]'
+      semantic-release-version:
+        description: Python Semantic Release version to install
+        required: false
+        type: string
+        default: '10.6.1'
       force-deployment:
         description: >-
-          Forces a release at a specific level ("patch", "minor", "major"),
+          Forces a release at a specific level ("prerelease", "patch", "minor", "major"),
           bypassing normal commit-based detection. Pass an empty string (the
           caller's own "auto" choice) for normal behaviour - workflow_call
           inputs can't be typed as a dropdown, so the choice UI lives in each
@@ -41,13 +51,7 @@ jobs:
       github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     name: Release
     environment: production
-    runs-on:
-      - self-hosted
-      - linux
-      - x64
-      - cc
-      - iac
-      - opentofu
+    runs-on: ${{ fromJSON(inputs.runner-labels) }}
     timeout-minutes: 60
     permissions:
       contents: write
@@ -78,10 +82,12 @@ jobs:
       # Run PSR directly instead of through its Docker action so we can pin its
       # GitPython dependency: https://github.com/python-semantic-release/python-semantic-release/issues/1476
       - name: Install Python Semantic Release
+        env:
+          PSR_VERSION: ${{ inputs.semantic-release-version }}
         run: |
           uv pip install \
             "pip" \
-            "python-semantic-release==10.6.1" \
+            "python-semantic-release==${PSR_VERSION}" \
             "GitPython==3.1.59"
 
       - name: Python Semantic Release
@@ -116,10 +122,10 @@ jobs:
 
           case "${FORCE_DEPLOYMENT}" in
             "") ;;
-            patch|minor|major) command+=("--${FORCE_DEPLOYMENT}") ;;
+            prerelease|patch|minor|major) command+=("--${FORCE_DEPLOYMENT}") ;;
             *)
               echo "::error title=Invalid force deployment::" \
-                "'${FORCE_DEPLOYMENT}' must be patch, minor, major, or empty."
+                "'${FORCE_DEPLOYMENT}' must be prerelease, patch, minor, major, or empty."
               exit 1
               ;;
           esac
