@@ -160,8 +160,6 @@ group:
           python_version: '3.12'
     repos: |
       worgarside/python-template
-      worganisation/smart-mini-crt-interface
-      worganisation/very-slow-movie-player
 
   # Standard CI Deployment with version bump in pyproject.toml
   # Same caveat as Standard CI Validation above.

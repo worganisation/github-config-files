@@ -8,10 +8,12 @@ on:
       - opened
       - reopened
       - synchronize
+      - ready_for_review
 
 jobs:
   ci-validation:
     name: 'CI: Validation'
+    if: github.event_name != 'pull_request' || !github.event.pull_request.draft
     uses: worganisation/github-config-files/.github/workflows/__ci-validation.yml@0.10.0
     with:
       build-branch: '{{ build_branch }}'
