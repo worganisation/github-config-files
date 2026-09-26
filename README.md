@@ -466,7 +466,7 @@ Types: edited, labeled, opened, ready_for_review, reopened, synchronize, unlabel
 CB("Manage Repo Labels")
 CC{{"PUSH
 Branches: main
-Paths: .github/repo_labels.yml, .github/workflows/manage-repo-labels.yml
+Paths: .github/repo_labels.yml
 "}}
 CF("Prek Auto-Update")
 CG{{"SCHEDULE"}}
