@@ -7,5 +7,27 @@
     "managerFilePatterns": [
       "/^gha_sync/workflows/.*\\.ya?ml$/"
     ]
-  }
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^\\.github/workflows/__semantic-release\\.yml$/"
+      ],
+      "matchStrings": [
+        "\"python-semantic-release==(?<currentValue>[^\"\\s]+)\""
+      ],
+      "depNameTemplate": "python-semantic-release",
+      "datasourceTemplate": "pypi",
+      "versioningTemplate": "pep440"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDepNames": [
+        "python-semantic-release"
+      ],
+      "ignoreUnstable": true
+    }
+  ]
 }
