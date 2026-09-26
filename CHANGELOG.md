@@ -2,6 +2,20 @@
 
 <!-- version list -->
 
+## v0.10.0 (2026-09-26)
+
+### Features
+
+- Add shared Renovate preset ([#370](https://github.com/worganisation/github-config-files/pull/370),
+  [`8a87138`](https://github.com/worganisation/github-config-files/commit/8a871384882ea48b3d8fa8817787c78284876650))
+
+### Performance Improvements
+
+- **ci**: Limit repository label sync to label changes
+  ([#380](https://github.com/worganisation/github-config-files/pull/380),
+  [`b563e50`](https://github.com/worganisation/github-config-files/commit/b563e500b9f7b46a84364a285796a92b2d4f9b70))
+
+
 ## v0.9.0 (2026-09-24)
 
 ### Bug Fixes

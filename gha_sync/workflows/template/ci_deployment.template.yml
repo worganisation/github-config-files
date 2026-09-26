@@ -9,7 +9,7 @@ on:
 jobs:
   ci-validation:
     name: 'CI: Validation'
-    uses: worganisation/github-config-files/.github/workflows/__ci-validation.yml@0.9.0
+    uses: worganisation/github-config-files/.github/workflows/__ci-validation.yml@0.10.0
     with:
       build-branch: '{{ build_branch }}'
       build-type: '{{ build_type }}'
@@ -30,7 +30,7 @@ jobs:
       contents: read
       pages: write
     # yamllint disable-line rule:line-length
-    uses: worganisation/github-config-files/.github/workflows/__ci-deployment.yml@0.9.0
+    uses: worganisation/github-config-files/.github/workflows/__ci-deployment.yml@0.10.0
     with:
       build-branch: '{{ build_branch }}'
       build-type: '{{ build_type }}'
