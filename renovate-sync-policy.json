@@ -41,20 +41,6 @@
     {
       "description": "GCF source templates own these synced workflows.",
       "matchRepositories": [
-        "worganisation/docker-compose"
-      ],
-      "matchManagers": [
-        "github-actions"
-      ],
-      "matchFileNames": [
-        ".github/workflows/prek-autoupdate.yml",
-        ".github/workflows/prek-hooks.yml"
-      ],
-      "enabled": false
-    },
-    {
-      "description": "GCF source templates own these synced workflows.",
-      "matchRepositories": [
         "worganisation/esphome"
       ],
       "matchManagers": [

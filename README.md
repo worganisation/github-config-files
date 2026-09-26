@@ -114,20 +114,6 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [.github/workflows/semantic-release.yml](https://github.com/worganisation/dockarr/.github/workflows/semantic-release.yml) |
 </details>
 
-### [worganisation/docker-compose](https://github.com/worganisation/docker-compose) (5 files)
-
-<details>
-<summary>Mapping Table</summary>
-
-| Source | Destination |
-|--------|-------------|
-| [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](https://github.com/worganisation/docker-compose/.github/labeler.yml) |
-| [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](https://github.com/worganisation/docker-compose/.github/repo_labels.yml) |
-| [.yamllint](.yamllint) | [.yamllint.yml](https://github.com/worganisation/docker-compose/.yamllint.yml) |
-| [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [.github/workflows/prek-autoupdate.yml](https://github.com/worganisation/docker-compose/.github/workflows/prek-autoupdate.yml) |
-| [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [.github/workflows/prek-hooks.yml](https://github.com/worganisation/docker-compose/.github/workflows/prek-hooks.yml) |
-</details>
-
 ### [worganisation/esphome](https://github.com/worganisation/esphome) (12 files)
 
 <details>
