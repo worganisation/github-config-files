@@ -208,7 +208,6 @@
       ],
       "matchFileNames": [
         ".github/workflows/auto-create-pr.yml",
-        ".github/workflows/ci_validation.yml",
         ".github/workflows/manage-pr.yml",
         ".github/workflows/manage-repo-labels.yml",
         ".github/workflows/semantic-release.yml"
@@ -225,7 +224,6 @@
       ],
       "matchFileNames": [
         ".github/workflows/auto-create-pr.yml",
-        ".github/workflows/ci_validation.yml",
         ".github/workflows/manage-pr.yml",
         ".github/workflows/manage-repo-labels.yml",
         ".github/workflows/semantic-release.yml"
