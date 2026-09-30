@@ -10,7 +10,7 @@
   "schedule": [
     "* 0-6 * * 1"
   ],
-  "prConcurrentLimit": 3,
+  "prConcurrentLimit": 10,
   "prHourlyLimit": 1,
   "automerge": false,
   "dependencyDashboard": true,
