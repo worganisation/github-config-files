@@ -27,6 +27,7 @@ jobs:
     runs-on: >-
       {% raw %}${{ fromJSON(format('{0}', '{% endraw %}{{ benchmark_runner }}{% raw %}')) }}{% endraw %}
     if: >-
+      github.repository != 'worganisation/home-assistant-config-validator' &&
       !github.event.pull_request.draft
     steps:
       - name: Clone Repo
