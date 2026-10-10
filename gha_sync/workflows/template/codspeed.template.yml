@@ -20,7 +20,7 @@ jobs:
       BENCHMARK_REPO: '{{ benchmark_repo }}'
       HA_BENCHMARK_REPO_PATH: '{% raw %}${{ github.workspace }}{% endraw %}/benchmark-input'
     runs-on: >-
-      {% raw %}${{ fromJSON('{% endraw %}{{ benchmark_runner }}{% raw %}') }}{% endraw %}
+      {% raw %}${{ fromJSON(format('{0}', '{% endraw %}{{ benchmark_runner }}{% raw %}')) }}{% endraw %}
     if: >-
       !github.event.pull_request.draft
     steps:
