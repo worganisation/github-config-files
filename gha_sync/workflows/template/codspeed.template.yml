@@ -42,5 +42,6 @@ jobs:
       - name: Run Benchmarks
         uses: CodSpeedHQ/action@373d6868929f444bc08d901fd0eb0ad52a8875ea # v5.2.1
         with:
+          mode: simulation
           token: '{{ token }}'
           run: uv run --no-sync pytest {{ pytest_args }} --codspeed -v -n 0
