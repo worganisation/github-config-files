@@ -18,7 +18,7 @@ jobs:
     name: Run Benchmarks
     env:
       BENCHMARK_REPO: '{{ benchmark_repo }}'
-      HA_BENCHMARK_REPO_PATH: ${{ github.workspace }}/benchmark-input
+      HA_BENCHMARK_REPO_PATH: '{% raw %}${{ github.workspace }}{% endraw %}/benchmark-input'
     runs-on: >-
       {% raw %}${{ fromJSON('{% endraw %}{{ benchmark_runner }}{% raw %}') }}{% endraw %}
     if: >-
@@ -31,7 +31,7 @@ jobs:
         if: env.BENCHMARK_REPO != ''
         id: fixture-tag
         env:
-          GH_TOKEN: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
+          GH_TOKEN: '{% raw %}${{ secrets.WORGARSIDE_DEV_TOKEN }}{% endraw %}'
         run: |
           tag=$(gh release view --repo "$BENCHMARK_REPO" --json tagName --jq .tagName)
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
@@ -40,10 +40,10 @@ jobs:
         if: env.BENCHMARK_REPO != ''
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: ${{ env.BENCHMARK_REPO }}
-          ref: ${{ steps.fixture-tag.outputs.tag }}
+          repository: '{% raw %}${{ env.BENCHMARK_REPO }}{% endraw %}'
+          ref: '{% raw %}${{ steps.fixture-tag.outputs.tag }}{% endraw %}'
           path: benchmark-input
-          token: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
+          token: '{% raw %}${{ secrets.WORGARSIDE_DEV_TOKEN }}{% endraw %}'
           persist-credentials: false
 
       - name: Install uv
