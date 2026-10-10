@@ -271,7 +271,6 @@ worganisation/home-assistant-config-validator:
     dest: .github/workflows/codspeed.yml
     template:
       python_version: '3.12'
-      token: ${{ secrets.CODSPEED_TOKEN }}
       pytest_args: tests/benchmark
       benchmark_repo: worganisation/home-assistant
       benchmark_runner: '"ubuntu-24.04"'
@@ -300,7 +299,6 @@ worganisation/led-matrix-controller:
     dest: .github/workflows/codspeed.yml
     template:
       python_version: '3.11'
-      token: ${{ secrets.CODSPEED_TOKEN }}
       pytest_args: ''
       benchmark_repo: ''
       benchmark_runner: '["self-hosted", "linux", "x64", "cc", "iac", "opentofu"]'
