@@ -16,6 +16,9 @@ on:
 jobs:
   benchmarks:
     name: Run Benchmarks
+    env:
+      BENCHMARK_REPO: '{{ benchmark_repo }}'
+      HA_BENCHMARK_REPO_PATH: ${{ github.workspace }}/benchmark-input
     runs-on: >-
       {% raw %}${{ fromJSON('{% endraw %}{{ benchmark_runner }}{% raw %}') }}{% endraw %}
     if: >-
@@ -23,6 +26,25 @@ jobs:
     steps:
       - name: Clone Repo
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Get benchmark fixture release
+        if: env.BENCHMARK_REPO != ''
+        id: fixture-tag
+        env:
+          GH_TOKEN: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
+        run: |
+          tag=$(gh release view --repo "$BENCHMARK_REPO" --json tagName --jq .tagName)
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout benchmark fixture
+        if: env.BENCHMARK_REPO != ''
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ env.BENCHMARK_REPO }}
+          ref: ${{ steps.fixture-tag.outputs.tag }}
+          path: benchmark-input
+          token: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
+          persist-credentials: false
 
       - name: Install uv
         uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
