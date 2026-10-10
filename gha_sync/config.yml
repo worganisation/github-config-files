@@ -270,17 +270,15 @@ worganisation/home-assistant-config-validator:
   - source: gha_sync/workflows/template/codspeed.template.yml
     dest: .github/workflows/codspeed.yml
     template:
-      cache_key: venv-${{ hashFiles(env.CACHE_FILE) }}
       python_version: '3.12'
       token: ${{ secrets.CODSPEED_TOKEN }}
+      pytest_args: tests/benchmark
   - source: gha_sync/workflows/template/prek-hooks.template.yml
     dest: .github/workflows/prek-hooks.yml
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
-      python_version: ''
-      # This repository still uses Poetry and has no uv.lock. The hooks have
-      # isolated environments, so syncing the project itself is unnecessary.
-      sync_project_dependencies: 'false'
+      python_version: '3.12'
+      sync_project_dependencies: 'true'
   - source: gha_sync/workflows/template/unit-tests.template.yml
     dest: .github/workflows/unit-tests.yml
     template:
@@ -299,9 +297,9 @@ worganisation/led-matrix-controller:
   - source: gha_sync/workflows/template/codspeed.template.yml
     dest: .github/workflows/codspeed.yml
     template:
-      cache_key: venv-${{ hashFiles(env.CACHE_FILE) }}
       python_version: '3.11'
       token: ${{ secrets.CODSPEED_TOKEN }}
+      pytest_args: ''
   - source: gha_sync/workflows/template/prek-hooks.template.yml
     dest: .github/workflows/prek-hooks.yml
     template:

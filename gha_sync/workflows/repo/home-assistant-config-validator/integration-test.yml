@@ -44,9 +44,9 @@ jobs:
           GH_TOKEN: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
         # yamllint disable rule:line-length
         run: |
-          tag=$(gh release view --repo worgarside/home-assistant --json tagName --jq '.tagName')
+          tag=$(gh release view --repo worganisation/home-assistant --json tagName --jq '.tagName')
 
-          echo "Running integration test against [`worgarside/home-assistant@${tag}`](https://github.com/worgarside/home-assistant/releases/tag/${tag})"
+          echo "Running integration test against [`worganisation/home-assistant@${tag}`](https://github.com/worganisation/home-assistant/releases/tag/${tag})"
           echo "tag=${tag}" >> "${GITHUB_OUTPUT}"
         # yamllint enable rule:line-length
 
@@ -55,27 +55,8 @@ jobs:
         with:
           path: home-assistant
           ref: ${{ steps.ha-tag.outputs.tag }}
-          repository: worgarside/home-assistant
+          repository: worganisation/home-assistant
           token: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
-
-      - name: Load cached .local
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: ~/.local
-          key: dotlocal-${{ runner.os }}
-
-      - name: Install Poetry
-        uses: snok/install-poetry@a783c322200f0519c7926aa6faa857c4e23e9263 # v1.4.2
-        with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
-
-      - name: Load Cached Venv
-        id: cached-poetry-dependencies
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
 
       - name: Set up uv
         uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
@@ -84,24 +65,19 @@ jobs:
           cache-local-path: ${{ runner.tool_cache }}/uv-cache
           python-version: '3.12'
 
-      - name: Install Python
-        run: uv python install 3.12
-
       - name: Install Dependencies
         working-directory: home-assistant-config-validator
-        run: |
-          poetry env use "$(uv python find 3.12)"
-          poetry install --only main
+        run: uv sync --locked --no-dev
 
       - name: Generate README
         working-directory: home-assistant-config-validator
-        run: poetry run python home_assistant_config_validator/readme_generator.py
+        run: uv run --no-sync python home_assistant_config_validator/readme_generator.py
 
       - name: Validate Entities
         working-directory: home-assistant-config-validator
-        run: poetry run python home_assistant_config_validator/validate_entities.py
+        run: uv run --no-sync python home_assistant_config_validator/validate_entities.py
 
       - name: Validate Lovelace
         working-directory: home-assistant-config-validator
         continue-on-error: true
-        run: poetry run python home_assistant_config_validator/validate_lovelace.py
+        run: uv run --no-sync python home_assistant_config_validator/validate_lovelace.py
