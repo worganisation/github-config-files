@@ -16,6 +16,12 @@ The preset discovers supported package managers automatically, runs its normal
 update window before 06:00 Europe/London each Monday, pins floating container
 tags to digests, and opens dependency PRs without enabling Renovate automerge.
 
+The named `renovate-default.json` preset is selected with
+`github>worganisation/github-config-files:renovate-default`. It permits updates
+whenever Renovate runs, with at most 10 open Renovate PRs per repository and one
+new PR per hour. Major updates require Dependency Dashboard approval, and merges
+remain manual. Mend controls job frequency independently of the preset.
+
 ## Migrating from Dependabot
 
 1. Install the Mend Renovate GitHub App for the repository.
