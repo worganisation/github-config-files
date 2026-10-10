@@ -271,7 +271,7 @@ worganisation/home-assistant-config-validator:
     dest: .github/workflows/codspeed.yml
     template:
       python_version: '3.12'
-      token: ${{ secrets.CODSPEED_TOKEN }}
+      token: ''
       pytest_args: tests/benchmark
       benchmark_repo: worganisation/home-assistant
       benchmark_runner: '"ubuntu-24.04"'

@@ -16,6 +16,11 @@ on:
 jobs:
   benchmarks:
     name: Run Benchmarks
+    # {% if not token %}
+    permissions:
+      contents: read
+      id-token: write
+    # {% endif %}
     env:
       BENCHMARK_REPO: '{{ benchmark_repo }}'
       HA_BENCHMARK_REPO_PATH: '{% raw %}${{ github.workspace }}{% endraw %}/benchmark-input'
