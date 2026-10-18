@@ -16,6 +16,7 @@ permissions:
 
 jobs:
   manage-repo-labels:
+    name: Manage Repo Labels
     runs-on: [self-hosted, linux, x64, cc, iac, opentofu]
     timeout-minutes: 5
     steps:
