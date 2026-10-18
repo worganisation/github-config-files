@@ -208,6 +208,7 @@ worganisation/backplane:
       source_dir: src
 
 worganisation/frigate-config:
+  - .github/actionlint.yaml
   - source: gha_sync/workflows/all/auto-create-pr.yml
     dest: .github/workflows/auto-create-pr.yml
     deleteOrphaned: true

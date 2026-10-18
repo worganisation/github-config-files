@@ -1,0 +1,18 @@
+---
+name: LAN deployment SSH
+description: Configure isolated SSH credentials and verified host keys for local deployment
+inputs:
+  private-key:
+    description: Deployment SSH private key
+    required: true
+  known-hosts:
+    description: Independently verified OpenSSH known_hosts entries for the deployment addresses
+    required: true
+outputs:
+  config:
+    description: Temporary SSH config path; pass to ssh or scp with -F
+runs:
+  using: node24
+  main: setup.cjs
+  post: cleanup.cjs
+  post-if: always()
