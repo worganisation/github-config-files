@@ -425,7 +425,7 @@ worganisation/authentik:
   - source: gha_sync/workflows/all/manage-pr.yml
     dest: .github/workflows/manage-pr.yml
     deleteOrphaned: true
-  - source: gha_sync/workflows/all/manage-repo-labels.yml
+  - source: gha_sync/workflows/repo/authentik/manage-repo-labels.yml
     dest: .github/workflows/manage-repo-labels.yml
     deleteOrphaned: true
   - source: gha_sync/workflows/all/prek-autoupdate.yml
