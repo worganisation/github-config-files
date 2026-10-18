@@ -6,6 +6,10 @@ Linux jobs use the CC self-hosted runner labels `self-hosted`, `linux`, `x64`,
 `cc`, `iac`, and `opentofu`. All managed repositories restrict pull requests
 to contributors.
 
+## Local application deployments
+
+[LAN deployment SSH](actions/lan-ssh/README.md) provides shared credential setup, verified host keys and cleanup for application deployment workflows on the CC runner.
+
 ## Standard PR Checks
 
 The synced `manage-pr.yml` caller uses `__standard-pr-checks.yml` to run
