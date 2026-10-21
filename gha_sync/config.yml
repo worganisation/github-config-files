@@ -295,28 +295,15 @@ worganisation/home-assistant-config-validator:
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/led-matrix-controller:
+  # Unit tests and benchmarks are repository-owned to install native audio dependencies.
   # PyAudio requires system PortAudio headers, so Prek skips the project's
   # dependency installation while continuing to use the shared workflow.
-  - source: gha_sync/workflows/template/codspeed.template.yml
-    dest: .github/workflows/codspeed.yml
-    template:
-      python_version: '3.11'
-      token: ${{ secrets.CODSPEED_TOKEN }}
-      pytest_args: ''
-      benchmark_repo: ''
-      benchmark_runner: '["self-hosted", "linux", "x64", "cc", "iac", "opentofu"]'
   - source: gha_sync/workflows/template/prek-hooks.template.yml
     dest: .github/workflows/prek-hooks.yml
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: '3.11'
       sync_project_dependencies: 'false'
-  - source: gha_sync/workflows/template/unit-tests.template.yml
-    dest: .github/workflows/unit-tests.yml
-    template:
-      concurrency_group: unit-tests-${{ github.ref }}
-      python_version: '3.11'
-      source_dir: led_matrix_controller
   - source: gha_sync/workflows/template/semantic-release.template.yml
     dest: .github/workflows/semantic-release.yml
     template:

@@ -188,13 +188,11 @@
       ],
       "matchFileNames": [
         ".github/workflows/auto-create-pr.yml",
-        ".github/workflows/codspeed.yml",
         ".github/workflows/manage-pr.yml",
         ".github/workflows/manage-repo-labels.yml",
         ".github/workflows/prek-autoupdate.yml",
         ".github/workflows/prek-hooks.yml",
-        ".github/workflows/semantic-release.yml",
-        ".github/workflows/unit-tests.yml"
+        ".github/workflows/semantic-release.yml"
       ],
       "enabled": false
     },
