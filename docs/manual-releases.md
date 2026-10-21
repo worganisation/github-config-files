@@ -26,6 +26,22 @@ Repositories without a release workflow do not need a placeholder. Infrastructur
 event. Application deployments consume published releases or release tags; merges and
 branch pushes never deploy. Re-run a deployment for its original release to retry.
 
+## Python Semantic Release defaults
+
+Every `worganisation` repository using Python Semantic Release keeps these defaults in its own `pyproject.toml`, including new repositories:
+
+```toml
+[tool.semantic_release]
+major_on_zero = true
+
+[tool.semantic_release.changelog.default_templates]
+mask_initial_release = false
+```
+
+Breaking commits can advance a zero-major version to 1.0.0, and the initial release includes detailed changelog entries. Keep each repository's `allow_zero_version` value and other release settings intact. These defaults do not authorize a release or a major-version publication; inspect the calculated version before dispatch and obtain the owner's explicit approval for a major release.
+
+The shared workflow reads the caller's `pyproject.toml`; workflow sync does not own or overwrite project metadata. Use the configuration above when setting up a repository with the shared caller. Apply equivalent supported behavior when using another semantic-release implementation; Python-specific keys belong only in Python Semantic Release configuration.
+
 ## Shared release runtime
 
 All generic callers use the shared CC self-hosted runner and the single Python

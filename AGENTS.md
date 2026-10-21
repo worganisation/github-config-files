@@ -59,6 +59,10 @@ Application deployment workflows run from a published release or release tag,
 not a branch push or separate manual dispatch. Keep deployment logic separate
 from release creation so the published revision is the deployment input.
 
+## Semantic Release configuration defaults
+
+For every `worganisation` repository using Python Semantic Release, including new repositories, set `tool.semantic_release.major_on_zero = true` and `tool.semantic_release.changelog.default_templates.mask_initial_release = false` in the caller's `pyproject.toml`. Preserve `allow_zero_version` and unrelated settings. Keep these defaults in repository setup guidance and templates; see [the release configuration example](docs/manual-releases.md#python-semantic-release-defaults). Other semantic-release implementations require their own supported configuration. Configuration maintenance does not authorize release publication or override the owner's major-release approval requirement.
+
 ## Dockarr CI
 
 Keep Dockarr enrolled only in the selected shared workflows and settings.
