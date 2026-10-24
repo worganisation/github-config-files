@@ -29,7 +29,7 @@ jobs:
 
       - name: Run GitHub File Sync
         id: sync
-        uses: raven-actions/repo-files-sync@bb4d579be65a4086050c7e5441fb6f69a382db07 # v0.1.0-rc.17
+        uses: raven-actions/repo-files-sync@511c602835ac7dd8529673f91afe348db8d08185 # v0.1.0-rc.18
         with:
           GH_TOKEN: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
           CONFIG_PATH: gha_sync/config.yml
