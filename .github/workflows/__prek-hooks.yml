@@ -45,7 +45,7 @@ jobs:
 
       - name: Install uv
         if: inputs.python-version
-        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
         with:
           enable-cache: >-
             ${{ inputs.sync-project-dependencies == 'true'
@@ -59,7 +59,7 @@ jobs:
 
       - name: Run prek
         id: run-prek
-        uses: j178/prek-action@4e14d07f9231acabce116ccfca13b13dd9755ece # v3.0.0
+        uses: j178/prek-action@44924fe9ef4a6f88253c4b6b1bf11c689d3ce53d # v3.1.0
         continue-on-error: true
         with:
           prek-version: ${{ inputs.prek-version }}
