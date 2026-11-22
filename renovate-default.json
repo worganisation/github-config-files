@@ -22,13 +22,6 @@
   },
   "packageRules": [
     {
-      "description": "Keep major upgrades individually reviewable.",
-      "matchUpdateTypes": [
-        "major"
-      ],
-      "dependencyDashboardApproval": true
-    },
-    {
       "description": "Group routine GitHub Actions updates.",
       "matchManagers": [
         "github-actions"
