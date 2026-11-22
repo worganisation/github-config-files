@@ -13,9 +13,6 @@ group:
   - files:
       - .github/actionlint.yaml
       - .github/CODEOWNERS
-      - source: gha_sync/workflows/all/auto-create-pr.yml
-        dest: .github/workflows/auto-create-pr.yml
-        deleteOrphaned: true
       - source: gha_sync/workflows/all/manage-pr.yml
         dest: .github/workflows/manage-pr.yml
         deleteOrphaned: true
@@ -34,6 +31,25 @@ group:
       worgarside/python-template
       worganisation/smart-mini-crt-interface
       worganisation/very-slow-movie-player
+      worganisation/wg-scripts
+      worganisation/wg-utilities
+
+  # VSMP owns its nearest-ancestor PR creation workflow.
+  - files:
+      - source: gha_sync/workflows/all/auto-create-pr.yml
+        dest: .github/workflows/auto-create-pr.yml
+        deleteOrphaned: true
+    repos: |
+      worganisation/backplane
+      worganisation/esphome
+      worganisation/gpu-worker
+      worganisation/home-assistant
+      worganisation/home-assistant-appdaemon
+      worganisation/home-assistant-config-validator
+      worganisation/led-matrix-controller
+      worganisation/pre-commit-hooks-dependency-sync
+      worgarside/python-template
+      worganisation/smart-mini-crt-interface
       worganisation/wg-scripts
       worganisation/wg-utilities
 
@@ -257,12 +273,12 @@ worganisation/home-assistant-appdaemon:
     dest: .github/workflows/prek-hooks.yml
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
-      python_version: '3.12'
+      python_version: '3.13'
       sync_project_dependencies: 'true'
   - source: gha_sync/workflows/template/semantic-release.template.yml
     dest: .github/workflows/semantic-release.yml
     template:
-      python_version: '3.12'
+      python_version: '3.13'
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/home-assistant-config-validator:
@@ -275,7 +291,7 @@ worganisation/home-assistant-config-validator:
       token: ''
       pytest_args: tests/benchmark
       benchmark_repo: worganisation/home-assistant
-      benchmark_runner: '"ubuntu-24.04"'
+      benchmark_runner: ubuntu-24.04
   - source: gha_sync/workflows/template/prek-hooks.template.yml
     dest: .github/workflows/prek-hooks.yml
     template:
@@ -366,12 +382,6 @@ worganisation/smart-mini-crt-interface:
       python_version: '3.12'
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
-worganisation/very-slow-movie-player:
-  - source: gha_sync/workflows/template/semantic-release.template.yml
-    dest: .github/workflows/semantic-release.yml
-    template:
-      python_version: '3.12'
-      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 worganisation/dockarr:
   # Container builds/deployment are bespoke. Do not sync unit tests or auto-merge.
   - .github/actionlint.yaml
