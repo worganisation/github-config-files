@@ -198,11 +198,6 @@ worganisation/esphome:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: ''
       sync_project_dependencies: 'false'
-  - source: gha_sync/workflows/template/semantic-release.template.yml
-    dest: .github/workflows/semantic-release.yml
-    template:
-      python_version: '3.12'
-      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/backplane:
   - source: gha_sync/workflows/template/semantic-release.template.yml
