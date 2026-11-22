@@ -86,9 +86,15 @@ group:
       worganisation/home-assistant-config-validator
       worganisation/led-matrix-controller
       worganisation/pre-commit-hooks-dependency-sync
-      worganisation/smart-mini-crt-interface
       worganisation/very-slow-movie-player
       worganisation/wg-scripts
+
+  # Poetry consumers retain pip security updates and repository-owned CI.
+  - files:
+      - source: gha_sync/configs/dependabot-poetry.yml
+        dest: .github/dependabot.yml
+    repos: |
+      worganisation/smart-mini-crt-interface
       worganisation/wg-utilities
 
   # The personal template retains its independent Dependabot policy.
@@ -116,7 +122,6 @@ group:
       worganisation/led-matrix-controller
       worganisation/pre-commit-hooks-dependency-sync
       worganisation/wg-scripts
-      worganisation/wg-utilities
 
   # Release Drafter - only the repos still on the legacy label-based release
   # mechanism (__ci-validation.yml / __ci-deployment.yml) need this. Repos
@@ -347,33 +352,6 @@ worganisation/wg-scripts:
     dest: .github/workflows/semantic-release.yml
     template:
       python_version: '3.14'
-      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
-
-worganisation/wg-utilities:
-  # PyPI and documentation publishing consume the published release event.
-  - source: gha_sync/workflows/template/prek-hooks.template.yml
-    dest: .github/workflows/prek-hooks.yml
-    template:
-      concurrency_group: prek-hooks-${{ github.ref }}
-      python_version: '3.12'
-      sync_project_dependencies: 'true'
-  - source: gha_sync/workflows/template/unit-tests.template.yml
-    dest: .github/workflows/unit-tests.yml
-    template:
-      concurrency_group: unit-tests-${{ github.ref }}
-      python_version: '3.12'
-      source_dir: wg_utilities
-  - source: gha_sync/workflows/template/semantic-release.template.yml
-    dest: .github/workflows/semantic-release.yml
-    template:
-      python_version: '3.12'
-      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
-
-worganisation/smart-mini-crt-interface:
-  - source: gha_sync/workflows/template/semantic-release.template.yml
-    dest: .github/workflows/semantic-release.yml
-    template:
-      python_version: '3.12'
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/dockarr:
