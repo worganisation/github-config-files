@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.11.1 (2026-11-22)
+
+### Bug Fixes
+
+- Preserve consumer behavior in workflow sync
+  ([#397](https://github.com/worganisation/github-config-files/pull/397),
+  [`5a95887`](https://github.com/worganisation/github-config-files/commit/5a95887909fedcc64d2d5d5d234ed8568869ed4f))
+
+
 ## v0.11.0 (2026-11-22)
 
 ### Bug Fixes
