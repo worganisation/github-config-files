@@ -126,7 +126,7 @@ jobs:
         with:
           cache: npm
           cache-dependency-path: ${{ inputs.node-build-directory }}/package-lock.json
-          node-version: 18
+          node-version: 26
 
       - name: Cache Build
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
