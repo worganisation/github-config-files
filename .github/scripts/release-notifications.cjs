@@ -14,15 +14,24 @@ function notes(body) {
 
 /** Send a Slack request and surface API errors without logging credentials. */
 async function slack(method, payload) {
-  const response = await fetch('https://slack.com/api/' + method, {
-    method: 'POST', redirect: 'error', signal: AbortSignal.timeout(15000),
-    headers: { Authorization: 'Bearer ' + process.env.SLACK_TOKEN, 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  })
-  if (!response.ok) throw new Error('Slack HTTP ' + response.status)
-  const result = await response.json()
-  if (!result.ok) throw new Error('Slack ' + method + ': ' + result.error)
-  return result
+  for (let attempt = 1; ; attempt++) {
+    const response = await fetch('https://slack.com/api/' + method, {
+      method: 'POST', redirect: 'error', signal: AbortSignal.timeout(15000),
+      headers: { Authorization: 'Bearer ' + process.env.SLACK_TOKEN, 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+    if (response.status === 429 && attempt < 4) {
+      const seconds = Number(response.headers.get('retry-after') || 1)
+      if (!Number.isFinite(seconds) || seconds < 0 || seconds > 60) throw new Error('Slack rate limit exceeds retry budget')
+      await sleep(Math.max(seconds, 1) * 1000)
+      continue
+    }
+
+    if (!response.ok) throw new Error('Slack HTTP ' + response.status)
+    const result = await response.json()
+    if (!result.ok) throw new Error('Slack ' + method + ': ' + result.error)
+    return result
+  }
 }
 
 /** Create a message once per release asset or update the recorded Slack message on retry. */
@@ -53,6 +62,20 @@ async function publish(github, repo, release, key, text, thread) {
   return posted.ts
 }
 
+/** Format a material stage with a stable receipt across attempts of the same run. */
+function stageReply(run, job, step) {
+  const stage = step || job
+  const identity = JSON.stringify([job.name, step?.name])
+  const digest = createHash('sha256').update(identity).digest('hex').slice(0, 24)
+  const failed = step ? [] : (job.steps || []).filter(item => item.conclusion === 'failure')
+  const details = failed.map(item => escape(item.name)).join(', ')
+  const title = step ? step.name : job.name
+  const text = '*' + escape(title) + ' — ' + escape(stage.conclusion) + '*'
+    + (details ? '\nFailed step: ' + details : '')
+    + '\n<' + (job.html_url || run.html_url) + '|' + escape(run.name) + ' · attempt ' + run.run_attempt + '>'
+  return { key: 'run-' + run.id + '-' + digest, text, skipped: stage.conclusion === 'skipped' }
+}
+
 /** Identify the release and material jobs from a completed workflow attempt. */
 async function workflowOutcome(github, repo, run) {
   const { data: latest } = await github.rest.actions.getWorkflowRun({ ...repo, run_id: run.id })
@@ -62,7 +85,7 @@ async function workflowOutcome(github, repo, run) {
     ...repo, run_id: run.id, filter: 'latest', per_page: 100,
   })
   let tag = run.head_branch
-  let material = jobs.filter(job => job.conclusion !== 'skipped')
+  let material = jobs
   if (run.event === 'push') {
     tag = jobs.map(job => /(?:^| \/ )Draft Release (\d+\.\d+\.\d+)$/.exec(job.name)?.[1]).find(Boolean)
     material = material.filter(job => /Build Documentation|Deploy Documentation|Run Production Build|Deploy to (Production|Development)/i.test(job.name) && !job.name.endsWith('Log Inputs'))
@@ -73,12 +96,18 @@ async function workflowOutcome(github, repo, run) {
   }
 
   if (!tag || (!material.length && run.conclusion === 'success')) return
-  const lines = material.map(job => {
-    const failed = (job.steps || []).filter(step => step.conclusion === 'failure').map(step => escape(step.name))
-    return '• ' + escape(job.name) + ' — ' + escape(job.conclusion) + (failed.length ? ' (' + failed.join(', ') + ')' : '')
-  })
-  return { tag, key: 'run-' + run.id, text: ['*' + escape(run.name) + ' — ' + escape(run.conclusion) + '*',
-    ...lines, '<' + run.html_url + '|Workflow run · attempt ' + run.run_attempt + '>'].join('\n') }
+  const replies = []
+  for (const job of material) {
+    // A deployment job can build a model or publish an image before it reaches the target.
+    for (const step of job.steps || []) {
+      const embeddedBuild = /^build(?: |$)/i.test(step.name) && !/build/i.test(job.name)
+      const publication = /^(?:publish|push) (?:.* )?(?:image|package|wheel|artifact)s?\b/i.test(step.name)
+      if (embeddedBuild || publication) replies.push(stageReply(run, job, step))
+    }
+    replies.push(stageReply(run, job))
+  }
+  if (!material.length) replies.push(stageReply(run, { name: run.name, conclusion: run.conclusion }))
+  return { tag, replies }
 }
 
 /** Announce the published release and attach correlated deployment or build evidence. */
@@ -86,11 +115,12 @@ module.exports = async function report({ github, context, core }) {
   const repo = context.repo
   const event = context.payload
   let tag = event.release?.tag_name
-  let outcome
+  let replies = []
   if (event.workflow_run) {
-    outcome = await workflowOutcome(github, repo, event.workflow_run)
+    const outcome = await workflowOutcome(github, repo, event.workflow_run)
     if (!outcome) return
     tag = outcome.tag
+    replies = outcome.replies
   } else if (context.eventName === 'repository_dispatch') {
     const payload = event.client_payload
     const messages = {
@@ -129,7 +159,7 @@ module.exports = async function report({ github, context, core }) {
       }
       if (apps.length) message += '\nObserved app initialization: ' + apps.map(escape).join(', ')
     }
-    outcome = { key, text: message }
+    replies.push({ key, text: message })
   }
 
   if (!tag) throw new Error('Missing release tag')
@@ -149,6 +179,9 @@ module.exports = async function report({ github, context, core }) {
   const heading = '*<' + release.html_url + '|' + escape(repo.repo + ' ' + tag) + '>*'
   const body = notes(release.body)
   const parent = await publish(github, repo, release, 'release', heading + (body ? '\n' + body.slice(0, 35000) : ''))
-  if (outcome) await publish(github, repo, release, outcome.key, outcome.text, parent)
+  for (const reply of replies) {
+    if (reply.skipped && !release.assets.some(asset => asset.name === 'slack-' + reply.key + '.json')) continue
+    await publish(github, repo, release, reply.key, reply.text, parent)
+  }
   core.info('Reported ' + repo.repo + ' ' + tag)
 }
