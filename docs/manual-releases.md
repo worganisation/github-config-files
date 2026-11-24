@@ -61,3 +61,11 @@ Backplane's project configuration must set
 `tool.semantic_release.remote.ignore_token_for_push = true`; its repository
 needs `DEPLOY_KEY` and an explicitly approved DeployKey ruleset bypass.
 The API token still creates the published release.
+
+## Slack release threads
+
+The release-notifications workflow is synced to the repositories listed in `gha_sync/config.yml`. It posts published release notes in the personal Slack releases channel. Completed release deployments, production builds, publication jobs and repository syncs attach their results to that release. The Home Assistant and AppDaemon checkout callbacks report a skip, failure or exact commit independently of CI. A checkout confirms the Git revision on disk. Runtime reloads and restarts require their own evidence.
+
+Install a Slack bot with `chat:write` in the personal workspace, invite it to the releases channel, and verify that channel’s ID there. Configure `SLACK_RELEASE_BOT_TOKEN` as an Actions secret and `SLACK_RELEASE_CHANNEL_ID` as an Actions variable for enrolled callers. Private Free-organization repositories require repository-level configuration. Enable notifications after the workflow and script are present on the default branch.
+
+Each mutable GitHub release stores small `slack-*.json` assets with its Slack channel and message timestamps. A completed job can establish the parent thread if its callback wins the publication race. Rerunning a reporting workflow updates its recorded message. A failed notification can be retried from Actions independently of the deployment. For a new release-triggered workflow, add its display name to the notification workflow’s trigger list.

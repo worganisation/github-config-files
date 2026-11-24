@@ -54,30 +54,32 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 
 ### All Mappings
 
-| Destination | [worganisation/authentik](https://github.com/worganisation/authentik) | [worganisation/backplane](https://github.com/worganisation/backplane) | [worganisation/dockarr](https://github.com/worganisation/dockarr) | [worganisation/esphome](https://github.com/worganisation/esphome) | [worganisation/frigate-config](https://github.com/worganisation/frigate-config) | [worganisation/gpu-worker](https://github.com/worganisation/gpu-worker) | [worganisation/home-assistant](https://github.com/worganisation/home-assistant) | [worganisation/home-assistant-appdaemon](https://github.com/worganisation/home-assistant-appdaemon) | [worganisation/home-assistant-config-validator](https://github.com/worganisation/home-assistant-config-validator) | [worganisation/infrastructure](https://github.com/worganisation/infrastructure) | [worganisation/led-matrix-controller](https://github.com/worganisation/led-matrix-controller) | [worganisation/pre-commit-hooks-dependency-sync](https://github.com/worganisation/pre-commit-hooks-dependency-sync) | [worganisation/smart-mini-crt-interface](https://github.com/worganisation/smart-mini-crt-interface) | [worganisation/very-slow-movie-player](https://github.com/worganisation/very-slow-movie-player) | [worganisation/wg-scripts](https://github.com/worganisation/wg-scripts) | [worganisation/wg-utilities](https://github.com/worganisation/wg-utilities) | [python-template](https://github.com/worgarside/python-template) |
-|-------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-| **.github/CODEOWNERS** | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) |
-| **.github/actionlint.yaml** | | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) |
-| **.github/dependabot.yml** | | [.github/dependabot.yml](.github/dependabot.yml) | | [.github/dependabot.yml](.github/dependabot.yml) | | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](.github/dependabot.yml) | | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](.github/dependabot.yml) | [gha_sync/configs/dependabot-poetry.yml](gha_sync/configs/dependabot-poetry.yml) | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](.github/dependabot.yml) | [gha_sync/configs/dependabot-poetry.yml](gha_sync/configs/dependabot-poetry.yml) | [gha_sync/configs/dependabot.yml](gha_sync/configs/dependabot.yml) |
-| **.github/labeler.yml** | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) | | [.github/labeler.yml](.github/labeler.yml) | | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) | | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) |
-| **.github/release-drafter.yml** | | | | | | | | | | | | | | | | | [gha_sync/configs/release-drafter.yml](gha_sync/configs/release-drafter.yml) |
-| **.github/repo_labels.yml** | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) | | [.github/repo_labels.yml](.github/repo_labels.yml) | | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) | | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) |
-| **.github/workflows/auto-create-pr.yml** | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) |
-| **.github/workflows/ci_deployment.yml** | | | | | | | | | | | | | | | | | [gha_sync/workflows/template/ci_deployment.template.yml](gha_sync/workflows/template/ci_deployment.template.yml) |
-| **.github/workflows/ci_validation.yml** | | | | | | | | | | | | | | | | | [gha_sync/workflows/template/ci_validation.template.yml](gha_sync/workflows/template/ci_validation.template.yml) |
-| **.github/workflows/codspeed.yml** | | | | | | | | | [gha_sync/workflows/template/codspeed.template.yml](gha_sync/workflows/template/codspeed.template.yml) | | | | | | | | |
-| **.github/workflows/integration-test.yml** | | | | | | | | | [gha_sync/workflows/repo/home-assistant-config-validator/integration-test.yml](gha_sync/workflows/repo/home-assistant-config-validator/integration-test.yml) | | | | | | | | |
-| **.github/workflows/manage-pr.yml** | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) |
-| **.github/workflows/manage-repo-labels.yml** | [gha_sync/workflows/repo/authentik/manage-repo-labels.yml](gha_sync/workflows/repo/authentik/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) |
-| **.github/workflows/prek-autoupdate.yml** | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | | | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | | |
-| **.github/workflows/prek-hooks.yml** | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | | | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | | |
-| **.github/workflows/semantic-release.yml** | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | | [gha_sync/workflows/repo/home-assistant/semantic-release.yml](gha_sync/workflows/repo/home-assistant/semantic-release.yml) | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | | | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | | |
-| **.github/workflows/unit-tests.yml** | | [gha_sync/workflows/template/unit-tests.template.yml](gha_sync/workflows/template/unit-tests.template.yml) | | | | | | | [gha_sync/workflows/template/unit-tests.template.yml](gha_sync/workflows/template/unit-tests.template.yml) | | | | | | | | |
-| **.github/workflows/validate-home-assistant-config.yml** | | | | | | | [gha_sync/workflows/repo/home-assistant/validate-home-assistant-config.yml](gha_sync/workflows/repo/home-assistant/validate-home-assistant-config.yml) | | | | | | | | | | |
-| **.yamllint** | | [.yamllint](.yamllint) | | [.yamllint](.yamllint) | | [.yamllint](.yamllint) | | [.yamllint](.yamllint) | [.yamllint](.yamllint) | | [.yamllint](.yamllint) | [.yamllint](.yamllint) | [.yamllint](.yamllint) | [.yamllint](.yamllint) | [.yamllint](.yamllint) | | [.yamllint](.yamllint) |
+| Destination | [worganisation/authentik](https://github.com/worganisation/authentik) | [worganisation/backplane](https://github.com/worganisation/backplane) | [worganisation/dockarr](https://github.com/worganisation/dockarr) | [worganisation/esphome](https://github.com/worganisation/esphome) | [worganisation/frigate-config](https://github.com/worganisation/frigate-config) | [worganisation/gpu-worker](https://github.com/worganisation/gpu-worker) | [worganisation/home-assistant](https://github.com/worganisation/home-assistant) | [worganisation/home-assistant-appdaemon](https://github.com/worganisation/home-assistant-appdaemon) | [worganisation/home-assistant-config-validator](https://github.com/worganisation/home-assistant-config-validator) | [worganisation/infrastructure](https://github.com/worganisation/infrastructure) | [worganisation/led-matrix-controller](https://github.com/worganisation/led-matrix-controller) | [worganisation/plant-monitor](https://github.com/worganisation/plant-monitor) | [worganisation/pre-commit-hooks-dependency-sync](https://github.com/worganisation/pre-commit-hooks-dependency-sync) | [worganisation/smart-mini-crt-interface](https://github.com/worganisation/smart-mini-crt-interface) | [worganisation/vaultpi](https://github.com/worganisation/vaultpi) | [worganisation/very-slow-movie-player](https://github.com/worganisation/very-slow-movie-player) | [worganisation/wg-scripts](https://github.com/worganisation/wg-scripts) | [worganisation/wg-utilities](https://github.com/worganisation/wg-utilities) | [python-template](https://github.com/worgarside/python-template) |
+|-------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| **.github/CODEOWNERS** | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | | [.github/CODEOWNERS](.github/CODEOWNERS) | | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](.github/CODEOWNERS) |
+| **.github/actionlint.yaml** | | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | | [.github/actionlint.yaml](.github/actionlint.yaml) | | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](.github/actionlint.yaml) |
+| **.github/dependabot.yml** | | [.github/dependabot.yml](.github/dependabot.yml) | | [.github/dependabot.yml](.github/dependabot.yml) | | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](.github/dependabot.yml) | | [.github/dependabot.yml](.github/dependabot.yml) | | [.github/dependabot.yml](.github/dependabot.yml) | [gha_sync/configs/dependabot-poetry.yml](gha_sync/configs/dependabot-poetry.yml) | | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](.github/dependabot.yml) | [gha_sync/configs/dependabot-poetry.yml](gha_sync/configs/dependabot-poetry.yml) | [gha_sync/configs/dependabot.yml](gha_sync/configs/dependabot.yml) |
+| **.github/labeler.yml** | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) | | [.github/labeler.yml](.github/labeler.yml) | | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) | | [.github/labeler.yml](.github/labeler.yml) | | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) | | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](.github/labeler.yml) |
+| **.github/release-drafter.yml** | | | | | | | | | | | | | | | | | | | [gha_sync/configs/release-drafter.yml](gha_sync/configs/release-drafter.yml) |
+| **.github/repo_labels.yml** | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) | | [.github/repo_labels.yml](.github/repo_labels.yml) | | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) | | [.github/repo_labels.yml](.github/repo_labels.yml) | | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) | | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](.github/repo_labels.yml) |
+| **.github/scripts/release-notifications.cjs** | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | |
+| **.github/workflows/auto-create-pr.yml** | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | | | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) |
+| **.github/workflows/ci_deployment.yml** | | | | | | | | | | | | | | | | | | | [gha_sync/workflows/template/ci_deployment.template.yml](gha_sync/workflows/template/ci_deployment.template.yml) |
+| **.github/workflows/ci_validation.yml** | | | | | | | | | | | | | | | | | | | [gha_sync/workflows/template/ci_validation.template.yml](gha_sync/workflows/template/ci_validation.template.yml) |
+| **.github/workflows/codspeed.yml** | | | | | | | | | [gha_sync/workflows/template/codspeed.template.yml](gha_sync/workflows/template/codspeed.template.yml) | | | | | | | | | | |
+| **.github/workflows/integration-test.yml** | | | | | | | | | [gha_sync/workflows/repo/home-assistant-config-validator/integration-test.yml](gha_sync/workflows/repo/home-assistant-config-validator/integration-test.yml) | | | | | | | | | | |
+| **.github/workflows/manage-pr.yml** | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) |
+| **.github/workflows/manage-repo-labels.yml** | [gha_sync/workflows/repo/authentik/manage-repo-labels.yml](gha_sync/workflows/repo/authentik/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) |
+| **.github/workflows/prek-autoupdate.yml** | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | | | | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | | |
+| **.github/workflows/prek-hooks.yml** | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | | | | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | | |
+| **.github/workflows/release-notifications.yml** | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | |
+| **.github/workflows/semantic-release.yml** | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | | [gha_sync/workflows/repo/home-assistant/semantic-release.yml](gha_sync/workflows/repo/home-assistant/semantic-release.yml) | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | | | | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | | |
+| **.github/workflows/unit-tests.yml** | | [gha_sync/workflows/template/unit-tests.template.yml](gha_sync/workflows/template/unit-tests.template.yml) | | | | | | | [gha_sync/workflows/template/unit-tests.template.yml](gha_sync/workflows/template/unit-tests.template.yml) | | | | | | | | | | |
+| **.github/workflows/validate-home-assistant-config.yml** | | | | | | | [gha_sync/workflows/repo/home-assistant/validate-home-assistant-config.yml](gha_sync/workflows/repo/home-assistant/validate-home-assistant-config.yml) | | | | | | | | | | | | |
+| **.yamllint** | | [.yamllint](.yamllint) | | [.yamllint](.yamllint) | | [.yamllint](.yamllint) | | [.yamllint](.yamllint) | [.yamllint](.yamllint) | | [.yamllint](.yamllint) | | [.yamllint](.yamllint) | [.yamllint](.yamllint) | | [.yamllint](.yamllint) | [.yamllint](.yamllint) | | [.yamllint](.yamllint) |
 ### Per-Repository Mappings
 
-### [worganisation/authentik](https://github.com/worganisation/authentik) (9 files)
+### [worganisation/authentik](https://github.com/worganisation/authentik) (11 files)
 
 <details>
 <summary>Mapping Table</summary>
@@ -87,15 +89,17 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](https://github.com/worganisation/authentik/.github/CODEOWNERS) |
 | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](https://github.com/worganisation/authentik/.github/labeler.yml) |
 | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](https://github.com/worganisation/authentik/.github/repo_labels.yml) |
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/authentik/.github/scripts/release-notifications.cjs) |
 | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [.github/workflows/auto-create-pr.yml](https://github.com/worganisation/authentik/.github/workflows/auto-create-pr.yml) |
 | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [.github/workflows/manage-pr.yml](https://github.com/worganisation/authentik/.github/workflows/manage-pr.yml) |
 | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [.github/workflows/prek-autoupdate.yml](https://github.com/worganisation/authentik/.github/workflows/prek-autoupdate.yml) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/authentik/.github/workflows/release-notifications.yml) |
 | [gha_sync/workflows/repo/authentik/manage-repo-labels.yml](gha_sync/workflows/repo/authentik/manage-repo-labels.yml) | [.github/workflows/manage-repo-labels.yml](https://github.com/worganisation/authentik/.github/workflows/manage-repo-labels.yml) |
 | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [.github/workflows/prek-hooks.yml](https://github.com/worganisation/authentik/.github/workflows/prek-hooks.yml) |
 | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [.github/workflows/semantic-release.yml](https://github.com/worganisation/authentik/.github/workflows/semantic-release.yml) |
 </details>
 
-### [worganisation/backplane](https://github.com/worganisation/backplane) (13 files)
+### [worganisation/backplane](https://github.com/worganisation/backplane) (15 files)
 
 <details>
 <summary>Mapping Table</summary>
@@ -107,17 +111,19 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](https://github.com/worganisation/backplane/.github/dependabot.yml) |
 | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](https://github.com/worganisation/backplane/.github/labeler.yml) |
 | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](https://github.com/worganisation/backplane/.github/repo_labels.yml) |
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/backplane/.github/scripts/release-notifications.cjs) |
 | [.yamllint](.yamllint) | [.yamllint](https://github.com/worganisation/backplane/.yamllint) |
 | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [.github/workflows/auto-create-pr.yml](https://github.com/worganisation/backplane/.github/workflows/auto-create-pr.yml) |
 | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [.github/workflows/manage-pr.yml](https://github.com/worganisation/backplane/.github/workflows/manage-pr.yml) |
 | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [.github/workflows/manage-repo-labels.yml](https://github.com/worganisation/backplane/.github/workflows/manage-repo-labels.yml) |
 | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [.github/workflows/prek-autoupdate.yml](https://github.com/worganisation/backplane/.github/workflows/prek-autoupdate.yml) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/backplane/.github/workflows/release-notifications.yml) |
 | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [.github/workflows/prek-hooks.yml](https://github.com/worganisation/backplane/.github/workflows/prek-hooks.yml) |
 | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [.github/workflows/semantic-release.yml](https://github.com/worganisation/backplane/.github/workflows/semantic-release.yml) |
 | [gha_sync/workflows/template/unit-tests.template.yml](gha_sync/workflows/template/unit-tests.template.yml) | [.github/workflows/unit-tests.yml](https://github.com/worganisation/backplane/.github/workflows/unit-tests.yml) |
 </details>
 
-### [worganisation/dockarr](https://github.com/worganisation/dockarr) (10 files)
+### [worganisation/dockarr](https://github.com/worganisation/dockarr) (12 files)
 
 <details>
 <summary>Mapping Table</summary>
@@ -128,15 +134,17 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](https://github.com/worganisation/dockarr/.github/actionlint.yaml) |
 | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](https://github.com/worganisation/dockarr/.github/labeler.yml) |
 | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](https://github.com/worganisation/dockarr/.github/repo_labels.yml) |
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/dockarr/.github/scripts/release-notifications.cjs) |
 | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [.github/workflows/auto-create-pr.yml](https://github.com/worganisation/dockarr/.github/workflows/auto-create-pr.yml) |
 | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [.github/workflows/manage-pr.yml](https://github.com/worganisation/dockarr/.github/workflows/manage-pr.yml) |
 | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [.github/workflows/manage-repo-labels.yml](https://github.com/worganisation/dockarr/.github/workflows/manage-repo-labels.yml) |
 | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [.github/workflows/prek-autoupdate.yml](https://github.com/worganisation/dockarr/.github/workflows/prek-autoupdate.yml) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/dockarr/.github/workflows/release-notifications.yml) |
 | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [.github/workflows/prek-hooks.yml](https://github.com/worganisation/dockarr/.github/workflows/prek-hooks.yml) |
 | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [.github/workflows/semantic-release.yml](https://github.com/worganisation/dockarr/.github/workflows/semantic-release.yml) |
 </details>
 
-### [worganisation/esphome](https://github.com/worganisation/esphome) (11 files)
+### [worganisation/esphome](https://github.com/worganisation/esphome) (13 files)
 
 <details>
 <summary>Mapping Table</summary>
@@ -148,15 +156,17 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](https://github.com/worganisation/esphome/.github/dependabot.yml) |
 | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](https://github.com/worganisation/esphome/.github/labeler.yml) |
 | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](https://github.com/worganisation/esphome/.github/repo_labels.yml) |
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/esphome/.github/scripts/release-notifications.cjs) |
 | [.yamllint](.yamllint) | [.yamllint](https://github.com/worganisation/esphome/.yamllint) |
 | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [.github/workflows/auto-create-pr.yml](https://github.com/worganisation/esphome/.github/workflows/auto-create-pr.yml) |
 | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [.github/workflows/manage-pr.yml](https://github.com/worganisation/esphome/.github/workflows/manage-pr.yml) |
 | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [.github/workflows/manage-repo-labels.yml](https://github.com/worganisation/esphome/.github/workflows/manage-repo-labels.yml) |
 | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [.github/workflows/prek-autoupdate.yml](https://github.com/worganisation/esphome/.github/workflows/prek-autoupdate.yml) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/esphome/.github/workflows/release-notifications.yml) |
 | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [.github/workflows/prek-hooks.yml](https://github.com/worganisation/esphome/.github/workflows/prek-hooks.yml) |
 </details>
 
-### [worganisation/frigate-config](https://github.com/worganisation/frigate-config) (5 files)
+### [worganisation/frigate-config](https://github.com/worganisation/frigate-config) (7 files)
 
 <details>
 <summary>Mapping Table</summary>
@@ -164,13 +174,15 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | Source | Destination |
 |--------|-------------|
 | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](https://github.com/worganisation/frigate-config/.github/actionlint.yaml) |
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/frigate-config/.github/scripts/release-notifications.cjs) |
 | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [.github/workflows/auto-create-pr.yml](https://github.com/worganisation/frigate-config/.github/workflows/auto-create-pr.yml) |
 | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [.github/workflows/prek-autoupdate.yml](https://github.com/worganisation/frigate-config/.github/workflows/prek-autoupdate.yml) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/frigate-config/.github/workflows/release-notifications.yml) |
 | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [.github/workflows/prek-hooks.yml](https://github.com/worganisation/frigate-config/.github/workflows/prek-hooks.yml) |
 | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [.github/workflows/semantic-release.yml](https://github.com/worganisation/frigate-config/.github/workflows/semantic-release.yml) |
 </details>
 
-### [worganisation/gpu-worker](https://github.com/worganisation/gpu-worker) (11 files)
+### [worganisation/gpu-worker](https://github.com/worganisation/gpu-worker) (13 files)
 
 <details>
 <summary>Mapping Table</summary>
@@ -182,15 +194,17 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](https://github.com/worganisation/gpu-worker/.github/dependabot.yml) |
 | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](https://github.com/worganisation/gpu-worker/.github/labeler.yml) |
 | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](https://github.com/worganisation/gpu-worker/.github/repo_labels.yml) |
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/gpu-worker/.github/scripts/release-notifications.cjs) |
 | [.yamllint](.yamllint) | [.yamllint](https://github.com/worganisation/gpu-worker/.yamllint) |
 | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [.github/workflows/auto-create-pr.yml](https://github.com/worganisation/gpu-worker/.github/workflows/auto-create-pr.yml) |
 | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [.github/workflows/manage-pr.yml](https://github.com/worganisation/gpu-worker/.github/workflows/manage-pr.yml) |
 | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [.github/workflows/manage-repo-labels.yml](https://github.com/worganisation/gpu-worker/.github/workflows/manage-repo-labels.yml) |
 | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [.github/workflows/prek-autoupdate.yml](https://github.com/worganisation/gpu-worker/.github/workflows/prek-autoupdate.yml) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/gpu-worker/.github/workflows/release-notifications.yml) |
 | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [.github/workflows/prek-hooks.yml](https://github.com/worganisation/gpu-worker/.github/workflows/prek-hooks.yml) |
 </details>
 
-### [worganisation/home-assistant](https://github.com/worganisation/home-assistant) (10 files)
+### [worganisation/home-assistant](https://github.com/worganisation/home-assistant) (12 files)
 
 <details>
 <summary>Mapping Table</summary>
@@ -200,16 +214,18 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | [.github/CODEOWNERS](.github/CODEOWNERS) | [.github/CODEOWNERS](https://github.com/worganisation/home-assistant/.github/CODEOWNERS) |
 | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](https://github.com/worganisation/home-assistant/.github/actionlint.yaml) |
 | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](https://github.com/worganisation/home-assistant/.github/dependabot.yml) |
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/home-assistant/.github/scripts/release-notifications.cjs) |
 | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [.github/workflows/auto-create-pr.yml](https://github.com/worganisation/home-assistant/.github/workflows/auto-create-pr.yml) |
 | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [.github/workflows/manage-pr.yml](https://github.com/worganisation/home-assistant/.github/workflows/manage-pr.yml) |
 | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [.github/workflows/manage-repo-labels.yml](https://github.com/worganisation/home-assistant/.github/workflows/manage-repo-labels.yml) |
 | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [.github/workflows/prek-autoupdate.yml](https://github.com/worganisation/home-assistant/.github/workflows/prek-autoupdate.yml) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/home-assistant/.github/workflows/release-notifications.yml) |
 | [gha_sync/workflows/repo/home-assistant/semantic-release.yml](gha_sync/workflows/repo/home-assistant/semantic-release.yml) | [.github/workflows/semantic-release.yml](https://github.com/worganisation/home-assistant/.github/workflows/semantic-release.yml) |
 | [gha_sync/workflows/repo/home-assistant/validate-home-assistant-config.yml](gha_sync/workflows/repo/home-assistant/validate-home-assistant-config.yml) | [.github/workflows/validate-home-assistant-config.yml](https://github.com/worganisation/home-assistant/.github/workflows/validate-home-assistant-config.yml) |
 | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [.github/workflows/prek-hooks.yml](https://github.com/worganisation/home-assistant/.github/workflows/prek-hooks.yml) |
 </details>
 
-### [worganisation/home-assistant-appdaemon](https://github.com/worganisation/home-assistant-appdaemon) (12 files)
+### [worganisation/home-assistant-appdaemon](https://github.com/worganisation/home-assistant-appdaemon) (14 files)
 
 <details>
 <summary>Mapping Table</summary>
@@ -221,16 +237,18 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](https://github.com/worganisation/home-assistant-appdaemon/.github/dependabot.yml) |
 | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](https://github.com/worganisation/home-assistant-appdaemon/.github/labeler.yml) |
 | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](https://github.com/worganisation/home-assistant-appdaemon/.github/repo_labels.yml) |
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/home-assistant-appdaemon/.github/scripts/release-notifications.cjs) |
 | [.yamllint](.yamllint) | [.yamllint](https://github.com/worganisation/home-assistant-appdaemon/.yamllint) |
 | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [.github/workflows/auto-create-pr.yml](https://github.com/worganisation/home-assistant-appdaemon/.github/workflows/auto-create-pr.yml) |
 | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [.github/workflows/manage-pr.yml](https://github.com/worganisation/home-assistant-appdaemon/.github/workflows/manage-pr.yml) |
 | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [.github/workflows/manage-repo-labels.yml](https://github.com/worganisation/home-assistant-appdaemon/.github/workflows/manage-repo-labels.yml) |
 | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [.github/workflows/prek-autoupdate.yml](https://github.com/worganisation/home-assistant-appdaemon/.github/workflows/prek-autoupdate.yml) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/home-assistant-appdaemon/.github/workflows/release-notifications.yml) |
 | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [.github/workflows/prek-hooks.yml](https://github.com/worganisation/home-assistant-appdaemon/.github/workflows/prek-hooks.yml) |
 | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [.github/workflows/semantic-release.yml](https://github.com/worganisation/home-assistant-appdaemon/.github/workflows/semantic-release.yml) |
 </details>
 
-### [worganisation/home-assistant-config-validator](https://github.com/worganisation/home-assistant-config-validator) (15 files)
+### [worganisation/home-assistant-config-validator](https://github.com/worganisation/home-assistant-config-validator) (17 files)
 
 <details>
 <summary>Mapping Table</summary>
@@ -242,11 +260,13 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](https://github.com/worganisation/home-assistant-config-validator/.github/dependabot.yml) |
 | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](https://github.com/worganisation/home-assistant-config-validator/.github/labeler.yml) |
 | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](https://github.com/worganisation/home-assistant-config-validator/.github/repo_labels.yml) |
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/home-assistant-config-validator/.github/scripts/release-notifications.cjs) |
 | [.yamllint](.yamllint) | [.yamllint](https://github.com/worganisation/home-assistant-config-validator/.yamllint) |
 | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [.github/workflows/auto-create-pr.yml](https://github.com/worganisation/home-assistant-config-validator/.github/workflows/auto-create-pr.yml) |
 | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [.github/workflows/manage-pr.yml](https://github.com/worganisation/home-assistant-config-validator/.github/workflows/manage-pr.yml) |
 | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [.github/workflows/manage-repo-labels.yml](https://github.com/worganisation/home-assistant-config-validator/.github/workflows/manage-repo-labels.yml) |
 | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [.github/workflows/prek-autoupdate.yml](https://github.com/worganisation/home-assistant-config-validator/.github/workflows/prek-autoupdate.yml) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/home-assistant-config-validator/.github/workflows/release-notifications.yml) |
 | [gha_sync/workflows/repo/home-assistant-config-validator/integration-test.yml](gha_sync/workflows/repo/home-assistant-config-validator/integration-test.yml) | [.github/workflows/integration-test.yml](https://github.com/worganisation/home-assistant-config-validator/.github/workflows/integration-test.yml) |
 | [gha_sync/workflows/template/codspeed.template.yml](gha_sync/workflows/template/codspeed.template.yml) | [.github/workflows/codspeed.yml](https://github.com/worganisation/home-assistant-config-validator/.github/workflows/codspeed.yml) |
 | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [.github/workflows/prek-hooks.yml](https://github.com/worganisation/home-assistant-config-validator/.github/workflows/prek-hooks.yml) |
@@ -254,17 +274,19 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | [gha_sync/workflows/template/unit-tests.template.yml](gha_sync/workflows/template/unit-tests.template.yml) | [.github/workflows/unit-tests.yml](https://github.com/worganisation/home-assistant-config-validator/.github/workflows/unit-tests.yml) |
 </details>
 
-### [worganisation/infrastructure](https://github.com/worganisation/infrastructure) (1 files)
+### [worganisation/infrastructure](https://github.com/worganisation/infrastructure) (3 files)
 
 <details>
 <summary>Mapping Table</summary>
 
 | Source | Destination |
 |--------|-------------|
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/infrastructure/.github/scripts/release-notifications.cjs) |
 | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [.github/workflows/auto-create-pr.yml](https://github.com/worganisation/infrastructure/.github/workflows/auto-create-pr.yml) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/infrastructure/.github/workflows/release-notifications.yml) |
 </details>
 
-### [worganisation/led-matrix-controller](https://github.com/worganisation/led-matrix-controller) (12 files)
+### [worganisation/led-matrix-controller](https://github.com/worganisation/led-matrix-controller) (14 files)
 
 <details>
 <summary>Mapping Table</summary>
@@ -276,16 +298,29 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](https://github.com/worganisation/led-matrix-controller/.github/dependabot.yml) |
 | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](https://github.com/worganisation/led-matrix-controller/.github/labeler.yml) |
 | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](https://github.com/worganisation/led-matrix-controller/.github/repo_labels.yml) |
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/led-matrix-controller/.github/scripts/release-notifications.cjs) |
 | [.yamllint](.yamllint) | [.yamllint](https://github.com/worganisation/led-matrix-controller/.yamllint) |
 | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [.github/workflows/auto-create-pr.yml](https://github.com/worganisation/led-matrix-controller/.github/workflows/auto-create-pr.yml) |
 | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [.github/workflows/manage-pr.yml](https://github.com/worganisation/led-matrix-controller/.github/workflows/manage-pr.yml) |
 | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [.github/workflows/manage-repo-labels.yml](https://github.com/worganisation/led-matrix-controller/.github/workflows/manage-repo-labels.yml) |
 | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [.github/workflows/prek-autoupdate.yml](https://github.com/worganisation/led-matrix-controller/.github/workflows/prek-autoupdate.yml) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/led-matrix-controller/.github/workflows/release-notifications.yml) |
 | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [.github/workflows/prek-hooks.yml](https://github.com/worganisation/led-matrix-controller/.github/workflows/prek-hooks.yml) |
 | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [.github/workflows/semantic-release.yml](https://github.com/worganisation/led-matrix-controller/.github/workflows/semantic-release.yml) |
 </details>
 
-### [worganisation/pre-commit-hooks-dependency-sync](https://github.com/worganisation/pre-commit-hooks-dependency-sync) (12 files)
+### [worganisation/plant-monitor](https://github.com/worganisation/plant-monitor) (2 files)
+
+<details>
+<summary>Mapping Table</summary>
+
+| Source | Destination |
+|--------|-------------|
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/plant-monitor/.github/scripts/release-notifications.cjs) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/plant-monitor/.github/workflows/release-notifications.yml) |
+</details>
+
+### [worganisation/pre-commit-hooks-dependency-sync](https://github.com/worganisation/pre-commit-hooks-dependency-sync) (14 files)
 
 <details>
 <summary>Mapping Table</summary>
@@ -297,16 +332,18 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](https://github.com/worganisation/pre-commit-hooks-dependency-sync/.github/dependabot.yml) |
 | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](https://github.com/worganisation/pre-commit-hooks-dependency-sync/.github/labeler.yml) |
 | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](https://github.com/worganisation/pre-commit-hooks-dependency-sync/.github/repo_labels.yml) |
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/pre-commit-hooks-dependency-sync/.github/scripts/release-notifications.cjs) |
 | [.yamllint](.yamllint) | [.yamllint](https://github.com/worganisation/pre-commit-hooks-dependency-sync/.yamllint) |
 | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [.github/workflows/auto-create-pr.yml](https://github.com/worganisation/pre-commit-hooks-dependency-sync/.github/workflows/auto-create-pr.yml) |
 | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [.github/workflows/manage-pr.yml](https://github.com/worganisation/pre-commit-hooks-dependency-sync/.github/workflows/manage-pr.yml) |
 | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [.github/workflows/manage-repo-labels.yml](https://github.com/worganisation/pre-commit-hooks-dependency-sync/.github/workflows/manage-repo-labels.yml) |
 | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [.github/workflows/prek-autoupdate.yml](https://github.com/worganisation/pre-commit-hooks-dependency-sync/.github/workflows/prek-autoupdate.yml) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/pre-commit-hooks-dependency-sync/.github/workflows/release-notifications.yml) |
 | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [.github/workflows/prek-hooks.yml](https://github.com/worganisation/pre-commit-hooks-dependency-sync/.github/workflows/prek-hooks.yml) |
 | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [.github/workflows/semantic-release.yml](https://github.com/worganisation/pre-commit-hooks-dependency-sync/.github/workflows/semantic-release.yml) |
 </details>
 
-### [worganisation/smart-mini-crt-interface](https://github.com/worganisation/smart-mini-crt-interface) (9 files)
+### [worganisation/smart-mini-crt-interface](https://github.com/worganisation/smart-mini-crt-interface) (11 files)
 
 <details>
 <summary>Mapping Table</summary>
@@ -317,14 +354,27 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](https://github.com/worganisation/smart-mini-crt-interface/.github/actionlint.yaml) |
 | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](https://github.com/worganisation/smart-mini-crt-interface/.github/labeler.yml) |
 | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](https://github.com/worganisation/smart-mini-crt-interface/.github/repo_labels.yml) |
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/smart-mini-crt-interface/.github/scripts/release-notifications.cjs) |
 | [.yamllint](.yamllint) | [.yamllint](https://github.com/worganisation/smart-mini-crt-interface/.yamllint) |
 | [gha_sync/configs/dependabot-poetry.yml](gha_sync/configs/dependabot-poetry.yml) | [.github/dependabot.yml](https://github.com/worganisation/smart-mini-crt-interface/.github/dependabot.yml) |
 | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [.github/workflows/auto-create-pr.yml](https://github.com/worganisation/smart-mini-crt-interface/.github/workflows/auto-create-pr.yml) |
 | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [.github/workflows/manage-pr.yml](https://github.com/worganisation/smart-mini-crt-interface/.github/workflows/manage-pr.yml) |
 | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [.github/workflows/manage-repo-labels.yml](https://github.com/worganisation/smart-mini-crt-interface/.github/workflows/manage-repo-labels.yml) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/smart-mini-crt-interface/.github/workflows/release-notifications.yml) |
 </details>
 
-### [worganisation/very-slow-movie-player](https://github.com/worganisation/very-slow-movie-player) (8 files)
+### [worganisation/vaultpi](https://github.com/worganisation/vaultpi) (2 files)
+
+<details>
+<summary>Mapping Table</summary>
+
+| Source | Destination |
+|--------|-------------|
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/vaultpi/.github/scripts/release-notifications.cjs) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/vaultpi/.github/workflows/release-notifications.yml) |
+</details>
+
+### [worganisation/very-slow-movie-player](https://github.com/worganisation/very-slow-movie-player) (10 files)
 
 <details>
 <summary>Mapping Table</summary>
@@ -336,12 +386,14 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](https://github.com/worganisation/very-slow-movie-player/.github/dependabot.yml) |
 | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](https://github.com/worganisation/very-slow-movie-player/.github/labeler.yml) |
 | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](https://github.com/worganisation/very-slow-movie-player/.github/repo_labels.yml) |
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/very-slow-movie-player/.github/scripts/release-notifications.cjs) |
 | [.yamllint](.yamllint) | [.yamllint](https://github.com/worganisation/very-slow-movie-player/.yamllint) |
 | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [.github/workflows/manage-pr.yml](https://github.com/worganisation/very-slow-movie-player/.github/workflows/manage-pr.yml) |
 | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [.github/workflows/manage-repo-labels.yml](https://github.com/worganisation/very-slow-movie-player/.github/workflows/manage-repo-labels.yml) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/very-slow-movie-player/.github/workflows/release-notifications.yml) |
 </details>
 
-### [worganisation/wg-scripts](https://github.com/worganisation/wg-scripts) (12 files)
+### [worganisation/wg-scripts](https://github.com/worganisation/wg-scripts) (14 files)
 
 <details>
 <summary>Mapping Table</summary>
@@ -353,16 +405,18 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | [.github/dependabot.yml](.github/dependabot.yml) | [.github/dependabot.yml](https://github.com/worganisation/wg-scripts/.github/dependabot.yml) |
 | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](https://github.com/worganisation/wg-scripts/.github/labeler.yml) |
 | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](https://github.com/worganisation/wg-scripts/.github/repo_labels.yml) |
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/wg-scripts/.github/scripts/release-notifications.cjs) |
 | [.yamllint](.yamllint) | [.yamllint](https://github.com/worganisation/wg-scripts/.yamllint) |
 | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [.github/workflows/auto-create-pr.yml](https://github.com/worganisation/wg-scripts/.github/workflows/auto-create-pr.yml) |
 | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [.github/workflows/manage-pr.yml](https://github.com/worganisation/wg-scripts/.github/workflows/manage-pr.yml) |
 | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [.github/workflows/manage-repo-labels.yml](https://github.com/worganisation/wg-scripts/.github/workflows/manage-repo-labels.yml) |
 | [gha_sync/workflows/all/prek-autoupdate.yml](gha_sync/workflows/all/prek-autoupdate.yml) | [.github/workflows/prek-autoupdate.yml](https://github.com/worganisation/wg-scripts/.github/workflows/prek-autoupdate.yml) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/wg-scripts/.github/workflows/release-notifications.yml) |
 | [gha_sync/workflows/template/prek-hooks.template.yml](gha_sync/workflows/template/prek-hooks.template.yml) | [.github/workflows/prek-hooks.yml](https://github.com/worganisation/wg-scripts/.github/workflows/prek-hooks.yml) |
 | [gha_sync/workflows/template/semantic-release.template.yml](gha_sync/workflows/template/semantic-release.template.yml) | [.github/workflows/semantic-release.yml](https://github.com/worganisation/wg-scripts/.github/workflows/semantic-release.yml) |
 </details>
 
-### [worganisation/wg-utilities](https://github.com/worganisation/wg-utilities) (8 files)
+### [worganisation/wg-utilities](https://github.com/worganisation/wg-utilities) (10 files)
 
 <details>
 <summary>Mapping Table</summary>
@@ -373,10 +427,12 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 | [.github/actionlint.yaml](.github/actionlint.yaml) | [.github/actionlint.yaml](https://github.com/worganisation/wg-utilities/.github/actionlint.yaml) |
 | [.github/labeler.yml](.github/labeler.yml) | [.github/labeler.yml](https://github.com/worganisation/wg-utilities/.github/labeler.yml) |
 | [.github/repo_labels.yml](.github/repo_labels.yml) | [.github/repo_labels.yml](https://github.com/worganisation/wg-utilities/.github/repo_labels.yml) |
+| [.github/scripts/release-notifications.cjs](.github/scripts/release-notifications.cjs) | [.github/scripts/release-notifications.cjs](https://github.com/worganisation/wg-utilities/.github/scripts/release-notifications.cjs) |
 | [gha_sync/configs/dependabot-poetry.yml](gha_sync/configs/dependabot-poetry.yml) | [.github/dependabot.yml](https://github.com/worganisation/wg-utilities/.github/dependabot.yml) |
 | [gha_sync/workflows/all/auto-create-pr.yml](gha_sync/workflows/all/auto-create-pr.yml) | [.github/workflows/auto-create-pr.yml](https://github.com/worganisation/wg-utilities/.github/workflows/auto-create-pr.yml) |
 | [gha_sync/workflows/all/manage-pr.yml](gha_sync/workflows/all/manage-pr.yml) | [.github/workflows/manage-pr.yml](https://github.com/worganisation/wg-utilities/.github/workflows/manage-pr.yml) |
 | [gha_sync/workflows/all/manage-repo-labels.yml](gha_sync/workflows/all/manage-repo-labels.yml) | [.github/workflows/manage-repo-labels.yml](https://github.com/worganisation/wg-utilities/.github/workflows/manage-repo-labels.yml) |
+| [gha_sync/workflows/all/release-notifications.yml](gha_sync/workflows/all/release-notifications.yml) | [.github/workflows/release-notifications.yml](https://github.com/worganisation/wg-utilities/.github/workflows/release-notifications.yml) |
 </details>
 
 ### [python-template](https://github.com/worgarside/python-template) (12 files)
@@ -404,57 +460,64 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 
 ```mermaid
 flowchart LR
-subgraph EI[" "]
+subgraph ER[" "]
 direction LR
-DI-->V
-CF-->AY
-CG-->CR
-CG-->CF
-DK-->EB
-DK-->DR
-DK-->DM
-DK-->DI
-DK-->CZ
-DK-->CR
-DR-->BB
-DS-->EB
-DS-->DR
-EB-->BQ
-DF-->EB
-DF-->DR
-DF-->DM
-DF-->DE
-DF-->CZ
-DF-->CR
-DE-->V
-DE-->M
+DR-->V
+CJ-->AY
+CK-->DA
+CK-->CJ
+DT-->EK
+DT-->EA
+DT-->DV
+DT-->DR
+DT-->DI
+DT-->DA
+EA-->BB
+EB-->EK
+EB-->EA
+EK-->BU
+DO-->EK
+DO-->EA
+DO-->DV
+DO-->DN
+DO-->DI
+DO-->DA
+DN-->V
+DN-->M
 M-->I
 M-->E
 M-->AM
 M-->AI
 V-->I
-V-->BN
+V-->BR
 V-->A
 end
-subgraph EJ[" "]
+subgraph ES[" "]
 direction LR
+CW-->BI
+end
+subgraph ET[" "]
+direction LR
+CQ-->CN
+CP-->CN
+CO-->CN
 CN-->BE
 end
-subgraph EK[" "]
+subgraph EU[" "]
 direction LR
-CK-->CB
-CC-->CB
-CB-->AV
+CT-->CF
+CG-->CF
+CF-->AV
 end
-subgraph EL[" "]
+subgraph EV[" "]
+direction LR
+CC-->CB
+CB-->BO
+end
+subgraph EW[" "]
 direction LR
 BY-->BX
-BX-->BK
-end
-subgraph EM[" "]
-direction LR
-BU-->BT
-BT-->AE
+BX-->AE
 end
 AE[["Create Pull Request"]]
 AI[["Deploy Documentation"]]
@@ -463,44 +526,56 @@ AV[["Manage Repo Labels"]]
 AY[["Prek Auto-Update"]]
 A[["actionlint"]]
 BB[["Prek Hooks"]]
-BE[["Semantic Release"]]
-BK[["Standard PR Checks"]]
-BN[["Test"]]
-BQ[["Unit Tests"]]
-BT("Auto-Create PR")
-BU{{"PUSH
+BE[["Release Notifications"]]
+BI[["Semantic Release"]]
+BO[["Standard PR Checks"]]
+BR[["Test"]]
+BU[["Unit Tests"]]
+BX("Auto-Create PR")
+BY{{"PUSH
 Branches Ignore: dependabot/**, main, renovate/**
 "}}
-BX("Standard PR Checks")
-BY{{"PULL REQUEST
+CB("Standard PR Checks")
+CC{{"PULL REQUEST
 Types: edited, labeled, opened, ready_for_review, reopened, synchronize, unlabeled
 "}}
-CB("Manage Repo Labels")
-CC{{"PUSH
+CF("Manage Repo Labels")
+CG{{"PUSH
 Branches: main
 Paths: .github/repo_labels.yml
 "}}
-CF("Prek Auto-Update")
-CG{{"SCHEDULE"}}
-CK{{"PUSH
+CJ("Prek Auto-Update")
+CK{{"SCHEDULE"}}
+CN("Release notifications")
+CO{{"RELEASE
+Types: published
+"}}
+CP{{"REPOSITORY DISPATCH
+Types: release-checkout
+"}}
+CQ{{"WORKFLOW RUN
+Workflows: Deploy, Deploy release, Deploy Release, Deploy Authentik release, Deploy VSMP Release, Deploy MtrxPi Release, Deploy infrastructure release, Semantic Release, CI: Validation & Deployment, Sync Repos
+Types: completed
+"}}
+CT{{"PUSH
 Branches: main
 Paths: .github/repo_labels.yml, .github/workflows/manage-repo-labels.yml
 "}}
-CN("Semantic Release")
-CR("Validate Home Assistant Config")
-CZ("Integration Test")
-DE("CI: Validation & Deployment")
-DF{{"PUSH
+CW("Semantic Release")
+DA("Validate Home Assistant Config")
+DI("Integration Test")
+DN("CI: Validation & Deployment")
+DO{{"PUSH
 Branches: main
 "}}
-DI("CI: Validation")
-DK{{"PULL REQUEST
+DR("CI: Validation")
+DT{{"PULL REQUEST
 Types: opened, ready_for_review, reopened, synchronize
 "}}
-DM("CodSpeed Benchmarks")
-DR("Prek Hooks")
-DS{{"MERGE GROUP"}}
-EB("Unit Tests")
+DV("CodSpeed Benchmarks")
+EA("Prek Hooks")
+EB{{"MERGE GROUP"}}
+EK("Unit Tests")
 E[["Build Documentation"]]
 I[["Build"]]
 M[["CI: Deployment"]]
