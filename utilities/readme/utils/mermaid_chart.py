@@ -13,7 +13,7 @@ from logging import StreamHandler, getLogger
 from pathlib import Path
 from string import ascii_uppercase
 from sys import stdout
-from typing import TYPE_CHECKING, Any, ClassVar, Literal
+from typing import TYPE_CHECKING, Annotated, Any, ClassVar, Literal
 
 from pydantic import (
     BaseModel,
@@ -257,7 +257,7 @@ class Concurrency(MermaidEntity):
     """Concurrency config for a GitHub Actions Workflow."""
 
     group: str
-    cancel_in_progress: bool = Field(False, alias="cancel-in-progress")
+    cancel_in_progress: Annotated[bool, Field(alias="cancel-in-progress")] = False
     queue: Literal["single", "max"] = "single"
 
 

@@ -29,7 +29,6 @@ async function slack(method, payload) {
 async function publish(github, repo, release, key, text, thread) {
   const name = 'slack-' + key + '.json'
   const channel = process.env.SLACK_CHANNEL
-  const contentHash = createHash('sha256').update(text).digest('hex')
   const asset = release.assets.find(item => item.name === name)
   if (asset) {
     const { data } = await github.rest.repos.getReleaseAsset({
@@ -37,10 +36,7 @@ async function publish(github, repo, release, key, text, thread) {
     })
     const saved = JSON.parse(Buffer.from(data).toString())
     if (saved.channel !== channel || !/^\d+\.\d+$/.test(saved.ts)) throw new Error('Invalid Slack thread receipt')
-    // Replies can change on any attempt, including a return to the original outcome.
-    if (thread || saved.contentHash !== contentHash) {
-      await slack('chat.update', { channel, ts: saved.ts, text, unfurl_links: false, unfurl_media: false })
-    }
+    await slack('chat.update', { channel, ts: saved.ts, text, unfurl_links: false, unfurl_media: false })
     return saved.ts
   }
 
@@ -52,7 +48,7 @@ async function publish(github, repo, release, key, text, thread) {
   await github.rest.repos.uploadReleaseAsset({
     ...repo, release_id: release.id, name,
     headers: { 'content-type': 'application/octet-stream' },
-    data: Buffer.from(JSON.stringify({ channel, ts: posted.ts, contentHash })),
+    data: Buffer.from(JSON.stringify({ channel, ts: posted.ts })),
   })
   return posted.ts
 }
@@ -97,17 +93,43 @@ module.exports = async function report({ github, context, core }) {
     tag = outcome.tag
   } else if (context.eventName === 'repository_dispatch') {
     const payload = event.client_payload
-    if (!['home-assistant', 'home-assistant-appdaemon'].includes(repo.repo) ||
-        !/^\d+\.\d+\.\d+$/.test(payload?.tag) ||
-        !['checked_out', 'skipped', 'failed'].includes(payload?.status)) throw new Error('Invalid checkout report')
+    const messages = {
+      checked_out: 'Release checked out',
+      skipped: 'Checkout skipped on the selected branch',
+      failed: 'Release checkout failed',
+    }
+    if (repo.repo === 'home-assistant') {
+      messages.ha_started = 'Home Assistant started'
+      messages.automations_reloaded = 'Home Assistant automations reloaded'
+    } else if (repo.repo === 'home-assistant-appdaemon') {
+      messages.app_runtime = 'AppDaemon process sampled with checkout'
+    } else {
+      throw new Error('Unexpected checkout reporter')
+    }
+    if (!/^\d+\.\d+\.\d+$/.test(payload?.tag) || !Object.hasOwn(messages, payload?.status)) {
+      throw new Error('Invalid checkout report')
+    }
     tag = payload.tag
-    let message = { checked_out: 'Release checked out', skipped: 'Checkout skipped on the selected branch', failed: 'Release checkout failed' }[payload.status]
-    if (payload.status === 'checked_out') {
+    let message = messages[payload.status]
+    let key = 'checkout'
+    if (!['skipped', 'failed'].includes(payload.status)) {
       const { data: commit } = await github.rest.repos.getCommit({ ...repo, ref: tag })
       if (commit.sha !== payload.sha) throw new Error('Reported checkout does not match the release commit')
       message += ' at `' + commit.sha.slice(0, 12) + '`'
+      if (payload.status !== 'checked_out') key = payload.status
     }
-    outcome = { key: 'checkout', text: message }
+    if (payload.status === 'app_runtime') {
+      if (![payload.active, payload.inactive].every(count => Number.isSafeInteger(count) && count >= 0)) {
+        throw new Error('Invalid AppDaemon runtime counts')
+      }
+      message += ' — ' + payload.active + ' active apps, ' + payload.inactive + ' inactive'
+      const apps = payload.initialized
+      if (!Array.isArray(apps) || !apps.every(app => typeof app === 'string')) {
+        throw new Error('Invalid AppDaemon initialized apps')
+      }
+      if (apps.length) message += '\nObserved app initialization: ' + apps.map(escape).join(', ')
+    }
+    outcome = { key, text: message }
   }
 
   if (!tag) throw new Error('Missing release tag')
