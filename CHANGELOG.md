@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.12.2 (2026-11-25)
+
+### Bug Fixes
+
+- Simplify parsing generated release headings
+  ([#402](https://github.com/worganisation/github-config-files/pull/402),
+  [`46d6217`](https://github.com/worganisation/github-config-files/commit/46d6217910c0ea7e42e5e48228cabcef617f00ae))
+
+
 ## v0.12.1 (2026-11-25)
 
 ### Bug Fixes
