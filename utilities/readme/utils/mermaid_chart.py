@@ -13,7 +13,7 @@ from logging import StreamHandler, getLogger
 from pathlib import Path
 from string import ascii_uppercase
 from sys import stdout
-from typing import TYPE_CHECKING, Any, ClassVar, Literal
+from typing import TYPE_CHECKING, Annotated, Any, ClassVar, Literal
 
 from pydantic import (
     BaseModel,
@@ -51,6 +51,9 @@ class TriggerType(StrEnum):
     MERGE_GROUP = auto()
     PULL_REQUEST = auto()
     PUSH = auto()
+    RELEASE = auto()
+    REPOSITORY_DISPATCH = auto()
+    WORKFLOW_RUN = auto()
     SCHEDULE = auto()
     WORKFLOW_CALL = auto()
     WORKFLOW_DISPATCH = auto()
@@ -95,6 +98,7 @@ class Trigger(MermaidEntity):
     paths_ignore: list[str] = Field(default_factory=list, alias="paths-ignore")
     tags: list[str] = Field(default_factory=list)
     tags_ignore: list[str] = Field(default_factory=list, alias="tags-ignore")
+    workflows: list[str] = Field(default_factory=list)
     types: list[str] = Field(default_factory=list)
     inputs: dict[str, Any] = Field(default_factory=dict)
     outputs: dict[str, Any] = Field(default_factory=dict)
@@ -186,6 +190,7 @@ class Trigger(MermaidEntity):
                 self.tags,
                 self.tags_ignore,
                 self.types,
+                self.workflows,
             ),
         ):
             return mermaid_str + '"}}'
@@ -209,6 +214,9 @@ class Trigger(MermaidEntity):
 
         if self.tags_ignore:
             mermaid_str += "Tags Ignore: " + ", ".join(self.tags_ignore) + "\n"
+
+        if self.workflows:
+            mermaid_str += "Workflows: " + ", ".join(self.workflows) + "\n"
 
         if self.types:
             mermaid_str += "Types: " + ", ".join(self.types) + "\n"
@@ -249,7 +257,8 @@ class Concurrency(MermaidEntity):
     """Concurrency config for a GitHub Actions Workflow."""
 
     group: str
-    cancel_in_progress: bool = Field(alias="cancel-in-progress")
+    cancel_in_progress: Annotated[bool, Field(alias="cancel-in-progress")] = False
+    queue: Literal["single", "max"] = "single"
 
 
 @total_ordering

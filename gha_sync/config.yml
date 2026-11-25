@@ -2,6 +2,31 @@
 # yamllint disable rule:line-length
 
 group:
+  - files:
+      - source: .github/scripts/release-notifications.cjs
+        dest: .github/scripts/release-notifications.cjs
+      - source: gha_sync/workflows/all/release-notifications.yml
+        dest: .github/workflows/release-notifications.yml
+    repos: |
+      worganisation/authentik
+      worganisation/backplane
+      worganisation/dockarr
+      worganisation/esphome
+      worganisation/frigate-config
+      worganisation/gpu-worker
+      worganisation/home-assistant
+      worganisation/home-assistant-appdaemon
+      worganisation/home-assistant-config-validator
+      worganisation/infrastructure
+      worganisation/led-matrix-controller
+      worganisation/plant-monitor
+      worganisation/pre-commit-hooks-dependency-sync
+      worganisation/smart-mini-crt-interface
+      worganisation/vaultpi
+      worganisation/very-slow-movie-player
+      worganisation/wg-scripts
+      worganisation/wg-utilities
+
   # All Repos
   # PR-hygiene workflows are synced as individual files with an explicit
   # per-entry deleteOrphaned: true, so removing one of these from GCF still
