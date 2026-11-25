@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.12.0 (2026-11-25)
+
+### Features
+
+- Report organization releases and material outcomes in Slack threads
+  ([#400](https://github.com/worganisation/github-config-files/pull/400),
+  [`141c8d7`](https://github.com/worganisation/github-config-files/commit/141c8d73c56bac360daa1775f8e2c55ae9d7a2f2))
+
+
 ## v0.11.1 (2026-11-22)
 
 ### Bug Fixes
