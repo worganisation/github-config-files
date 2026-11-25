@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.12.1 (2026-11-25)
+
+### Bug Fixes
+
+- Make Slack release notes and deployment replies easier to read
+  ([#401](https://github.com/worganisation/github-config-files/pull/401),
+  [`bf70600`](https://github.com/worganisation/github-config-files/commit/bf706006691df1a8a68f90a2ffcc569e6ac1e5c6))
+
+
 ## v0.12.0 (2026-11-25)
 
 ### Features
