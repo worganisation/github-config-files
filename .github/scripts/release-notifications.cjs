@@ -14,41 +14,12 @@ const sectionEmoji = {
   style: ':lipstick:', testing: ':white_check_mark:',
 }
 
-/** Look up GitHub contributors for commits in the published release's comparison. */
-async function releaseAuthors(github, repo, footer, core) {
-  const authors = new Map()
-  const range = footer.match(/\/compare\/([\w./-]+\.\.\.[\w./-]+)\)/)?.[1]
-  if (!range) return authors
-
-  try {
-    for (let page = 1; ; page++) {
-      const { data } = await github.rest.repos.compareCommitsWithBasehead({
-        ...repo, basehead: range, per_page: 100, page,
-      })
-      for (const { sha, author } of data.commits) {
-        if (author?.login) authors.set(sha, author.login)
-      }
-      if (data.commits.length < 100 || page * 100 >= data.total_commits) break
-    }
-  } catch (error) {
-    core.warning('Release contributor lookup failed: ' + error.message)
-  }
-  return authors
-}
-
 /** Format personal release metadata and changelog entries as Slack Block Kit sections. */
-async function announcement(github, repo, release, core) {
+function announcement(repo, release) {
   const products = { 'home-assistant': 'Home Assistant', 'home-assistant-appdaemon': 'AppDaemon' }
   const version = release.tag_name.replace(/^v?(?=\d)/, 'v')
   const title = (products[repo.repo] || repo.repo) + ' ' + version + ' is here!'
   const blocks = [{ type: 'header', text: { type: 'plain_text', text: title.slice(0, 150), emoji: true } }]
-  const publisher = release.author
-  let fallback = title
-  if (publisher?.login) {
-    const credit = 'Published by <' + publisher.html_url + '|@' + escape(publisher.login) + '>'
-    blocks.push({ type: 'context', elements: [{ type: 'mrkdwn', text: credit }] })
-    fallback += ' — ' + credit
-  }
 
   /** Wrap formatted content in a Slack section. */
   function section(text) {
@@ -56,8 +27,7 @@ async function announcement(github, repo, release, core) {
   }
 
   blocks.push(section('The full release notes can be found <' + release.html_url + '|here>.'), { type: 'divider' })
-  const [changelog, footer = ''] = (release.body || '').replaceAll('\r\n', '\n').split(/\n---\s*\n\*\*Detailed Changes\*\*:/, 2)
-  const authors = await releaseAuthors(github, repo, footer, core)
+  const [changelog] = (release.body || '').replaceAll('\r\n', '\n').split(/\n---\s*\n\*\*Detailed Changes\*\*:/, 1)
   const lines = changelog.replace(/\n[ \t]+(?=\S)/g, ' ').split('\n')
   let heading = ''
   let chunk = ''
@@ -75,12 +45,10 @@ async function announcement(github, repo, release, core) {
 
     const bullet = /^[-*] /.test(line)
     if (bullet && /pre-commit\s+autoupdate/i.test(line)) continue
-    const sha = line.match(/\/commit\/([a-f0-9]{40})\b/i)?.[1]
     let entry = escape(line.replace(/^[-*] (?:\*\*[^*]+\*\*:\s*)?/, ''))
       .replace(/\[`?([^\]`\n]+)`?\]\((https:\/\/github\.com\/[^\s)<>|]+)\)/g, '<$2|$1>')
       .replace(/\*\*([^*\n]+)\*\*/g, '*$1*')
     if (bullet) entry = '• ' + entry
-    if (authors.has(sha)) entry += ' - @' + escape(authors.get(sha))
 
     if (chunk && chunk.length + entry.length + 1 > 2900) {
       blocks.push(section(chunk))
@@ -96,7 +64,7 @@ async function announcement(github, repo, release, core) {
   }
   if (chunk) blocks.push(section(chunk))
 
-  return { text: fallback, blocks: blocks.slice(0, 50) }
+  return { text: title, blocks: blocks.slice(0, 50) }
 }
 
 /** Send a Slack request and surface API errors without logging credentials. */
@@ -265,7 +233,7 @@ module.exports = async function report({ github, context, core }) {
   }
   if (!release) throw new Error('No published release for ' + tag)
   if (release.immutable) throw new Error('Release is immutable; cannot persist Slack thread receipt')
-  const message = await announcement(github, repo, release, core)
+  const message = announcement(repo, release)
   const parent = await publish(github, repo, release, 'release', message)
   for (const reply of replies) {
     if (reply.skipped && !release.assets.some(asset => asset.name === 'slack-' + reply.key + '.json')) continue
