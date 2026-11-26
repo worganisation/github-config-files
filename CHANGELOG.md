@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.13.2 (2026-11-26)
+
+### Bug Fixes
+
+- Simplify Slack sync reply formatting
+  ([`9b1b80e`](https://github.com/worganisation/github-config-files/commit/9b1b80ec49a035aa47b88eb5694866d5e02ee7e7))
+
+
 ## v0.13.1 (2026-11-26)
 
 ### Bug Fixes
