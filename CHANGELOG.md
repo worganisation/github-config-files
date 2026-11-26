@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.13.1 (2026-11-26)
+
+### Bug Fixes
+
+- Include downstream PR links in Slack release threads
+  ([`a7c497f`](https://github.com/worganisation/github-config-files/commit/a7c497f9ec2a3c6fc2e0ed08ecef4ecff971f648))
+
+
 ## v0.13.0 (2026-11-26)
 
 ### Features
