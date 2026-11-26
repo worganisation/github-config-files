@@ -68,4 +68,6 @@ The release-notifications workflow is synced to the repositories listed in `gha_
 
 Install a Slack bot with `chat:write` in the personal workspace, invite it to the releases channel, and verify that channel’s ID there. Configure `SLACK_RELEASE_BOT_TOKEN` as an Actions secret and `SLACK_RELEASE_CHANNEL_ID` as an Actions variable for enrolled callers. Private Free-organization repositories require repository-level configuration. Enable notifications after the workflow and script are present on the default branch.
 
+Set the optional repository Actions variable `SLACK_PRODUCT_NAME` to choose the product name in the announcement and `RELEASE_MESSAGE_TITLE_EMOJI` to prefix it with a Slack emoji shortcode or Unicode emoji. With `SLACK_PRODUCT_NAME=Backplane` and `RELEASE_MESSAGE_TITLE_EMOJI=📚`, the heading reads “📚 Backplane v1.2.3 is here!”
+
 Each mutable GitHub release stores small `slack-*.json` assets with its Slack channel and message timestamps. A completed job can establish the parent thread if its callback wins the publication race. Rerunning a reporting workflow updates its recorded message. A failed notification can be retried from Actions independently of the deployment. For a new release-triggered workflow, add its display name to the notification workflow’s trigger list.
