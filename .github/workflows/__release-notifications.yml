@@ -41,6 +41,8 @@ jobs:
       - name: Report release
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
+          SLACK_PRODUCT_NAME: ${{ vars.SLACK_PRODUCT_NAME }}
+          RELEASE_MESSAGE_TITLE_EMOJI: ${{ vars.RELEASE_MESSAGE_TITLE_EMOJI }}
           SLACK_TOKEN: ${{ secrets.SLACK_RELEASE_BOT_TOKEN }}
           SLACK_CHANNEL: ${{ vars.SLACK_RELEASE_CHANNEL_ID }}
         with:

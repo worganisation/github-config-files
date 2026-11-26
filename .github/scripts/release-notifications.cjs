@@ -18,7 +18,9 @@ const sectionEmoji = {
 function announcement(repo, release) {
   const products = { 'home-assistant': 'Home Assistant', 'home-assistant-appdaemon': 'AppDaemon' }
   const version = release.tag_name.replace(/^v?(?=\d)/, 'v')
-  const title = (products[repo.repo] || repo.repo) + ' ' + version + ' is here!'
+  const product = process.env.SLACK_PRODUCT_NAME?.trim() || products[repo.repo] || repo.repo
+  const emoji = process.env.RELEASE_MESSAGE_TITLE_EMOJI?.trim()
+  const title = [emoji, product, version, 'is here!'].filter(Boolean).join(' ')
   const blocks = [{ type: 'header', text: { type: 'plain_text', text: title.slice(0, 150), emoji: true } }]
 
   /** Wrap formatted content in a Slack section. */
