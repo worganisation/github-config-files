@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.13.0 (2026-11-26)
+
+### Features
+
+- Improve personal Slack release announcements
+  ([`484dacf`](https://github.com/worganisation/github-config-files/commit/484dacf030d4c09260351e38599c149f73b40888))
+
+
 ## v0.12.2 (2026-11-25)
 
 ### Bug Fixes
