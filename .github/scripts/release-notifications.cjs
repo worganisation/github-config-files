@@ -28,7 +28,8 @@ function announcement(repo, release) {
     return { type: 'section', text: { type: 'mrkdwn', text } }
   }
 
-  blocks.push(section('The full release notes can be found <' + release.html_url + '|here>.'), { type: 'divider' })
+  const releaseLink = 'The full release notes can be found <' + release.html_url + '|here>.'
+  blocks.push(section(releaseLink), { type: 'divider' })
   const [changelog] = (release.body || '').replaceAll('\r\n', '\n').split(/\n---\s*\n\*\*Detailed Changes\*\*:/, 1)
   const lines = changelog.replace(/\n[ \t]+(?=\S)/g, ' ').split('\n')
   let heading = ''
@@ -46,7 +47,7 @@ function announcement(repo, release) {
     }
 
     const bullet = /^[-*] /.test(line)
-    if (bullet && /pre-commit\s+autoupdate/i.test(line)) continue
+    if (bullet && /\b(?:pre-commit|prek)\s+autoupdate/i.test(line)) continue
     let entry = escape(line.replace(/^[-*] (?:\*\*[^*]+\*\*:\s*)?/, ''))
       .replace(/\[`?([^\]`\n]+)`?\]\((https:\/\/github\.com\/[^\s)<>|]+)\)/g, '<$2|$1>')
       .replace(/\*\*([^*\n]+)\*\*/g, '*$1*')
@@ -66,7 +67,7 @@ function announcement(repo, release) {
   }
   if (chunk) blocks.push(section(chunk))
 
-  return { text: title, blocks: blocks.slice(0, 50) }
+  return { text: escape(title) + '\n' + releaseLink, blocks: blocks.slice(0, 50) }
 }
 
 /** Send a Slack request and surface API errors without logging credentials. */
