@@ -52,14 +52,15 @@ jobs:
       - name: Record Updated PRs
         env:
           GH_TOKEN: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
-          URL_LIST: ${{ join(fromJson(steps.sync.outputs.pull_request_urls || '[]')) }}
+          PULL_REQUEST_URLS: ${{ steps.sync.outputs.pull_request_urls || '[]' }}
         run: |
-          url_list_formatted=$(echo "$URL_LIST" | sed 's/,/\n- /g')
+          printf '%s\n' "$PULL_REQUEST_URLS" > "$RUNNER_TEMP/sync-prs.json"
+          url_list_formatted=$(jq -r '.[] | "- " + .' <<< "$PULL_REQUEST_URLS")
           output="# Repo Sync PRs
 
-          - $url_list_formatted"
+          $url_list_formatted"
 
-          echo -e "${output}" >> $GITHUB_STEP_SUMMARY
+          printf '%s\n' "$output" >> "$GITHUB_STEP_SUMMARY"
 
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             gh pr comment \
@@ -73,6 +74,15 @@ jobs:
               )" \
               --body "$output"
           fi
+
+      - name: Save downstream PR links for Slack
+        if: github.event_name == 'release'
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: sync-prs-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/sync-prs.json
+          if-no-files-found: error
 
       - name: Update PR titles and apply merge policy
         env:
