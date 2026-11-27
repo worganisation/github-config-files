@@ -391,30 +391,30 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 
 ```mermaid
 flowchart LR
-subgraph EE[" "]
+subgraph EF[" "]
 direction LR
-DE-->V
-CF-->AY
-CG-->CN
-CG-->CF
-DG-->DX
-DG-->DN
-DG-->DI
-DG-->DE
-DG-->CV
-DG-->CN
-DN-->BB
-DO-->DX
-DO-->DN
-DX-->BQ
-DB-->DX
-DB-->DN
-DB-->DI
-DB-->DA
-DB-->CV
-DB-->CN
-DA-->V
-DA-->M
+DF-->V
+CG-->AY
+CH-->CO
+CH-->CG
+DH-->DY
+DH-->DO
+DH-->DJ
+DH-->DF
+DH-->CW
+DH-->CO
+DO-->BB
+DP-->DY
+DP-->DO
+DY-->BQ
+DC-->DY
+DC-->DO
+DC-->DJ
+DC-->DB
+DC-->CW
+DC-->CO
+DB-->V
+DB-->M
 M-->I
 M-->E
 M-->AM
@@ -423,21 +423,21 @@ V-->I
 V-->BN
 V-->A
 end
-subgraph EF[" "]
-direction LR
-CJ-->BE
-end
 subgraph EG[" "]
 direction LR
-CC-->CB
-CB-->AV
+CK-->BE
 end
 subgraph EH[" "]
 direction LR
-BY-->BX
-BX-->BK
+CD-->CC
+CC-->AV
 end
 subgraph EI[" "]
+direction LR
+BZ-->BY
+BY-->BK
+end
+subgraph EJ[" "]
 direction LR
 BU-->BT
 BT-->AE
@@ -457,32 +457,32 @@ BT("Auto-Create PR")
 BU{{"PUSH
 Branches Ignore: dependabot/**, main, renovate/**
 "}}
-BX("Standard PR Checks")
-BY{{"PULL REQUEST
+BY("Standard PR Checks")
+BZ{{"PULL REQUEST
 Types: edited, labeled, opened, ready_for_review, reopened, synchronize, unlabeled
 "}}
-CB("Manage Repo Labels")
-CC{{"PUSH
+CC("Manage Repo Labels")
+CD{{"PUSH
 Branches: main
 Paths: .github/repo_labels.yml
 "}}
-CF("Prek Auto-Update")
-CG{{"SCHEDULE"}}
-CJ("Semantic Release")
-CN("Validate Home Assistant Config")
-CV("Integration Test")
-DA("CI: Validation & Deployment")
-DB{{"PUSH
+CG("Prek Auto-Update")
+CH{{"SCHEDULE"}}
+CK("Semantic Release")
+CO("Validate Home Assistant Config")
+CW("Integration Test")
+DB("CI: Validation & Deployment")
+DC{{"PUSH
 Branches: main
 "}}
-DE("CI: Validation")
-DG{{"PULL REQUEST
+DF("CI: Validation")
+DH{{"PULL REQUEST
 Types: opened, ready_for_review, reopened, synchronize
 "}}
-DI("CodSpeed Benchmarks")
-DN("Prek Hooks")
-DO{{"MERGE GROUP"}}
-DX("Unit Tests")
+DJ("CodSpeed Benchmarks")
+DO("Prek Hooks")
+DP{{"MERGE GROUP"}}
+DY("Unit Tests")
 E[["Build Documentation"]]
 I[["Build"]]
 M[["CI: Deployment"]]
