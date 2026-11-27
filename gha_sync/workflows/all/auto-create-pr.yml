@@ -35,7 +35,7 @@ jobs:
         run: |
           set -euo pipefail
           # The reusable workflow interpolates both refs into shell commands.
-          safe_ref='^[a-zA-Z0-9_][a-zA-Z0-9_./-]*$'
+          safe_ref='^[a-zA-Z0-9_][a-zA-Z0-9_./#-]*$'
           if [[ ! $HEAD_REF =~ $safe_ref || ! $DEFAULT_BRANCH =~ $safe_ref ]]; then
             echo "::error::Unsupported head or default branch name"
             exit 1
