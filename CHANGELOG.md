@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.14.2 (2026-11-27)
+
+### Bug Fixes
+
+- **notifications**: Restore emoji to release category headings
+  ([#410](https://github.com/worganisation/github-config-files/pull/410),
+  [`6808a12`](https://github.com/worganisation/github-config-files/commit/6808a12bfccd5794a6af29e3a3127ebc9b341c65))
+
+
 ## v0.14.1 (2026-11-27)
 
 ### Bug Fixes
