@@ -15,7 +15,7 @@ on its default branch. The app is available at
   `Europe/London`, subject to the hosted app's execution schedule.
 - Each repository has at most three concurrent update PRs, with one new PR per
   hour. Security updates may bypass Renovate's normal scheduling and limits.
-- Major updates require approval in the Dependency Dashboard before a PR opens.
+- Major updates open PRs automatically under the normal schedule and rate limits; merging requires review and remains manual.
 - Updates request review from `worgarside`; Renovate does not enable auto-merge.
 - Routine GitHub Actions updates are grouped and action references are pinned
   to commit digests. Shared `github-config-files` workflow references remain

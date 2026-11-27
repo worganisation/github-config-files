@@ -26,6 +26,22 @@ Repositories without a release workflow do not need a placeholder. Infrastructur
 event. Application deployments consume published releases or release tags; merges and
 branch pushes never deploy. Re-run a deployment for its original release to retry.
 
+## Python Semantic Release defaults
+
+Every `worganisation` repository using Python Semantic Release keeps these defaults in its own `pyproject.toml`, including new repositories:
+
+```toml
+[tool.semantic_release]
+major_on_zero = true
+
+[tool.semantic_release.changelog.default_templates]
+mask_initial_release = false
+```
+
+Breaking commits can advance a zero-major version to 1.0.0, and the initial release includes detailed changelog entries. Keep each repository's `allow_zero_version` value and other release settings intact. These defaults do not authorize a release or a major-version publication; inspect the calculated version before dispatch and obtain the owner's explicit approval for a major release.
+
+The shared workflow reads the caller's `pyproject.toml`; workflow sync does not own or overwrite project metadata. Use the configuration above when setting up a repository with the shared caller. Apply equivalent supported behavior when using another semantic-release implementation; Python-specific keys belong only in Python Semantic Release configuration.
+
 ## Shared release runtime
 
 All generic callers use the shared CC self-hosted runner and the single Python
@@ -45,3 +61,15 @@ Backplane's project configuration must set
 `tool.semantic_release.remote.ignore_token_for_push = true`; its repository
 needs `DEPLOY_KEY` and an explicitly approved DeployKey ruleset bypass.
 The API token still creates the published release.
+
+## Slack release threads
+
+The release-notifications workflow is synced to the repositories listed in `gha_sync/config.yml`. It posts published release notes in the personal Slack releases channel. Each material job posts a threaded result when its workflow completes. The repository sync reply lists the downstream pull requests created or updated by that sync. Builds and image or package publication inside deployment jobs also get separate replies, so a deployment failure preserves a successful build result. The Home Assistant and AppDaemon checkout callbacks report a skip, failure or exact commit independently of CI. A checkout confirms the Git revision on disk. Separate replies identify HA startup, HA automation reloads and AppDaemon’s observed active and inactive app counts.
+
+Install a Slack bot with `chat:write` in the personal workspace, invite it to the releases channel, and verify that channel’s ID there. Configure `SLACK_RELEASE_BOT_TOKEN` as an Actions secret and `SLACK_RELEASE_CHANNEL_ID` as an Actions variable for enrolled callers. Private Free-organization repositories require repository-level configuration. Enable notifications after the workflow and script are present on the default branch.
+
+Set the optional repository Actions variable `SLACK_PRODUCT_NAME` to choose the product name in the announcement and `RELEASE_MESSAGE_TITLE_EMOJI` to prefix it with a Slack emoji shortcode or Unicode emoji. With `SLACK_PRODUCT_NAME=Backplane` and `RELEASE_MESSAGE_TITLE_EMOJI=📚`, the heading reads “📚 Backplane v1.2.3 is here!”
+
+The shared runner supplies `RELEASE_NOTES_OLLAMA_URL`. The bot asks `qwen3:4b-instruct` for a short summary of the published GitHub release body and shows the original text in a collapsed **Detailed release notes** section. If the endpoint is unavailable, the request exceeds ten seconds, or the input or output exceeds the model budget, the notes start expanded. Slack shows an explicitly labelled excerpt when the body exceeds the container limit. Every announcement links to the complete notes on GitHub.
+
+Each mutable GitHub release stores small `slack-*.json` assets with its Slack channel and message timestamps. The first publication or deployment callback creates the announcement. Later callbacks reuse its thread and update their own recorded replies. Rerun the published-release notification in Actions to refresh the parent announcement, including after Ollama recovers. For a new release-triggered workflow, add its display name to the notification workflow’s trigger list.

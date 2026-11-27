@@ -4,6 +4,25 @@
     {
       "description": "GCF source templates own these synced workflows.",
       "matchRepositories": [
+        "worganisation/authentik"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/auto-create-pr.yml",
+        ".github/workflows/manage-pr.yml",
+        ".github/workflows/manage-repo-labels.yml",
+        ".github/workflows/prek-autoupdate.yml",
+        ".github/workflows/prek-hooks.yml",
+        ".github/workflows/release-notifications.yml",
+        ".github/workflows/semantic-release.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
         "worganisation/backplane"
       ],
       "matchManagers": [
@@ -15,6 +34,7 @@
         ".github/workflows/manage-repo-labels.yml",
         ".github/workflows/prek-autoupdate.yml",
         ".github/workflows/prek-hooks.yml",
+        ".github/workflows/release-notifications.yml",
         ".github/workflows/semantic-release.yml",
         ".github/workflows/unit-tests.yml"
       ],
@@ -34,6 +54,7 @@
         ".github/workflows/manage-repo-labels.yml",
         ".github/workflows/prek-autoupdate.yml",
         ".github/workflows/prek-hooks.yml",
+        ".github/workflows/release-notifications.yml",
         ".github/workflows/semantic-release.yml"
       ],
       "enabled": false
@@ -52,7 +73,7 @@
         ".github/workflows/manage-repo-labels.yml",
         ".github/workflows/prek-autoupdate.yml",
         ".github/workflows/prek-hooks.yml",
-        ".github/workflows/semantic-release.yml"
+        ".github/workflows/release-notifications.yml"
       ],
       "enabled": false
     },
@@ -68,6 +89,7 @@
         ".github/workflows/auto-create-pr.yml",
         ".github/workflows/prek-autoupdate.yml",
         ".github/workflows/prek-hooks.yml",
+        ".github/workflows/release-notifications.yml",
         ".github/workflows/semantic-release.yml"
       ],
       "enabled": false
@@ -85,7 +107,8 @@
         ".github/workflows/manage-pr.yml",
         ".github/workflows/manage-repo-labels.yml",
         ".github/workflows/prek-autoupdate.yml",
-        ".github/workflows/prek-hooks.yml"
+        ".github/workflows/prek-hooks.yml",
+        ".github/workflows/release-notifications.yml"
       ],
       "enabled": false
     },
@@ -103,6 +126,7 @@
         ".github/workflows/manage-repo-labels.yml",
         ".github/workflows/prek-autoupdate.yml",
         ".github/workflows/prek-hooks.yml",
+        ".github/workflows/release-notifications.yml",
         ".github/workflows/semantic-release.yml",
         ".github/workflows/validate-home-assistant-config.yml"
       ],
@@ -122,6 +146,7 @@
         ".github/workflows/manage-repo-labels.yml",
         ".github/workflows/prek-autoupdate.yml",
         ".github/workflows/prek-hooks.yml",
+        ".github/workflows/release-notifications.yml",
         ".github/workflows/semantic-release.yml"
       ],
       "enabled": false
@@ -142,6 +167,7 @@
         ".github/workflows/manage-repo-labels.yml",
         ".github/workflows/prek-autoupdate.yml",
         ".github/workflows/prek-hooks.yml",
+        ".github/workflows/release-notifications.yml",
         ".github/workflows/semantic-release.yml",
         ".github/workflows/unit-tests.yml"
       ],
@@ -156,7 +182,8 @@
         "github-actions"
       ],
       "matchFileNames": [
-        ".github/workflows/auto-create-pr.yml"
+        ".github/workflows/auto-create-pr.yml",
+        ".github/workflows/release-notifications.yml"
       ],
       "enabled": false
     },
@@ -170,13 +197,25 @@
       ],
       "matchFileNames": [
         ".github/workflows/auto-create-pr.yml",
-        ".github/workflows/codspeed.yml",
         ".github/workflows/manage-pr.yml",
         ".github/workflows/manage-repo-labels.yml",
         ".github/workflows/prek-autoupdate.yml",
         ".github/workflows/prek-hooks.yml",
-        ".github/workflows/semantic-release.yml",
-        ".github/workflows/unit-tests.yml"
+        ".github/workflows/release-notifications.yml",
+        ".github/workflows/semantic-release.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/plant-monitor"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/release-notifications.yml"
       ],
       "enabled": false
     },
@@ -194,6 +233,7 @@
         ".github/workflows/manage-repo-labels.yml",
         ".github/workflows/prek-autoupdate.yml",
         ".github/workflows/prek-hooks.yml",
+        ".github/workflows/release-notifications.yml",
         ".github/workflows/semantic-release.yml"
       ],
       "enabled": false
@@ -210,7 +250,20 @@
         ".github/workflows/auto-create-pr.yml",
         ".github/workflows/manage-pr.yml",
         ".github/workflows/manage-repo-labels.yml",
-        ".github/workflows/semantic-release.yml"
+        ".github/workflows/release-notifications.yml"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "GCF source templates own these synced workflows.",
+      "matchRepositories": [
+        "worganisation/vaultpi"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchFileNames": [
+        ".github/workflows/release-notifications.yml"
       ],
       "enabled": false
     },
@@ -223,10 +276,9 @@
         "github-actions"
       ],
       "matchFileNames": [
-        ".github/workflows/auto-create-pr.yml",
         ".github/workflows/manage-pr.yml",
         ".github/workflows/manage-repo-labels.yml",
-        ".github/workflows/semantic-release.yml"
+        ".github/workflows/release-notifications.yml"
       ],
       "enabled": false
     },
@@ -244,6 +296,7 @@
         ".github/workflows/manage-repo-labels.yml",
         ".github/workflows/prek-autoupdate.yml",
         ".github/workflows/prek-hooks.yml",
+        ".github/workflows/release-notifications.yml",
         ".github/workflows/semantic-release.yml"
       ],
       "enabled": false
@@ -260,10 +313,7 @@
         ".github/workflows/auto-create-pr.yml",
         ".github/workflows/manage-pr.yml",
         ".github/workflows/manage-repo-labels.yml",
-        ".github/workflows/prek-autoupdate.yml",
-        ".github/workflows/prek-hooks.yml",
-        ".github/workflows/semantic-release.yml",
-        ".github/workflows/unit-tests.yml"
+        ".github/workflows/release-notifications.yml"
       ],
       "enabled": false
     }

@@ -2,6 +2,121 @@
 
 <!-- version list -->
 
+## v0.13.2 (2026-11-26)
+
+### Bug Fixes
+
+- Simplify Slack sync reply formatting
+  ([`9b1b80e`](https://github.com/worganisation/github-config-files/commit/9b1b80ec49a035aa47b88eb5694866d5e02ee7e7))
+
+
+## v0.13.1 (2026-11-26)
+
+### Bug Fixes
+
+- Include downstream PR links in Slack release threads
+  ([`a7c497f`](https://github.com/worganisation/github-config-files/commit/a7c497f9ec2a3c6fc2e0ed08ecef4ecff971f648))
+
+
+## v0.13.0 (2026-11-26)
+
+### Features
+
+- Improve personal Slack release announcements
+  ([`484dacf`](https://github.com/worganisation/github-config-files/commit/484dacf030d4c09260351e38599c149f73b40888))
+
+
+## v0.12.2 (2026-11-25)
+
+### Bug Fixes
+
+- Simplify parsing generated release headings
+  ([#402](https://github.com/worganisation/github-config-files/pull/402),
+  [`46d6217`](https://github.com/worganisation/github-config-files/commit/46d6217910c0ea7e42e5e48228cabcef617f00ae))
+
+
+## v0.12.1 (2026-11-25)
+
+### Bug Fixes
+
+- Make Slack release notes and deployment replies easier to read
+  ([#401](https://github.com/worganisation/github-config-files/pull/401),
+  [`bf70600`](https://github.com/worganisation/github-config-files/commit/bf706006691df1a8a68f90a2ffcc569e6ac1e5c6))
+
+
+## v0.12.0 (2026-11-25)
+
+### Features
+
+- Report organization releases and material outcomes in Slack threads
+  ([#400](https://github.com/worganisation/github-config-files/pull/400),
+  [`141c8d7`](https://github.com/worganisation/github-config-files/commit/141c8d73c56bac360daa1775f8e2c55ae9d7a2f2))
+
+
+## v0.11.1 (2026-11-22)
+
+### Bug Fixes
+
+- Preserve consumer behavior in workflow sync
+  ([#397](https://github.com/worganisation/github-config-files/pull/397),
+  [`5a95887`](https://github.com/worganisation/github-config-files/commit/5a95887909fedcc64d2d5d5d234ed8568869ed4f))
+
+
+## v0.11.0 (2026-11-22)
+
+### Bug Fixes
+
+- **ci**: Align HACV integration and benchmarks with uv
+  ([#385](https://github.com/worganisation/github-config-files/pull/385),
+  [`8b4763a`](https://github.com/worganisation/github-config-files/commit/8b4763a65ece2cb255c770bbd60ad39332dbacbe))
+
+- **ci**: Authenticate CodSpeed uploads with job-scoped OIDC
+  ([#386](https://github.com/worganisation/github-config-files/pull/386),
+  [`1cd3710`](https://github.com/worganisation/github-config-files/commit/1cd371065baef15c567be0bacb38074a56290201))
+
+### Chores
+
+- Keep matrix native test workflows repository-owned
+  ([#392](https://github.com/worganisation/github-config-files/pull/392),
+  [`0a5b115`](https://github.com/worganisation/github-config-files/commit/0a5b1152f8fc714fd1754999b255c8a533386f9e))
+
+- Open Renovate major upgrade PRs without approval
+  ([#396](https://github.com/worganisation/github-config-files/pull/396),
+  [`e578726`](https://github.com/worganisation/github-config-files/commit/e578726db167f3b8bbb4cec6e55a477a6a16e1a4))
+
+- Standardise semantic-release defaults
+  ([#390](https://github.com/worganisation/github-config-files/pull/390),
+  [`891e4f3`](https://github.com/worganisation/github-config-files/commit/891e4f345950c9096a8d00b71bd2ff681c686a8c))
+
+- **ci**: Disable synced HACV CodSpeed benchmarks
+  ([#387](https://github.com/worganisation/github-config-files/pull/387),
+  [`5938095`](https://github.com/worganisation/github-config-files/commit/5938095335db383c8f29b827c69fdcf1ebf76520))
+
+- **deps**: Update dependency certifi to v2026.10.18 [security]
+  ([#394](https://github.com/worganisation/github-config-files/pull/394),
+  [`4516316`](https://github.com/worganisation/github-config-files/commit/451631662726a43ffd1cf9cd9e0a420b472ce8d0))
+
+- **deps**: Update dependency urllib3 to v2.8.0 [security]
+  ([#395](https://github.com/worganisation/github-config-files/pull/395),
+  [`0de7fb9`](https://github.com/worganisation/github-config-files/commit/0de7fb980c9fd1236fe41d446cb539d5f05dff3d))
+
+- **sync**: Enroll Authentik repository tooling
+  ([#389](https://github.com/worganisation/github-config-files/pull/389),
+  [`e37c8b6`](https://github.com/worganisation/github-config-files/commit/e37c8b6db81050e856c38a8313cc69893ee91df7))
+
+### Continuous Integration
+
+- Skip expensive validation on draft PRs
+  ([#381](https://github.com/worganisation/github-config-files/pull/381),
+  [`30e3fcf`](https://github.com/worganisation/github-config-files/commit/30e3fcfd9ef6f4873eb1be5637028f1a7ee213a9))
+
+### Features
+
+- **ci**: Share isolated LAN deployment SSH setup
+  ([#388](https://github.com/worganisation/github-config-files/pull/388),
+  [`0b7ce95`](https://github.com/worganisation/github-config-files/commit/0b7ce9549e48edc9a4057ef9bd46acea5d2a6850))
+
+
 ## v0.10.0 (2026-09-26)
 
 ### Features

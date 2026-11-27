@@ -70,7 +70,7 @@ jobs:
           token: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
 
       - name: Set up Python
-        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           python-version: ${{ inputs.python-version }}
           activate-environment: true
@@ -112,7 +112,7 @@ jobs:
           git remote set-url origin \
             "ssh://git@ssh.github.com:443/${GITHUB_REPOSITORY}.git"
 
-          command=(semantic-release -v -v --config pyproject.toml version)
+          command=(semantic-release --config pyproject.toml version)
 
           case "${FORCE_DEPLOYMENT}" in
             "") ;;

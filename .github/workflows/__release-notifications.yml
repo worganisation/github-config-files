@@ -1,0 +1,66 @@
+---
+name: '"Release Notifications" Runner'
+
+on:
+  workflow_call:
+    secrets:
+      SLACK_RELEASE_BOT_TOKEN:
+        required: false
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: release-notifications
+  queue: max
+
+jobs:
+  notify:
+    name: Report release
+    if: >-
+      github.repository_owner == 'worganisation' &&
+      vars.SLACK_RELEASE_CHANNEL_ID != '' &&
+      (github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.head_repository.full_name == github.repository &&
+      (github.event.workflow_run.event == 'release' ||
+      (github.event.workflow_run.name == 'CI: Validation & Deployment' &&
+      github.event.workflow_run.event == 'push' && github.event.workflow_run.head_branch == 'main') ||
+      (github.repository == 'worganisation/infrastructure' &&
+      github.event.workflow_run.event == 'workflow_dispatch' && github.event.workflow_run.head_branch == 'main'))))
+    runs-on: [self-hosted, linux, x64, cc, iac, opentofu]
+    timeout-minutes: 8
+    steps:
+      - name: Check out notification code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+          sparse-checkout: .github/scripts
+
+      - name: Download downstream PR links
+        id: sync-links
+        if: >-
+          github.repository == 'worganisation/github-config-files' &&
+          github.event.workflow_run.name == 'Sync Repos' &&
+          github.event.workflow_run.event == 'release'
+        continue-on-error: true
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: sync-prs-${{ github.event.workflow_run.run_attempt }}
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/release-sync-links
+
+      - name: Report release
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        env:
+          SYNC_LINKS_DIR: ${{ steps.sync-links.outcome == 'success' && steps.sync-links.outputs.download-path || '' }}
+          SLACK_PRODUCT_NAME: ${{ vars.SLACK_PRODUCT_NAME }}
+          RELEASE_MESSAGE_TITLE_EMOJI: ${{ vars.RELEASE_MESSAGE_TITLE_EMOJI }}
+          SLACK_TOKEN: ${{ secrets.SLACK_RELEASE_BOT_TOKEN }}
+          SLACK_CHANNEL: ${{ vars.SLACK_RELEASE_CHANNEL_ID }}
+        with:
+          script: |
+            const report = require('./.github/scripts/release-notifications.cjs')
+            await report({ github, context, core })

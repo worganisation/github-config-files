@@ -29,7 +29,7 @@ jobs:
 
       - name: Run GitHub File Sync
         id: sync
-        uses: raven-actions/repo-files-sync@bb4d579be65a4086050c7e5441fb6f69a382db07 # v0.1.0-rc.17
+        uses: raven-actions/repo-files-sync@511c602835ac7dd8529673f91afe348db8d08185 # v0.1.0-rc.18
         with:
           GH_TOKEN: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
           CONFIG_PATH: gha_sync/config.yml
@@ -52,14 +52,15 @@ jobs:
       - name: Record Updated PRs
         env:
           GH_TOKEN: ${{ secrets.WORGARSIDE_DEV_TOKEN }}
-          URL_LIST: ${{ join(fromJson(steps.sync.outputs.pull_request_urls || '[]')) }}
+          PULL_REQUEST_URLS: ${{ steps.sync.outputs.pull_request_urls || '[]' }}
         run: |
-          url_list_formatted=$(echo "$URL_LIST" | sed 's/,/\n- /g')
+          printf '%s\n' "$PULL_REQUEST_URLS" > "$RUNNER_TEMP/sync-prs.json"
+          url_list_formatted=$(jq -r '.[] | "- " + .' <<< "$PULL_REQUEST_URLS")
           output="# Repo Sync PRs
 
-          - $url_list_formatted"
+          $url_list_formatted"
 
-          echo -e "${output}" >> $GITHUB_STEP_SUMMARY
+          printf '%s\n' "$output" >> "$GITHUB_STEP_SUMMARY"
 
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             gh pr comment \
@@ -73,6 +74,15 @@ jobs:
               )" \
               --body "$output"
           fi
+
+      - name: Save downstream PR links for Slack
+        if: github.event_name == 'release'
+        continue-on-error: true
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: sync-prs-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/sync-prs.json
+          if-no-files-found: error
 
       - name: Update PR titles and apply merge policy
         env:

@@ -2,6 +2,31 @@
 # yamllint disable rule:line-length
 
 group:
+  - files:
+      - source: .github/scripts/release-notifications.cjs
+        dest: .github/scripts/release-notifications.cjs
+      - source: gha_sync/workflows/all/release-notifications.yml
+        dest: .github/workflows/release-notifications.yml
+    repos: |
+      worganisation/authentik
+      worganisation/backplane
+      worganisation/dockarr
+      worganisation/esphome
+      worganisation/frigate-config
+      worganisation/gpu-worker
+      worganisation/home-assistant
+      worganisation/home-assistant-appdaemon
+      worganisation/home-assistant-config-validator
+      worganisation/infrastructure
+      worganisation/led-matrix-controller
+      worganisation/plant-monitor
+      worganisation/pre-commit-hooks-dependency-sync
+      worganisation/smart-mini-crt-interface
+      worganisation/vaultpi
+      worganisation/very-slow-movie-player
+      worganisation/wg-scripts
+      worganisation/wg-utilities
+
   # All Repos
   # PR-hygiene workflows are synced as individual files with an explicit
   # per-entry deleteOrphaned: true, so removing one of these from GCF still
@@ -13,9 +38,6 @@ group:
   - files:
       - .github/actionlint.yaml
       - .github/CODEOWNERS
-      - source: gha_sync/workflows/all/auto-create-pr.yml
-        dest: .github/workflows/auto-create-pr.yml
-        deleteOrphaned: true
       - source: gha_sync/workflows/all/manage-pr.yml
         dest: .github/workflows/manage-pr.yml
         deleteOrphaned: true
@@ -34,6 +56,25 @@ group:
       worgarside/python-template
       worganisation/smart-mini-crt-interface
       worganisation/very-slow-movie-player
+      worganisation/wg-scripts
+      worganisation/wg-utilities
+
+  # VSMP owns its nearest-ancestor PR creation workflow.
+  - files:
+      - source: gha_sync/workflows/all/auto-create-pr.yml
+        dest: .github/workflows/auto-create-pr.yml
+        deleteOrphaned: true
+    repos: |
+      worganisation/backplane
+      worganisation/esphome
+      worganisation/gpu-worker
+      worganisation/home-assistant
+      worganisation/home-assistant-appdaemon
+      worganisation/home-assistant-config-validator
+      worganisation/led-matrix-controller
+      worganisation/pre-commit-hooks-dependency-sync
+      worgarside/python-template
+      worganisation/smart-mini-crt-interface
       worganisation/wg-scripts
       worganisation/wg-utilities
 
@@ -70,9 +111,15 @@ group:
       worganisation/home-assistant-config-validator
       worganisation/led-matrix-controller
       worganisation/pre-commit-hooks-dependency-sync
-      worganisation/smart-mini-crt-interface
       worganisation/very-slow-movie-player
       worganisation/wg-scripts
+
+  # Poetry consumers retain pip security updates and repository-owned CI.
+  - files:
+      - source: gha_sync/configs/dependabot-poetry.yml
+        dest: .github/dependabot.yml
+    repos: |
+      worganisation/smart-mini-crt-interface
       worganisation/wg-utilities
 
   # The personal template retains its independent Dependabot policy.
@@ -100,7 +147,6 @@ group:
       worganisation/led-matrix-controller
       worganisation/pre-commit-hooks-dependency-sync
       worganisation/wg-scripts
-      worganisation/wg-utilities
 
   # Release Drafter - only the repos still on the legacy label-based release
   # mechanism (__ci-validation.yml / __ci-deployment.yml) need this. Repos
@@ -182,11 +228,6 @@ worganisation/esphome:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: ''
       sync_project_dependencies: 'false'
-  - source: gha_sync/workflows/template/semantic-release.template.yml
-    dest: .github/workflows/semantic-release.yml
-    template:
-      python_version: '3.12'
-      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/backplane:
   - source: gha_sync/workflows/template/semantic-release.template.yml
@@ -208,6 +249,7 @@ worganisation/backplane:
       source_dir: src
 
 worganisation/frigate-config:
+  - .github/actionlint.yaml
   - source: gha_sync/workflows/all/auto-create-pr.yml
     dest: .github/workflows/auto-create-pr.yml
     deleteOrphaned: true
@@ -256,12 +298,12 @@ worganisation/home-assistant-appdaemon:
     dest: .github/workflows/prek-hooks.yml
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
-      python_version: '3.12'
+      python_version: '3.13'
       sync_project_dependencies: 'true'
   - source: gha_sync/workflows/template/semantic-release.template.yml
     dest: .github/workflows/semantic-release.yml
     template:
-      python_version: '3.12'
+      python_version: '3.13'
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/home-assistant-config-validator:
@@ -270,17 +312,16 @@ worganisation/home-assistant-config-validator:
   - source: gha_sync/workflows/template/codspeed.template.yml
     dest: .github/workflows/codspeed.yml
     template:
-      cache_key: venv-${{ hashFiles(env.CACHE_FILE) }}
       python_version: '3.12'
-      token: ${{ secrets.CODSPEED_TOKEN }}
+      token: ''
+      pytest_args: tests/benchmark
+      benchmark_repo: worganisation/home-assistant
   - source: gha_sync/workflows/template/prek-hooks.template.yml
     dest: .github/workflows/prek-hooks.yml
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
-      python_version: ''
-      # This repository still uses Poetry and has no uv.lock. The hooks have
-      # isolated environments, so syncing the project itself is unnecessary.
-      sync_project_dependencies: 'false'
+      python_version: '3.12'
+      sync_project_dependencies: 'true'
   - source: gha_sync/workflows/template/unit-tests.template.yml
     dest: .github/workflows/unit-tests.yml
     template:
@@ -294,26 +335,15 @@ worganisation/home-assistant-config-validator:
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
 worganisation/led-matrix-controller:
+  # Unit tests and benchmarks are repository-owned to install native audio dependencies.
   # PyAudio requires system PortAudio headers, so Prek skips the project's
   # dependency installation while continuing to use the shared workflow.
-  - source: gha_sync/workflows/template/codspeed.template.yml
-    dest: .github/workflows/codspeed.yml
-    template:
-      cache_key: venv-${{ hashFiles(env.CACHE_FILE) }}
-      python_version: '3.11'
-      token: ${{ secrets.CODSPEED_TOKEN }}
   - source: gha_sync/workflows/template/prek-hooks.template.yml
     dest: .github/workflows/prek-hooks.yml
     template:
       concurrency_group: prek-hooks-${{ github.ref }}
       python_version: '3.11'
       sync_project_dependencies: 'false'
-  - source: gha_sync/workflows/template/unit-tests.template.yml
-    dest: .github/workflows/unit-tests.yml
-    template:
-      concurrency_group: unit-tests-${{ github.ref }}
-      python_version: '3.11'
-      source_dir: led_matrix_controller
   - source: gha_sync/workflows/template/semantic-release.template.yml
     dest: .github/workflows/semantic-release.yml
     template:
@@ -349,39 +379,6 @@ worganisation/wg-scripts:
       python_version: '3.14'
       force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 
-worganisation/wg-utilities:
-  # PyPI and documentation publishing consume the published release event.
-  - source: gha_sync/workflows/template/prek-hooks.template.yml
-    dest: .github/workflows/prek-hooks.yml
-    template:
-      concurrency_group: prek-hooks-${{ github.ref }}
-      python_version: '3.12'
-      sync_project_dependencies: 'true'
-  - source: gha_sync/workflows/template/unit-tests.template.yml
-    dest: .github/workflows/unit-tests.yml
-    template:
-      concurrency_group: unit-tests-${{ github.ref }}
-      python_version: '3.12'
-      source_dir: wg_utilities
-  - source: gha_sync/workflows/template/semantic-release.template.yml
-    dest: .github/workflows/semantic-release.yml
-    template:
-      python_version: '3.12'
-      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
-
-worganisation/smart-mini-crt-interface:
-  - source: gha_sync/workflows/template/semantic-release.template.yml
-    dest: .github/workflows/semantic-release.yml
-    template:
-      python_version: '3.12'
-      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
-
-worganisation/very-slow-movie-player:
-  - source: gha_sync/workflows/template/semantic-release.template.yml
-    dest: .github/workflows/semantic-release.yml
-    template:
-      python_version: '3.12'
-      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
 worganisation/dockarr:
   # Container builds/deployment are bespoke. Do not sync unit tests or auto-merge.
   - .github/actionlint.yaml
@@ -395,6 +392,34 @@ worganisation/dockarr:
     dest: .github/workflows/manage-pr.yml
     deleteOrphaned: true
   - source: gha_sync/workflows/all/manage-repo-labels.yml
+    dest: .github/workflows/manage-repo-labels.yml
+    deleteOrphaned: true
+  - source: gha_sync/workflows/all/prek-autoupdate.yml
+    dest: .github/workflows/prek-autoupdate.yml
+    deleteOrphaned: true
+  - source: gha_sync/workflows/template/prek-hooks.template.yml
+    dest: .github/workflows/prek-hooks.yml
+    template:
+      concurrency_group: prek-hooks-${{ github.ref }}
+      python_version: ''
+      sync_project_dependencies: 'false'
+  - source: gha_sync/workflows/template/semantic-release.template.yml
+    dest: .github/workflows/semantic-release.yml
+    template:
+      python_version: '3.11'
+      force_deployment_expr: ${{ inputs.force-deployment != 'auto' && inputs.force-deployment || '' }}
+
+worganisation/authentik:
+  - .github/CODEOWNERS
+  - .github/labeler.yml
+  - .github/repo_labels.yml
+  - source: gha_sync/workflows/all/auto-create-pr.yml
+    dest: .github/workflows/auto-create-pr.yml
+    deleteOrphaned: true
+  - source: gha_sync/workflows/all/manage-pr.yml
+    dest: .github/workflows/manage-pr.yml
+    deleteOrphaned: true
+  - source: gha_sync/workflows/repo/authentik/manage-repo-labels.yml
     dest: .github/workflows/manage-repo-labels.yml
     deleteOrphaned: true
   - source: gha_sync/workflows/all/prek-autoupdate.yml
