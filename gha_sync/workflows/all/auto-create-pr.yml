@@ -34,6 +34,13 @@ jobs:
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
         run: |
           set -euo pipefail
+          # The reusable workflow interpolates both refs into shell commands.
+          safe_ref='^[a-zA-Z0-9_][a-zA-Z0-9_./-]*$'
+          if [[ ! $HEAD_REF =~ $safe_ref || ! $DEFAULT_BRANCH =~ $safe_ref ]]; then
+            echo "::error::Unsupported head or default branch name"
+            exit 1
+          fi
+
           pulls=$(gh api --paginate \
             "repos/${REPOSITORY}/pulls?state=open&per_page=100" \
             --jq '.[] | [.head.ref, .head.sha, .head.repo.full_name, .base.ref] | @tsv')
@@ -45,9 +52,16 @@ jobs:
 
             # An existing PR keeps its base even if a different ancestor is closer.
             if [[ "$pr_head_ref" == "$HEAD_REF" ]]; then
+              if [[ ! $pr_base_ref =~ $safe_ref ]]; then
+                echo "::error::Unsupported existing PR base branch name"
+                exit 1
+              fi
+
               base_ref=$pr_base_ref
               break
             fi
+
+            [[ $pr_head_ref =~ $safe_ref ]] || continue
 
             # Checkout fetched every branch, so same-repository PR heads are local.
             if ! git cat-file -e "${pr_head_sha}^{commit}" 2>/dev/null; then
