@@ -112,7 +112,7 @@ jobs:
           git remote set-url origin \
             "ssh://git@ssh.github.com:443/${GITHUB_REPOSITORY}.git"
 
-          command=(semantic-release -v -v --config pyproject.toml version)
+          command=(semantic-release --config pyproject.toml version)
 
           case "${FORCE_DEPLOYMENT}" in
             "") ;;
