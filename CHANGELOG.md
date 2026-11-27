@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.14.1 (2026-11-27)
+
+### Bug Fixes
+
+- **notifications**: Format release details for Slack
+  ([#409](https://github.com/worganisation/github-config-files/pull/409),
+  [`a430643`](https://github.com/worganisation/github-config-files/commit/a430643e536bdd81205291e04661bf3062bfc4a3))
+
+
 ## v0.14.0 (2026-11-27)
 
 ### Bug Fixes
