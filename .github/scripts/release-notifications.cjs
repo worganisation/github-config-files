@@ -64,10 +64,55 @@ function formatReleaseLine(line) {
     .replace(/^(\s*)[-*+]\s+/, '$1• ')
     .replace(/^#{1,6}\s+(.+)$/, '*$1*')
     .replace(/^---+\s*$/, '────────')
-    .replace(/`[^`]*`|\[([^\]\n|]+)\]\((https?:\/\/[^\s)<>|]+)\)|\*\*([^*]+)\*\*/g, (match, label, url, bold) => {
+    .replace(/`[^`]*`|\[([^\]\n|]+)\]\((https?:\/\/[^\s)<>|]+)\)|\*\*/g, (match, label, url) => {
       if (url) return '<' + url + '|' + label.replace(/^`(.*)`$/, '$1') + '>'
-      return bold ? '*' + bold + '*' : match
+      return match === '**' ? '*' : match
     })
+}
+
+/**
+ * Split long formatted lines at character boundaries, keeping Slack link and escape tokens together.
+ * @param {string} line One formatted line.
+ * @returns {Generator<string>} Fragments sized to leave room for opening and closing code fences.
+ */
+function* splitReleaseLine(line) {
+  const limit = 2992
+  if (line.length <= limit) {
+    yield line
+    return
+  }
+
+  let fragment = ''
+  for (const [token] of line.matchAll(/<https?:\/\/[^>]+>|&(?:amp|lt|gt);|[\s\S]/gu)) {
+    if (fragment.length + token.length > limit && fragment) {
+      yield fragment
+      fragment = ''
+    }
+
+    if (token.length > limit) {
+      // Slack cannot fit this link in a section. Display its readable label.
+      yield* splitReleaseLine(token.slice(token.indexOf('|') + 1, -1))
+    } else {
+      fragment += token
+    }
+  }
+
+  if (fragment) yield fragment
+}
+
+/**
+ * Produce section-sized lines, preserving code literals and identifying fence boundaries.
+ * @param {string} notes Original GitHub release body.
+ * @returns {Generator<object>} Formatted line fragments and their code-fence state.
+ */
+function* releaseLines(notes) {
+  let fenced = false
+  for (const raw of notes.replaceAll('\r\n', '\n').split('\n')) {
+    const fence = /^\s*```/.test(raw)
+    const formatted = fence ? '```' : fenced ? escape(raw) : formatReleaseLine(raw)
+    for (const line of splitReleaseLine(formatted)) yield { line, fence }
+    if (fence) fenced = !fenced
+  }
 }
 
 /**
@@ -82,16 +127,14 @@ function notesContainer(notes, collapsed) {
   let fenced = false
   let excerpt = false
 
-  for (const raw of notes.replaceAll('\r\n', '\n').split('\n')) {
-    const fence = /^\s*```/.test(raw)
-    const line = fence ? '```' : fenced ? escape(raw) : formatReleaseLine(raw)
+  for (const { line, fence } of releaseLines(notes)) {
     const closingFence = (fenced !== fence) ? '\n```' : ''
     if (section.length + line.length + 1 + closingFence.length > 3000) {
       if (section.trim()) sections.push(section.trimEnd() + (fenced ? '\n```' : ''))
       section = fenced ? '```' : ''
     }
 
-    if (sections.length === 10 || section.length + Number(Boolean(section)) + line.length + closingFence.length > 3000) {
+    if (sections.length === 10) {
       section = ''
       excerpt = true
       break
