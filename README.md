@@ -460,30 +460,30 @@ Organisation pull requests require [deliberate merges](docs/manual-merges.md).
 
 ```mermaid
 flowchart LR
-subgraph ER[" "]
+subgraph ES[" "]
 direction LR
-DR-->V
-CJ-->AY
-CK-->DA
-CK-->CJ
-DT-->EK
-DT-->EA
-DT-->DV
-DT-->DR
-DT-->DI
-DT-->DA
-EA-->BB
-EB-->EK
-EB-->EA
-EK-->BU
-DO-->EK
-DO-->EA
-DO-->DV
-DO-->DN
-DO-->DI
-DO-->DA
-DN-->V
-DN-->M
+DS-->V
+CK-->AY
+CL-->DB
+CL-->CK
+DU-->EL
+DU-->EB
+DU-->DW
+DU-->DS
+DU-->DJ
+DU-->DB
+EB-->BB
+EC-->EL
+EC-->EB
+EL-->BU
+DP-->EL
+DP-->EB
+DP-->DW
+DP-->DO
+DP-->DJ
+DP-->DB
+DO-->V
+DO-->M
 M-->I
 M-->E
 M-->AM
@@ -492,29 +492,29 @@ V-->I
 V-->BR
 V-->A
 end
-subgraph ES[" "]
-direction LR
-CW-->BI
-end
 subgraph ET[" "]
 direction LR
-CQ-->CN
-CP-->CN
-CO-->CN
-CN-->BE
+CX-->BI
 end
 subgraph EU[" "]
 direction LR
-CT-->CF
-CG-->CF
-CF-->AV
+CR-->CO
+CQ-->CO
+CP-->CO
+CO-->BE
 end
 subgraph EV[" "]
 direction LR
-CC-->CB
-CB-->BO
+CU-->CG
+CH-->CG
+CG-->AV
 end
 subgraph EW[" "]
+direction LR
+CD-->CC
+CC-->BO
+end
+subgraph EX[" "]
 direction LR
 BY-->BX
 BX-->AE
@@ -535,47 +535,47 @@ BX("Auto-Create PR")
 BY{{"PUSH
 Branches Ignore: dependabot/**, main, renovate/**
 "}}
-CB("Standard PR Checks")
-CC{{"PULL REQUEST
+CC("Standard PR Checks")
+CD{{"PULL REQUEST
 Types: edited, labeled, opened, ready_for_review, reopened, synchronize, unlabeled
 "}}
-CF("Manage Repo Labels")
-CG{{"PUSH
+CG("Manage Repo Labels")
+CH{{"PUSH
 Branches: main
 Paths: .github/repo_labels.yml
 "}}
-CJ("Prek Auto-Update")
-CK{{"SCHEDULE"}}
-CN("Release notifications")
-CO{{"RELEASE
+CK("Prek Auto-Update")
+CL{{"SCHEDULE"}}
+CO("Release notifications")
+CP{{"RELEASE
 Types: published
 "}}
-CP{{"REPOSITORY DISPATCH
+CQ{{"REPOSITORY DISPATCH
 Types: release-checkout
 "}}
-CQ{{"WORKFLOW RUN
+CR{{"WORKFLOW RUN
 Workflows: Deploy, Deploy release, Deploy Release, Deploy Authentik release, Deploy VSMP Release, Deploy MtrxPi Release, Deploy infrastructure release, Semantic Release, CI: Validation & Deployment, Sync Repos
 Types: completed
 "}}
-CT{{"PUSH
+CU{{"PUSH
 Branches: main
 Paths: .github/repo_labels.yml, .github/workflows/manage-repo-labels.yml
 "}}
-CW("Semantic Release")
-DA("Validate Home Assistant Config")
-DI("Integration Test")
-DN("CI: Validation & Deployment")
-DO{{"PUSH
+CX("Semantic Release")
+DB("Validate Home Assistant Config")
+DJ("Integration Test")
+DO("CI: Validation & Deployment")
+DP{{"PUSH
 Branches: main
 "}}
-DR("CI: Validation")
-DT{{"PULL REQUEST
+DS("CI: Validation")
+DU{{"PULL REQUEST
 Types: opened, ready_for_review, reopened, synchronize
 "}}
-DV("CodSpeed Benchmarks")
-EA("Prek Hooks")
-EB{{"MERGE GROUP"}}
-EK("Unit Tests")
+DW("CodSpeed Benchmarks")
+EB("Prek Hooks")
+EC{{"MERGE GROUP"}}
+EL("Unit Tests")
 E[["Build Documentation"]]
 I[["Build"]]
 M[["CI: Deployment"]]
