@@ -2,6 +2,43 @@
 
 <!-- version list -->
 
+## v0.14.0 (2026-11-27)
+
+### Bug Fixes
+
+- Reduce semantic release log verbosity
+  ([#393](https://github.com/worganisation/github-config-files/pull/393),
+  [`c8b1a93`](https://github.com/worganisation/github-config-files/commit/c8b1a93eb7e98594693f7aab710342a8fa8744d6))
+
+- Select nearest open ancestor for auto-created PRs
+  ([#382](https://github.com/worganisation/github-config-files/pull/382),
+  [`09785da`](https://github.com/worganisation/github-config-files/commit/09785daa16227d404b41362794e955416ebb7b2b))
+
+### Chores
+
+- **deps**: Update actions/github-script action to v9
+  ([#407](https://github.com/worganisation/github-config-files/pull/407),
+  [`5ef3166`](https://github.com/worganisation/github-config-files/commit/5ef316688409cdc7a1d4a46d5e34c3bb3add146e))
+
+- **deps**: Update dependency node to v26
+  ([#398](https://github.com/worganisation/github-config-files/pull/398),
+  [`04e5550`](https://github.com/worganisation/github-config-files/commit/04e55503a663d6c8e2b0439e2186f7a0c50dc0d0))
+
+- **deps**: Update github actions
+  ([#391](https://github.com/worganisation/github-config-files/pull/391),
+  [`4c1beff`](https://github.com/worganisation/github-config-files/commit/4c1beff19fbb5bb044547f94e13ba38a07f74151))
+
+- **renovate**: Remove update schedule and raise PR limit
+  ([#383](https://github.com/worganisation/github-config-files/pull/383),
+  [`4b2f4b9`](https://github.com/worganisation/github-config-files/commit/4b2f4b9874916880a96764ea34b12ffd5c96fe16))
+
+### Features
+
+- **notifications**: Summarize release notes with Ollama
+  ([#406](https://github.com/worganisation/github-config-files/pull/406),
+  [`4cee8ad`](https://github.com/worganisation/github-config-files/commit/4cee8ad2304df75f8fdb0cdb9006fcabd41fbdbe))
+
+
 ## v0.13.2 (2026-11-26)
 
 ### Bug Fixes
