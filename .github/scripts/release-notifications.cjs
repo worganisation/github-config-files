@@ -55,30 +55,59 @@ async function summarize(notes, core) {
 }
 
 /**
- * Fit the original release text into the ten section blocks allowed in a Slack container.
+ * Translate the headings, bullets, emphasis and links used in GitHub release notes to Slack markup.
+ * @param {string} line One line of GitHub Markdown outside a fenced code block.
+ * @returns {string} Escaped Slack markup with explicitly labelled HTTP links.
+ */
+function formatReleaseLine(line) {
+  return escape(line)
+    .replace(/^(\s*)[-*+]\s+/, '$1• ')
+    .replace(/^#{1,6}\s+(.+)$/, '*$1*')
+    .replace(/^---+\s*$/, '────────')
+    .replace(/`[^`]*`|\[([^\]\n|]+)\]\((https?:\/\/[^\s)<>|]+)\)|\*\*([^*]+)\*\*/g, (match, label, url, bold) => {
+      if (url) return '<' + url + '|' + label.replace(/^`(.*)`$/, '$1') + '>'
+      return bold ? '*' + bold + '*' : match
+    })
+}
+
+/**
+ * Group formatted lines into Slack sections without splitting a link between blocks.
  * @param {string} notes Original GitHub release body.
  * @param {boolean} collapsed Whether the notes initially sit behind a summary.
- * @returns {object} Slack container, labelled as an excerpt if the text overflows.
+ * @returns {object} Slack container with a labelled excerpt when the body exceeds its limits.
  */
 function notesContainer(notes, collapsed) {
-  const children = []
-  let start = 0
+  const sections = []
+  let section = ''
+  let fenced = false
+  let excerpt = false
 
-  while (start < notes.length && children.length < 10) {
-    let end = Math.min(start + 3000, notes.length)
-    if (end < notes.length) {
-      const newline = notes.lastIndexOf('\n', end - 1)
-      if (newline >= start) end = newline + 1
-      else if (/[\uD800-\uDBFF]/u.test(notes[end - 1])) end--
+  for (const raw of notes.replaceAll('\r\n', '\n').split('\n')) {
+    const fence = /^\s*```/.test(raw)
+    const line = fence ? '```' : fenced ? escape(raw) : formatReleaseLine(raw)
+    const closingFence = (fenced !== fence) ? '\n```' : ''
+    if (section.length + line.length + 1 + closingFence.length > 3000) {
+      if (section.trim()) sections.push(section.trimEnd() + (fenced ? '\n```' : ''))
+      section = fenced ? '```' : ''
     }
 
-    children.push({ type: 'section', expand: true, text: { type: 'plain_text', text: notes.slice(start, end), emoji: false } })
-    start = end
+    if (sections.length === 10 || section.length + Number(Boolean(section)) + line.length + closingFence.length > 3000) {
+      section = ''
+      excerpt = true
+      break
+    }
+
+    section += (section ? '\n' : '') + line
+    if (fence) fenced = !fenced
   }
 
-  const title = start < notes.length ? 'Detailed release notes (excerpt)' : 'Detailed release notes'
+  if (section.trim()) sections.push(section.trimEnd() + (fenced ? '\n```' : ''))
+  if (!sections.length) sections.push('See the full release notes on GitHub.')
+
   return {
-    type: 'container', title: { type: 'plain_text', text: title }, child_blocks: children,
+    type: 'container', width: 'full',
+    title: { type: 'plain_text', text: excerpt ? 'Detailed release notes (excerpt)' : 'Detailed release notes' },
+    child_blocks: sections.map(text => ({ type: 'section', expand: true, text: { type: 'mrkdwn', text, verbatim: true } })),
     is_collapsible: true, default_collapsed: collapsed,
   }
 }
